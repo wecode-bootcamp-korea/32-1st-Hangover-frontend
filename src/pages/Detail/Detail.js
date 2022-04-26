@@ -1,5 +1,11 @@
 import './Detail.scss';
-
-const Detail = () => <article>Detail</article>;
+import DetailTop from './DetailTop';
+import DetailSummary from './DetailSummary';
+const Detail = () => (
+  <article>
+    <DetailTop />
+    <DetailSummary />
+  </article>
+);
 
 export default Detail;
