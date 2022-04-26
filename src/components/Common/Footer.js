@@ -1,6 +1,36 @@
 import './Footer.scss';
 
 const Footer = () => {
+  const footerBullet = [
+    {
+      id: 1,
+      name: 'footerBulletOne',
+      icon: 'fa-solid fa-check',
+      text: "Shop the world's largest wine marketplace",
+      span: 'footerBulletInfo',
+    },
+    {
+      id: 2,
+      name: 'footerBulletTwo',
+      icon: 'fa-brands fa-whatsapp',
+      text: 'Our support team is always here to help',
+      span: 'footerBulletInfo',
+    },
+    {
+      id: 3,
+      name: 'footerBulletThree',
+      icon: 'fa-solid fa-truck',
+      text: 'Careful delivery right to your doorstep',
+      span: 'footerBulletInfo',
+    },
+    {
+      id: 4,
+      name: 'footerBulletFour',
+      icon: 'fa-regular fa-handshake',
+      text: 'Check honest reviews of any wine before purchase',
+      span: 'footerBulletInfo',
+    },
+  ];
   return (
     <footer>
       <div className="footerContainer">
@@ -12,38 +42,16 @@ const Footer = () => {
                 time.
               </h1>
               <div className="footerBullet">
-                <div className="footerBulletOne">
-                  <div>
-                    <i class="fa-solid fa-check"></i>
-                  </div>
-                  <span className="footerBulletInfo">
-                    Shop the world's largest wine marketplace
-                  </span>
-                </div>
-                <div className="footerBulletTwo">
-                  <div>
-                    <i class="fa-brands fa-whatsapp"></i>
-                  </div>
-                  <span className="footerBulletInfo">
-                    Our support team is always here to help
-                  </span>
-                </div>
-                <div className="footerBulletThree">
-                  <div>
-                    <i class="fa-solid fa-truck"></i>
-                  </div>
-                  <span className="footerBulletInfo">
-                    Careful delivery right to your doorstep
-                  </span>
-                </div>
-                <div className="footerBulletFour">
-                  <div>
-                    <i class="fa-regular fa-handshake"></i>
-                  </div>
-                  <span className="footerBulletInfo">
-                    Check honest reviews of any wine before purchase
-                  </span>
-                </div>
+                {footerBullet.map(({ id, name, icon, text, span }) => {
+                  return (
+                    <div className={name} key={id}>
+                      <div>
+                        <i className={icon}></i>
+                      </div>
+                      <span className={span}>{text}</span>
+                    </div>
+                  );
+                })}
               </div>
             </div>
           </div>
@@ -53,7 +61,7 @@ const Footer = () => {
             <div className="downloadContainer">
               <div className="downloadAppBox">
                 <div className="downloadApp">
-                  <i class="fa-solid fa-apple-whole"></i>
+                  <i className="fa-solid fa-apple-whole"></i>
                 </div>
                 <div className="downloadInfo">
                   <span>Download on the</span>
@@ -62,7 +70,7 @@ const Footer = () => {
               </div>
               <div className="downloadAppBox">
                 <div className="downloadApp">
-                  <i class="fa-brands fa-android"></i>
+                  <i className="fa-brands fa-android"></i>
                 </div>
                 <div className="downloadInfo">
                   <span>Download on the</span>
@@ -72,9 +80,9 @@ const Footer = () => {
 
               <div className="footerSocialCopyright">
                 <div className="footerSns">
-                  <i class="fa-brands fa-instagram"></i>
-                  <i class="fa-brands fa-facebook"></i>
-                  <i class="fa-brands fa-twitter"></i>
+                  <i className="fa-brands fa-instagram"></i>
+                  <i className="fa-brands fa-facebook"></i>
+                  <i className="fa-brands fa-twitter"></i>
                 </div>
                 <span className="footerCopyright">@Chuihano 2022</span>
               </div>
