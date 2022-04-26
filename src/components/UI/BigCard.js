@@ -1,7 +1,21 @@
 import './BigCard.scss';
 
 const BigCard = () => {
-  <div>this is BigCard</div>;
+  return (
+    <div className="BigCard">
+      <div>
+        <div></div>
+        <div>
+          <div></div>
+          <div></div>
+        </div>
+        <div>
+          <div></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  )
 };
 
 export default BigCard;
