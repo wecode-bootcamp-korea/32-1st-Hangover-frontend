@@ -1,0 +1,35 @@
+.ratingSummary {
+  display: flex;
+  flex-direction: row;
+  .ratingIcon {
+    margin: 10px 10px 10px 10px;
+    display: flex;
+    justify-content: flex-end;
+    width: 87px;
+
+    img {
+      height: 18px;
+      margin: 2px;
+      margin-bottom: 10px;
+    }
+  }
+  .ratingBarCon {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    position: relative;
+    .ratingBar {
+      width: 124px;
+      height: 16px;
+      background-color: #f7f3f0;
+      margin: 2px;
+    }
+    .ratingBarColored {
+      position: absolute;
+      width: 124px;
+      height: 16px;
+      background-color: #f1a90d;
+      width: 30%;
+    }
+  }
+}

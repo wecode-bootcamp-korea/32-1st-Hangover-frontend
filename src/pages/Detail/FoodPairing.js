@@ -16,13 +16,9 @@ const FoodPairing = () => {
         </div>
       </div>
       <div className="foodPairingIconContainer">
-        {[1, 2, 3, 4, 5].map(item => {
-          return (
-            <div className="foodPairinIconSingle">
-              <i class="fa-solid fa-burger"></i>
-            </div>
-          );
-        })}
+        <div className="foodPairinIconSingle">
+          <i class="fa-solid fa-burger"></i>
+        </div>
       </div>
     </section>
   );

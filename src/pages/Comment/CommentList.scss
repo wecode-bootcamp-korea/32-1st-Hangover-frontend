@@ -1,0 +1,49 @@
+.commentListSection {
+  display: flex;
+  margin-top: 20px;
+  flex-direction: column;
+
+  .commentH1 {
+    font-size: 28px;
+    line-height: 40px;
+    font-weight: 600;
+    margin: 0 0 24px;
+  }
+  .commentNav {
+    display: flex;
+    flex-direction: row;
+    font-size: 20px;
+    line-height: 28px;
+    font-weight: 500;
+    li {
+      margin: 5px;
+    }
+  }
+  .commentAll {
+    display: flex;
+    max-width: 1000px;
+    .commentDiv {
+      width: 70%;
+    }
+    .raitingBox {
+      margin: 10px 20px 20px 20px;
+      text-align: center;
+      width: 312px;
+      .detailNum {
+        font-size: 40px;
+        line-height: 48px;
+        font-weight: 400;
+        margin-right: 8px;
+      }
+      .detailBeerIcon {
+        height: 14px;
+        margin: 2px;
+      }
+      .detaillLine {
+        margin-top: 10px;
+
+        border-bottom: 0.1px solid black;
+      }
+    }
+  }
+}

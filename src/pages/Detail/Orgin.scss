@@ -1,0 +1,20 @@
+.originTable {
+  margin-top: 10px;
+  width: 100%;
+  tbody {
+    tr {
+      font-size: 16px;
+      border-bottom: 0.5px solid black;
+      th {
+        padding: 8px 0px;
+        min-width: 312px;
+        .originTitle {
+          display: flex;
+        }
+        td {
+          padding: 8px 0px 8px 0px;
+        }
+      }
+    }
+  }
+}
