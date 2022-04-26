@@ -26,7 +26,7 @@
       width: 70%;
     }
     .raitingBox {
-      margin: 10px 20px 20px 20px;
+      margin: 10px 20px 20px 30px;
       text-align: center;
       width: 312px;
       .detailNum {
@@ -43,6 +43,24 @@
         margin-top: 10px;
 
         border-bottom: 0.1px solid black;
+      }
+      .userStar {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 15px 0px 20px 0px;
+
+        .user {
+          width: 33px;
+          height: 33px;
+          background-color: gainsboro;
+          border-radius: 50%;
+          margin: 5px;
+        }
+        img {
+          height: 30px;
+          margin: 2px;
+        }
       }
     }
   }

@@ -2,7 +2,7 @@ import './NewComment.scss';
 
 const NewComment = () => {
   const score = 4.5;
-  return (
+  return [1, 2, 3, 4, 5].map(item => (
     <section className="newComment">
       <div className="newCommnetSingle">
         <span className="newCommentSpan">
@@ -18,7 +18,7 @@ const NewComment = () => {
       </div>
       <div>유저명</div>
     </section>
-  );
+  ));
 };
 
 export default NewComment;

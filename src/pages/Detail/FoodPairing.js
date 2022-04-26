@@ -16,9 +16,12 @@ const FoodPairing = () => {
         </div>
       </div>
       <div className="foodPairingIconContainer">
-        <div className="foodPairinIconSingle">
-          <i class="fa-solid fa-burger"></i>
-        </div>
+        {[1, 2, 3, 4, 5].map(item => (
+          <div className="foodPairinIconSingle">
+            {' '}
+            <i class="fa-solid fa-burger"></i>{' '}
+          </div>
+        ))}
       </div>
     </section>
   );

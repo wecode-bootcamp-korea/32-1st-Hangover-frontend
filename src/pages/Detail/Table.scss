@@ -13,6 +13,7 @@
   display: flex;
   min-width: 1000px;
   align-items: center;
+
   margin: 10px 0px 10px 0px;
 
   .tableName {
@@ -21,9 +22,9 @@
 
   .tableRow {
     display: flex;
+    margin-left: 10px;
     position: relative;
     border-radius: 5px;
-    max-width: 1000px;
 
     .tableBar {
       width: 700px;

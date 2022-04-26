@@ -4,7 +4,6 @@
 .foodpairing {
   display: flex;
   align-items: center;
-  max-width: 1000px;
   margin: 0px auto 50px auto;
 
   .foodPairingDes {
@@ -15,17 +14,18 @@
       line-height: 40px;
       font-weight: 600;
       margin: 0 0 24px;
-      width: 50%;
+      width: 60%;
     }
 
     div {
       display: flex;
       flex-direction: column;
-
+      width: fit-content;
       span {
         font-size: 18px;
         line-height: normal;
         font-weight: 400;
+        width: 60%;
       }
     }
   }

@@ -6,7 +6,7 @@ let num = 0;
 
 const CommentList = () => {
   const rait = 4.3;
-  const fullIcon = 'images/beer_100.png';
+  const full = <img src="/images/beer.png" />;
   const reviewTitle = ['리뷰순', '최신순', '사용자명'];
   return (
     <section className="commentListSection">
@@ -35,6 +35,11 @@ const CommentList = () => {
               Add your own rating and help other Vivino users pick the right
               wine!
             </span>
+            <div className="userStar">
+              <div className="user"></div>
+              <div> {[1, 2, 3, 4, 5].map(item => full)}</div>
+            </div>
+            <div className="detaillLine"></div>
           </div>
         </article>
       </div>
