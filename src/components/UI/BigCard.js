@@ -1,21 +1,5 @@
 import './BigCard.scss';
 
-const BigCard = () => {
-  return (
-    <div className="BigCard">
-      <div>
-        <div></div>
-        <div>
-          <div></div>
-          <div></div>
-        </div>
-        <div>
-          <div></div>
-          <div></div>
-        </div>
-      </div>
-    </div>
-  )
-};
+const BigCard = () => {};
 
 export default BigCard;
