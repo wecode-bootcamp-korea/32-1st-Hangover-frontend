@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&family=Roboto&display=swap');
+
+* {
+  font-family: 'Noto Sans KR', sans-serif;
+  font-family: 'Roboto', sans-serif;
+}
+
+.Nav {
+  background-color: white;
+}
+
+.navOutLine {
+  // display: flex;
+  // align-items: center;
+}
+
+.upperNav {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 400px 10px;
+  align-items: center;
+}
+
+.upperRightNav {
+  display: flex;
+  justify-content: space-between;
+  width: 30%;
+}
+
+.upperNav img {
+  width: 140px;
+  height: 30px;
+}
+
+.upperNav input {
+  width: 200px;
+  height: 30px;
+  border: 1px solid black;
+  border-radius: 14px;
+  padding-left: 30px;
+  margin-right: 20%;
+}
+
+.downNav {
+  display: flex;
+  justify-content: space-between;
+  width: 13%;
+  margin-left: 400px;
+  padding-top: 15px;
+}
+
+.bottomNavLine {
+  border: 0.1% solid black;
+  margin-top: 30px;
+}
+
+.fa-magnifying-glass {
+  margin-left: 10px;
+}
