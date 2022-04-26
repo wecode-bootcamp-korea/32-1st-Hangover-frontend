@@ -3,11 +3,11 @@ import './DetailTop.scss';
 let num = 0;
 const DetailTop = () => {
   const rait = 4.3;
-  const fullIcon = 'images/beer_100%.png';
+  const fullIcon = 'images/beer_100.png';
 
   return (
     <section className="detailSection">
-      <article className="detailArticle">
+      <div className="detailArticle">
         <div className="detailImg">
           <img src="images/dummy.png"></img>
         </div>
@@ -78,7 +78,7 @@ const DetailTop = () => {
             </div>
           </div>
         </div>
-      </article>
+      </div>
     </section>
   );
 };

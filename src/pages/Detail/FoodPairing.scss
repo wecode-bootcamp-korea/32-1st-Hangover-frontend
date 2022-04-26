@@ -1,0 +1,48 @@
+@import '../../styles/variable.scss';
+@import '../../styles/common.scss';
+
+.foodpairing {
+  display: flex;
+  align-items: center;
+  max-width: 1000px;
+  margin: 0px auto 50px auto;
+
+  .foodPairingDes {
+    margin-right: 10px;
+
+    h2 {
+      font-size: 28px;
+      line-height: 40px;
+      font-weight: 600;
+      margin: 0 0 24px;
+      width: 50%;
+    }
+
+    div {
+      display: flex;
+      flex-direction: column;
+
+      span {
+        font-size: 18px;
+        line-height: normal;
+        font-weight: 400;
+      }
+    }
+  }
+
+  .foodPairingIconContainer {
+    display: flex;
+
+    .foodPairinIconSingle {
+      background-color: $iconColor;
+      padding: 10px;
+      margin: 5px;
+      border-radius: 50%;
+
+      i {
+        font-size: 50px;
+        color: white;
+      }
+    }
+  }
+}

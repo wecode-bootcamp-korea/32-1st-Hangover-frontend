@@ -1,0 +1,43 @@
+@import '../../styles/variable.scss';
+@import '../../styles/common.scss';
+
+.detailtitle {
+  h2 {
+    font-size: 30px;
+    line-height: 40px;
+    font-weight: 600;
+  }
+}
+
+.tableContainer {
+  display: flex;
+  min-width: 1000px;
+  align-items: center;
+  margin: 10px 0px 10px 0px;
+
+  .tableName {
+    margin-right: 5px;
+  }
+
+  .tableRow {
+    display: flex;
+    position: relative;
+    border-radius: 5px;
+    max-width: 1000px;
+
+    .tableBar {
+      width: 700px;
+      height: 8px;
+      background-color: #f7f3f0;
+      border-radius: 5px;
+    }
+
+    .tableRange {
+      position: absolute;
+      width: 10%;
+      height: 8px;
+      background-color: $iconColor;
+      border-radius: 5px;
+    }
+  }
+}
