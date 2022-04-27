@@ -1,6 +1,7 @@
+import React, { useState } from 'react';
 import NewComment from './NewComment';
 import RaitingSummary from './RaitingSummary';
-import BeerImogji from '../Detail/BeerImoji';
+import EditComment from './EditComment';
 import AddRaiting from './AddRaiting';
 import './CommentList.scss';
 
@@ -12,6 +13,9 @@ const CommentList = () => {
   const rait = 4.3;
 
   const reviewTitle = ['리뷰순', '최신순', '사용자명'];
+
+  const [rating, setRaiting] = useState(0);
+  const [commentList, setCommentList] = useState([]);
   return (
     <section className="commentListSection">
       <div className="commentH1">
@@ -27,7 +31,10 @@ const CommentList = () => {
         </nav>
         <article className="commentAll">
           <div className="commentDiv">
-            <NewComment />
+            <NewComment
+              commentList={commentList}
+              setCommentList={setCommentList}
+            />
           </div>
           <div className="raitingBox">
             <div className="detailNum">{rait}</div>
@@ -41,9 +48,14 @@ const CommentList = () => {
             </span>
             <div className="userStar">
               <div className="user"></div>
-              <AddRaiting />
+              <AddRaiting rating={rating} setRaiting={setRaiting} />
             </div>
             <div className="detaillLine"></div>
+            <EditComment
+              rating={rating}
+              commentList={commentList}
+              setCommentList={setCommentList}
+            />
           </div>
         </article>
       </div>

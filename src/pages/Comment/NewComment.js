@@ -1,19 +1,24 @@
+import { useState, useEffect } from 'react';
 import './NewComment.scss';
 
-const NewComment = () => {
-  const score = 2.5;
-  return [1, 2, 3, 4, 5].map(item => (
+const NewComment = ({ commentList, setCommentList }) => {
+  useEffect(() => {
+    fetch('/data/dummyData.json', { method: 'GET' })
+      .then(res => res.json())
+      .then(data => {
+        setCommentList(data);
+      });
+  }, []);
+
+  return commentList.map(item => (
     <section className="newComment">
       <div className="newCommnetSingle">
         <span className="newCommentSpan">
           <span className="newCommentIcon">
             <img src="images/beer_100.png" />
-            <span> {score}</span>
+            <span> {item.score}</span>
           </span>
-          <span className="newCommentReview">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
-            suscipit tortor et nisl volutpat,
-          </span>
+          <span className="newCommentReview">{item.content}</span>
         </span>
       </div>
       <div>유저명</div>

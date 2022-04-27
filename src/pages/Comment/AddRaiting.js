@@ -1,13 +1,6 @@
-import React, { useRef, useState } from 'react';
-
-const AddRaiting = () => {
-  const [rating, setRaiting] = useState(0);
-
+const AddRaiting = ({ rating, setRaiting }) => {
   const fillBeer = <img src="/images/beer_100.png" className="fulllBeer" />;
   const array = [...Array(parseInt(rating))].map(icon => fillBeer);
-  const handelonClick = e => {
-    setRaiting(e.target.id);
-  };
 
   {
     return rating === 0 ? (
@@ -18,7 +11,7 @@ const AddRaiting = () => {
             <img
               src="/images/beer.png"
               className="fulllBeer emptyBeer"
-              onClick={handelonClick}
+              onClick={e => setRaiting(e.target.id)}
               id={index}
             />
           );
