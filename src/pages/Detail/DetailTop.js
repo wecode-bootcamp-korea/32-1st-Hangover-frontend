@@ -1,10 +1,8 @@
 import './DetailTop.scss';
 import BeerImoji from './BeerImoji';
 
-let num = 0;
 const DetailTop = () => {
-  const rait = 4.5;
-  const fullIcon = 'images/beer_100.png';
+  const rait = 5.0;
 
   return (
     <section className="detailSection">

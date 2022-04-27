@@ -1,13 +1,16 @@
 import NewComment from './NewComment';
 import RaitingSummary from './RaitingSummary';
 import BeerImogji from '../Detail/BeerImoji';
+import AddRaiting from './AddRaiting';
 import './CommentList.scss';
 
 let num = 0;
+const fillBeer = <img src="/images/beer_100.png" className="fulllBeer" />;
+const empty = <img src="/images/beer.png" className="fulllBeer emptyBeer" />;
 
 const CommentList = () => {
   const rait = 4.3;
-  const full = <img src="/images/beer.png" />;
+
   const reviewTitle = ['리뷰순', '최신순', '사용자명'];
   return (
     <section className="commentListSection">
@@ -17,7 +20,7 @@ const CommentList = () => {
       <div className="commentNavContainer">
         <nav className="commentNav">
           {reviewTitle.map(item => (
-            <ul>
+            <ul key={num++}>
               <li>{item}</li>
             </ul>
           ))}
@@ -38,7 +41,7 @@ const CommentList = () => {
             </span>
             <div className="userStar">
               <div className="user"></div>
-              <BeerImogji rate={0} />
+              <AddRaiting />
             </div>
             <div className="detaillLine"></div>
           </div>

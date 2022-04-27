@@ -2,7 +2,6 @@ import './RaitingSummary.scss';
 import BeerImogji from '../Detail/BeerImoji';
 
 const RaitingSummary = () => {
-  const full = <img src="/images/beer_100.png" />;
   return (
     <div className="ratingSummary">
       <div className="ratingIcon">
