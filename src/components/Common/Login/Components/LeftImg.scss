@@ -1,0 +1,16 @@
+@import '../../../../styles/variable.scss';
+@import '../../../../styles/common.scss';
+
+.imgWrap {
+  width: 420px;
+}
+@media screen and (max-width: 1000px) {
+  .imgWrap {
+    display: none;
+  }
+}
+
+.img {
+  width: 420px;
+  height: 100%;
+}

@@ -1,0 +1,12 @@
+@import '../../../../styles/variable.scss';
+@import '../../../../styles/common.scss';
+
+.buttons,
+.buttonsign {
+  width: 100%;
+  padding: 12px;
+  margin-top: 15px;
+  border-radius: 15px;
+  border: none;
+  background-color: $iconColor;
+}

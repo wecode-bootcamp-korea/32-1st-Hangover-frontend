@@ -1,0 +1,10 @@
+@import '../../../../styles/variable.scss';
+@import '../../../../styles/common.scss';
+
+.input {
+  width: 380px;
+  padding: 13px;
+  margin-bottom: 15px;
+  border: 1px solid rgb(0, 0, 0, 0.2);
+  border-radius: 5px;
+}
