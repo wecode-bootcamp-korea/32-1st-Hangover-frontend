@@ -1,5 +1,6 @@
 import NewComment from './NewComment';
 import RaitingSummary from './RaitingSummary';
+import BeerImogji from '../Detail/BeerImoji';
 import './CommentList.scss';
 
 let num = 0;
@@ -37,7 +38,7 @@ const CommentList = () => {
             </span>
             <div className="userStar">
               <div className="user"></div>
-              <div> {[1, 2, 3, 4, 5].map(item => full)}</div>
+              <BeerImogji rate={0} />
             </div>
             <div className="detaillLine"></div>
           </div>

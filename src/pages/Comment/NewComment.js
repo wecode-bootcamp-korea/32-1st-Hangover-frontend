@@ -1,7 +1,7 @@
 import './NewComment.scss';
 
 const NewComment = () => {
-  const score = 4.5;
+  const score = 2.5;
   return [1, 2, 3, 4, 5].map(item => (
     <section className="newComment">
       <div className="newCommnetSingle">

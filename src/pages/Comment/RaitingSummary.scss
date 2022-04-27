@@ -4,8 +4,12 @@
   .ratingIcon {
     margin: 10px 10px 10px 10px;
     display: flex;
-    justify-content: flex-end;
+    flex-direction: row-reverse;
+    justify-content: flex-start;
     width: 87px;
+    .emptyBeer {
+      display: none;
+    }
 
     img {
       height: 18px;

@@ -1,8 +1,9 @@
 import './DetailTop.scss';
+import BeerImoji from './BeerImoji';
 
 let num = 0;
 const DetailTop = () => {
-  const rait = 4.3;
+  const rait = 4.5;
   const fullIcon = 'images/beer_100.png';
 
   return (
@@ -43,13 +44,7 @@ const DetailTop = () => {
                 <div className="detailNum">{rait}</div>
                 <div className="raitingBox">
                   <div className="detailRaitBox">
-                    {[1, 2, 3, 4].map(item => (
-                      <img
-                        src={fullIcon}
-                        className="detailBeerIcon"
-                        key={num++}
-                      />
-                    ))}
+                    <BeerImoji rate={rait} />
                   </div>
                   <div className="detaillReviewCount">200rating </div>
                 </div>
