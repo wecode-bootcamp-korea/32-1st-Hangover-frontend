@@ -4,58 +4,106 @@
 article {
   font-family: 'Noto Sans KR', sans-serif;
   font-family: 'Roboto', sans-serif;
-  display: flex;
-  justify-content: space-between;
-}
-.cardLayout {
-  display: flex;
-  align-items: center;
-}
+  // background-color: #fafafa;
 
-.filter {
-  border: 1px solid black;
-  width: 300px;
-  height: 1200px;
-  margin-left: 400px;
-  margin-top: 80px;
-}
+  .list {
+    margin-top: 30px;
+    margin-left: 340px;
+    font-size: 20px;
+    font-family: 'Noto Sans KR', sans-serif;
 
-.ProductList {
-  background-color: #fafafa;
-  font-family: 'Noto Sans KR', sans-serif;
-}
+    .listCopy {
+      font-weight: bold;
+      padding-bottom: 15px;
+    }
+  }
 
-.list {
-  margin-left: 400px;
-  margin-top: 30px;
-  font-size: 28px;
-  font-family: 'Noto Sans KR', sans-serif;
+  .cardLayout {
+    display: flex;
+    max-width: 1000px;
+    margin: auto;
+  }
+
+  .filter {
+    // border: 1px solid black;
+    width: 400px;
+    height: 1200px;
+    margin-top: 80px;
+  }
+
+  .filterTitle {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 5px 0px 5px;
+  }
+
+  .title {
+    font-size: 22px;
+    font-weight: bold;
+  }
+
+  .grapes {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 120px;
+  }
+
+  .grapesTitle {
+    font-size: 22px;
+    font-weight: bold;
+  }
+  .country {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 120px;
+  }
+
+  .countryTitle {
+    font-size: 22px;
+    font-weight: bold;
+  }
+
+  .foodPairing {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 120px;
+  }
+
+  .foodPairingTitle {
+    font-size: 22px;
+    font-weight: bold;
+  }
+
+  .ProductList {
+    font-family: 'Noto Sans KR', sans-serif;
+  }
 
   .sort {
-    margin-left: 495px;
+    margin-left: 670px;
     width: 90px;
     height: 35px;
     border: 1px solid black;
     border-radius: 30px;
     background-color: white;
   }
-  .i {
-    width: 20px;
+
+  .bigCardLayout {
+    margin-top: 150px;
+
+    .bigCard {
+      display: flex;
+      border: 1px solid black;
+      border-radius: 10px;
+      width: 600px;
+      height: 280px;
+      margin-left: 30px;
+      background-color: white;
+    }
   }
-}
 
-.bigCard {
-  display: flex;
-  border: 1px solid black;
-  border-radius: 10px;
-  width: 600px;
-  height: 280px;
-  margin-top: -840px;
-  margin-left: 30px;
-}
-
-.bigCard img {
-  margin-top: 10px;
-  width: 240px;
-  height: 250px;
+  .bigCard img {
+    margin-top: 10px;
+    width: 240px;
+    height: 250px;
+  }
 }

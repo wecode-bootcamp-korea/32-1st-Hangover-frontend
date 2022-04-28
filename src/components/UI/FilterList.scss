@@ -1,0 +1,18 @@
+.filterList {
+  display: flex;
+  flex-wrap: wrap;
+  padding-right: 10px;
+  padding-top: 30px;
+}
+
+.filterSpan {
+  justify-content: flex-start;
+  border: 1.3px solid black;
+  border-radius: 20px;
+  font-size: 14px;
+  width: 100px;
+  height: 35px;
+  text-align: center;
+  padding-top: 3px;
+  background-color: white;
+}

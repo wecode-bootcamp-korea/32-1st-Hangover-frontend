@@ -1,0 +1,15 @@
+.price {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  margin-top: 50px;
+}
+
+.priceTitle {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.ex-in {
+  margin-top: 30px;
+}

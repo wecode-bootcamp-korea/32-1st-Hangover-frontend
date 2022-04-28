@@ -1,55 +1,55 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&family=Roboto&display=swap');
 
-.Nav {
+.nav {
   background-color: white;
   font-family: 'Noto Sans KR', sans-serif;
   font-family: 'Roboto', sans-serif;
-}
 
-.upperNav {
-  display: flex;
-  justify-content: space-between;
-  max-width: 1000px;
-  // padding: 0 370px;
-  align-items: center;
-  margin: auto;
-  .layout {
+  .upperNav {
     display: flex;
     justify-content: space-between;
-    margin: 30px;
+    max-width: 1000px;
+    align-items: center;
+    margin: auto;
 
-    .logo {
-      width: 140px;
-      height: 30px;
-      margin-right: 20px;
+    .layout {
+      display: flex;
+      justify-content: space-between;
+      margin: 30px;
+
+      .logo {
+        width: 140px;
+        height: 30px;
+        margin-right: 20px;
+      }
     }
   }
-}
-.inputNav {
-  width: 350px;
-  height: 30px;
-  border-radius: 10px;
-  border: 1px solid black;
-  padding-left: 45px;
-  margin-right: 20%;
-}
+  .inputNav {
+    width: 350px;
+    height: 30px;
+    border-radius: 10px;
+    border: 1px solid black;
+    padding-left: 45px;
+    margin-right: 20%;
+  }
 
-.upperRightNav {
-  display: flex;
-  justify-content: space-between;
-  width: 30%;
-}
+  .upperRightNav {
+    display: flex;
+    justify-content: space-between;
+    width: 30%;
+  }
 
-.downNav {
-  display: flex;
-  justify-content: space-between;
-  width: 20%;
-  margin-left: 375px;
-  padding-top: 15px;
-}
+  .downNav {
+    display: flex;
+    justify-content: space-between;
+    width: 20%;
+    margin-left: 375px;
+    padding-top: 15px;
+  }
 
-.bottomNavLine {
-  border: 0.1% solid black;
-  margin: 30px 0px 0px 0px;
+  .bottomNavLine {
+    border: 0.1% solid black;
+    margin: 30px 0px 0px 0px;
+  }
 }

@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "Filter": "Red"
+  },
+  {
+    "id": 2,
+    "Filter": "White"
+  },
+  {
+    "id": 3,
+    "Filter": "Sparkling"
+  },
+  {
+    "id": 4,
+    "Filter": "Mock_01"
+  },
+  {
+    "id": 5,
+    "Filter": "Mock_02"
+  },
+  {
+    "id": 6,
+    "Filter": "Mock_03"
+  }
+]
