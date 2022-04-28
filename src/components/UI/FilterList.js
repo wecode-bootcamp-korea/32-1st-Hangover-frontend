@@ -3,9 +3,21 @@ import './FilterList.scss';
 
 function FilterList(props) {
   return (
-    <div className="filterList">
-      <button className="filterSpan">{props.Filter}</button>
-    </div>
+    <button className="filterSpan" onClick={props.onFilterBtnClick}>
+      {props.Filter}
+    </button>
   );
 }
 export default FilterList;
+
+// const Card = ({ product }) => {
+//   const { name, value, price } = product;
+
+//   return (
+//     <div>
+//       <span>{name}</span>
+//       <span>{value}</span>
+//       <span>{price}</span>
+//     </div>
+//   );
+// };

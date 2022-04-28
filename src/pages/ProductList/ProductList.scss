@@ -59,8 +59,16 @@ article {
   }
 
   .countryTitle {
+    display: flex;
+    flex-direction: column;
     font-size: 22px;
     font-weight: bold;
+  }
+  .countrySearchInput {
+    width: 300px;
+    margin-top: 15px;
+    border: none;
+    border-bottom: 1px solid black;
   }
 
   .foodPairing {
@@ -72,6 +80,12 @@ article {
   .foodPairingTitle {
     font-size: 22px;
     font-weight: bold;
+  }
+  .foodPairingSearchInput {
+    width: 300px;
+    margin-top: 15px;
+    border: none;
+    border-bottom: 1px solid black;
   }
 
   .ProductList {

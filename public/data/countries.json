@@ -1,0 +1,28 @@
+[
+  {
+    "id": 1,
+    "countryFilter": "mock_01"
+  },
+
+  {
+    "id": 2,
+    "countryFilter": "mock_02"
+  },
+  {
+    "id": 3,
+    "countryFilter": "mock_03"
+  },
+  {
+    "id": 4,
+    "countryFilter": "mock_04"
+  },
+
+  {
+    "id": 5,
+    "countryFilter": "mock_05"
+  },
+  {
+    "id": 6,
+    "countryFilter": "mock_06"
+  }
+]

@@ -2,15 +2,49 @@ import React, { useEffect, useState } from 'react';
 import './ProductList.scss';
 import FilterTitle from '../../components/UI/filterTitle';
 import FilterList from '../../components/UI/FilterList';
+import Countries from '../../components/UI/countries';
 
 const ProductList = () => {
   const [filterButtons, setFilterButtons] = useState([]);
+  const [products, setProducts] = useState([]);
+  const [countries, setCountries] = useState([]);
 
+  //  주종 필터링
   useEffect(() => {
     fetch('/data/FilterList.json')
       .then(res => res.json())
       .then(data => setFilterButtons(data));
   }, []);
+
+  // 국가 필터링
+  useEffect(() => {
+    fetch('./data/countries.json')
+      .then(res => res.json())
+      .then(data => setCountries(data));
+  }, []);
+
+  // 최초 데이터 요청
+  useEffect(() => {
+    fetch('/data/FilterList.json')
+      .then(res => res.json())
+      .then(data => setProducts(data));
+  }, []);
+
+  // 필터링 버튼 눌렀을 때 필터링 요청
+  const aaa = e => {
+    e.preventDefault();
+
+    fetch('API 주소', {
+      method: 'POST',
+      body: JSON.stringify({
+        type: e.target.textContent.toLowerCase(),
+      }),
+    })
+      .then(res => res.json())
+      .then(res => setProducts(res));
+
+    console.log(e.target.textContent.toLowerCase());
+  };
 
   return (
     <article>
@@ -27,15 +61,16 @@ const ProductList = () => {
             <span className="title">Wine Types(주종)</span>
             <span>select mutiple</span>
           </div>
-          <div className="filterList">
+          <form className="filterList">
             {filterButtons &&
               filterButtons.map(filterButton => (
                 <FilterList
                   key={filterButton.id}
                   Filter={filterButton.Filter}
+                  onFilterBtnClick={aaa}
                 />
               ))}
-          </div>
+          </form>
 
           <div className="price">
             <FilterTitle />
@@ -44,19 +79,32 @@ const ProductList = () => {
             <span className="grapesTitle">Grapes(취하노)</span>
             <span>search grapes</span>
           </div>
+
           <div className="country">
             <span className="countryTitle">country(국가)</span>
-            <span>search grapes</span>
           </div>
-          <div className="filterList">
-            {[1, 2, 3, 4, 5, 6].map((id, i) => (
-              <FilterList key={id} />
+          <div className="countrySearch">
+            <input
+              className="countrySearchInput"
+              type="text"
+              placeholder="💡search"
+            />
+          </div>
+          <form className="filterList">
+            {countries.map(name => (
+              <Countries key={name.id} countryFilter={name.countryFilter} />
             ))}
-          </div>
+          </form>
 
           <div className="foodPairing">
             <span className="foodPairingTitle">foodPairing</span>
-            <span>search grapes</span>
+          </div>
+          <div className="countrySearch">
+            <input
+              className="foodPairingSearchInput"
+              type="text"
+              placeholder="💡search"
+            />
           </div>
           <div className="filterList">
             {[1, 2, 3, 4, 5, 6].map((id, i) => (
@@ -64,6 +112,11 @@ const ProductList = () => {
             ))}
           </div>
         </div>
+
+        {/* {products.map(product => {
+          return <Card product={product} />;
+        })} */}
+
         <div className="bigCardLayout">
           <div className="bigCard">
             <img src="/images/won.png" alt="alcohol" />
