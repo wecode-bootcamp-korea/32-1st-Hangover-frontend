@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import LoginPage from '../../components/Common/Login/LoginPage';
+import LoginPage from '../../components/Common/LoginAndJoin/LoginPage/LoginPage';
 import './Main.scss';
 
 const Main = () => {
@@ -14,7 +14,6 @@ const Main = () => {
       >
         Login
       </button>
-
       {login === true ? <LoginPage /> : null}
     </main>
   );
