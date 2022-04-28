@@ -1,0 +1,87 @@
+.commentListSection {
+  .modalSection {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    overflow: auto;
+    outline: 0;
+    background-color: rgba(53, 51, 51, 0.682);
+
+    .modalArticle {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 24px;
+      background-color: #ffff;
+      width: 1088px;
+      border-radius: 30px;
+
+      .modalTitle {
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+
+        h1 {
+          font-size: 28px;
+          line-height: 40px;
+          font-weight: 600;
+        }
+      }
+
+      .modalRatiBox {
+        width: 100%;
+
+        .modaluserRait {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          .user {
+            width: 50px;
+            height: 50px;
+            background-color: gainsboro;
+            border-radius: 50%;
+            margin: 5px;
+          }
+
+          .imojiContainer {
+            height: 48px;
+            margin-bottom: 20px;
+
+            img {
+              height: 100%;
+              width: 48px;
+            }
+          }
+        }
+
+        textarea {
+          height: 226px;
+          padding: 16px;
+          width: 80%;
+          border-radius: 10px;
+        }
+      }
+
+      .modalSubmitBtn {
+        margin: 10px;
+
+        button {
+          padding: 0 32px;
+          border-radius: 80px;
+          min-height: 40px;
+        }
+      }
+    }
+  }
+}

@@ -1,5 +1,5 @@
-import './RaitingSummary.scss';
 import BeerImogji from '../Detail/BeerImoji';
+import './RaitingSummary.scss';
 
 const RaitingSummary = () => {
   return (

@@ -1,6 +1,11 @@
-const AddRaiting = ({ rating, setRaiting }) => {
+const AddRaiting = ({ rating, setRaiting, setIsIsFull }) => {
   const fillBeer = <img src="/images/beer_100.png" className="fulllBeer" />;
   const array = [...Array(parseInt(rating))].map(icon => fillBeer);
+
+  const handleClick = e => {
+    setRaiting(e.target.id);
+    setIsIsFull(true);
+  };
 
   {
     return rating === 0 ? (
@@ -9,10 +14,11 @@ const AddRaiting = ({ rating, setRaiting }) => {
           index += 1;
           return (
             <img
+              id={index}
+              key={index}
               src="/images/beer.png"
               className="fulllBeer emptyBeer"
-              onClick={e => setRaiting(e.target.id)}
-              id={index}
+              onClick={handleClick}
             />
           );
         })}

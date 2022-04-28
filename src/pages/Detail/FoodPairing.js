@@ -4,7 +4,6 @@ const FoodPairing = () => {
   return (
     <section className="foodpairing">
       <div className="foodPairingDes">
-        <h2>Food that goes well with this wine</h2>
         <div>
           <span>
             Our wine experts think this Southern Italy Primitivo wine would be a
@@ -14,6 +13,9 @@ const FoodPairing = () => {
             Are you cooking something else? Search for wines by food pairings
           </span>
         </div>
+      </div>
+      <div className="detailTopImg">
+        <img alt="소주병" src="images/dummy.png" className="detailProductImg" />
       </div>
       <div className="foodPairingIconContainer">
         {[1, 2, 3, 4, 5].map(item => (

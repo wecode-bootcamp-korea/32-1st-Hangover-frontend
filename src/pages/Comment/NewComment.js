@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import './NewComment.scss';
 
 const NewComment = ({ commentList, setCommentList }) => {

@@ -1,12 +1,14 @@
 .ratingSummary {
   display: flex;
   flex-direction: row;
+
   .ratingIcon {
     margin: 10px 10px 10px 10px;
     display: flex;
     flex-direction: row-reverse;
     justify-content: flex-start;
     width: 87px;
+
     .emptyBeer {
       display: none;
     }
@@ -17,17 +19,20 @@
       margin-bottom: 10px;
     }
   }
+
   .ratingBarCon {
     display: flex;
     flex-direction: column;
     margin: 10px;
     position: relative;
+
     .ratingBar {
       width: 124px;
       height: 16px;
       background-color: #f7f3f0;
       margin: 2px;
     }
+
     .ratingBarColored {
       position: absolute;
       width: 124px;

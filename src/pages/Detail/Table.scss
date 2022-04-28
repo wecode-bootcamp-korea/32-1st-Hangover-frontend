@@ -1,19 +1,10 @@
 @import '../../styles/variable.scss';
 @import '../../styles/common.scss';
 
-.detailtitle {
-  h2 {
-    font-size: 30px;
-    line-height: 40px;
-    font-weight: 600;
-  }
-}
-
 .tableContainer {
   display: flex;
   min-width: 1000px;
   align-items: center;
-
   margin: 10px 0px 10px 0px;
 
   .tableName {
