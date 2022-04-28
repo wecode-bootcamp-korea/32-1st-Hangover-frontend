@@ -29,18 +29,24 @@
         margin-bottom: 15px;
         border: 1px solid rgb(0, 0, 0, 0.2);
         border-radius: 5px;
+        outline: none;
       }
+      .buttonWrap {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 50px;
+        .buttons {
+          width: 400px;
+          padding: 12px;
+          margin-top: 20px;
+          margin-bottom: 10px;
+          border-radius: 15px;
+          border: none;
+          background-color: $iconColor;
 
-      .buttons {
-        width: 400px;
-        padding: 12px;
-        margin-top: 15px;
-        border-radius: 15px;
-        border: none;
-        background-color: $iconColor;
-
-        &:disabled {
-          opacity: 0.5;
+          &:disabled {
+            opacity: 0.5;
+          }
         }
       }
     }

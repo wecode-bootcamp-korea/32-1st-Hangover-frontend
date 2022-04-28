@@ -9,12 +9,13 @@ const Main = () => {
     <main>
       <button
         onClick={() => {
+          console.log(login);
           login === false ? setLogin(true) : setLogin(false);
         }}
       >
         Login
       </button>
-      {login === true ? <LoginPage /> : null}
+      {login === true ? <LoginPage login={login} /> : null}
     </main>
   );
 };

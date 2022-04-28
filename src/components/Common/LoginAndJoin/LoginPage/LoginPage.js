@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import Form from '../Form/LoginJoinForm';
-import '../LoginPage/LoginPage.scss';
 
 export default function LoginPage() {
   const [isLoginOpen, setIsLoginOpen] = useState(true);
@@ -24,11 +23,13 @@ export default function LoginPage() {
   const isLoginValid = loginEmail.includes('@') && loginPassword.length > 10;
 
   const isSignupValid =
-    signUpEmail.includes('@', '.') &&
-    firstName.length > 0 &&
-    lastName.length > 0 &&
+    signUpEmail.includes('@') &&
+    signUpEmail.includes('.') &&
+    firstName.length &&
+    lastName.length &&
     signUpPassword.length > 10 &&
-    signUpRePassword.length > 10;
+    signUpRePassword.length > 10 &&
+    signUpPassword === signUpRePassword;
 
   const getLoginValue = e => {
     const { name, value } = e.target;
