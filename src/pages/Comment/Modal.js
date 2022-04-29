@@ -4,14 +4,15 @@ import './Modal.scss';
 
 const Modal = ({ rating, commentList, setCommentList, setIsIsFull }) => {
   const [inputComment, setInputComment] = useState('');
-
+  const date = new Date();
   const handleEdit = e => {
     setInputComment(e.target.value);
   };
   const data = {
     score: rating,
     userName: 'wecode',
-    content: inputComment,
+    contnets: inputComment,
+    date: date.toLocaleString(),
   };
   const handleSubmit = () => {
     setIsIsFull(false);

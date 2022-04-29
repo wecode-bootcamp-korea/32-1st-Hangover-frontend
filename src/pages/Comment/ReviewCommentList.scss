@@ -1,0 +1,30 @@
+.reviewCommentListArticle {
+  display: flex;
+  flex-direction: column;
+  .reviewCommentDiv {
+    display: flex;
+    align-items: center;
+    padding: 0px 0px 16px 0px;
+    .reviewCommentUserDiv {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
+      margin-right: 16px;
+      width: 24px;
+      height: 24px;
+      background-color: rgba(158, 155, 155, 0.596);
+      font-size: 13px;
+    }
+  }
+  .reviewCommentBox {
+    display: flex;
+    p {
+      font-size: 20px;
+      line-height: 28px;
+    }
+    .reviewCommnetUserInfo {
+      margin: 4px;
+    }
+  }
+}

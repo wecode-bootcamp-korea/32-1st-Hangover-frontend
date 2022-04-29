@@ -10,16 +10,20 @@ const BeerImogji = ({ rate }) => {
 
   const empty = <img src="/images/beer.png" className="fulllBeer emptyBeer" />;
 
+  console.log([...Array(Math.ceil(rate))].map(item => item));
+
   {
     return (
       rate !== 0 && (
         <div className="imojiContainer">
           {rate % 1 === 0
             ? [...Array(parseInt(rate))].map(icon => fillBeer)
-            : [...Array(parseInt(rate))].map(icon => fillBeer).concat(halfBeer)}
-          {5 - rate !== 0 &&
-            [...Array(parseInt(rate))].map(icon => fillBeer).length !== 4 &&
-            [...Array(5 - parseInt(rate) - 1)].map(icon => empty)}
+            : [...Array(parseInt(rate))]
+                .map(icon => fillBeer)
+                .concat(halfBeer)
+                .concat(
+                  [...Array(5 - Math.floor(rate) - 1)].map(item => empty)
+                )}
         </div>
       )
     );

@@ -4,13 +4,19 @@
   flex-direction: column;
 
   .commentNav {
-    width: fit-content;
-    height: fit-content;
-
     div {
       margin: 0px 0px 8px 0px;
       padding: 0px 8px 8px 8px;
       border-bottom: 1px solid #eae0da;
+    }
+
+    .active {
+      border-bottom-color: red;
+    }
+    .red {
+      margin: 0px 0px 8px 0px;
+      padding: 0px 8px 8px 8px;
+      border-bottom: 1px solid red;
     }
   }
 

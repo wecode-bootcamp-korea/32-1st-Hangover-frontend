@@ -1,5 +1,5 @@
-import React, { useRef, useState } from 'react';
-import NewComment from './NewComment';
+import React, { useState, useEffect } from 'react';
+import NewCommentList from './NewCommentList';
 import RaitingSummary from './RaitingSummary';
 import Modal from './Modal';
 import AddRaiting from './AddRaiting';
@@ -7,41 +7,95 @@ import './CommentList.scss';
 
 const CommentList = () => {
   const rait = 4.3;
-  const commentNav = useRef();
-  const reviewTitle = [
-    { name: '리뷰순', id: 'review' },
-    { name: '최신순', id: 'recent' },
-    { name: '사용자', id: 'user' },
-  ];
+
+  useEffect(() => {
+    fetch('/data/dummyData.json', { method: 'GET' })
+      .then(res => res.json())
+      .then(data => {
+        setCommentList(
+          data.sort(function (a, b) {
+            return b.score - a.score;
+          })
+        );
+      });
+  }, []);
 
   const [rating, setRaiting] = useState(0);
   const [commentList, setCommentList] = useState([]);
   const [isitfull, setIsIsFull] = useState(false);
+  const [name, setName] = useState('');
+  // state하나를 계속 쓰니까 그런거지ㅇㅇ
+  const handleReivew = e => {
+    setName(e.target.id);
+    if (e.target.id === 'review') {
+      const newList = [...commentList];
+      // e.target.style.borderBottomColor = 'red';
+      setCommentList(
+        newList.sort(function (a, b) {
+          return b.score - a.score;
+        })
+      );
+    }
+  };
 
-  const handleClick = e => {
-    console.log(commentNav.current);
+  const handleRecent = e => {
+    setName(e.target.id);
+    if (e.target.id === 'recent') {
+      const newList = [...commentList];
+      setCommentList(
+        newList.sort(function (a, b) {
+          return new Date(b.date).getTime() - new Date(a.date).getTime();
+        })
+      );
+    }
+  };
+
+  const handleUser = e => {
+    setName(e.target.id);
+    if (e.target.id === 'user') {
+      const newList = [...commentList];
+      setCommentList(
+        newList.sort(function (a, b) {
+          return new Date(b.date).getTime() - new Date(a.date).getTime();
+        })
+      );
+    }
   };
 
   return (
     <section className="commentListSection">
       <div className="commentNavContainer">
         <div className="commentNav">
-          {reviewTitle.map(item => {
-            const { id, name } = item;
-            return (
-              <div key={id} id={id} onClick={handleClick} ref={commentNav}>
-                {name}
-              </div>
-            );
-          })}
+          <div
+            id="review"
+            className={name === 'review' ? 'active' : undefined}
+            onClick={handleReivew}
+          >
+            리뷰순
+          </div>
+          <div
+            id="recent"
+            className={name === 'recent' ? 'active' : undefined}
+            onClick={handleRecent}
+          >
+            최신순
+          </div>
+          <div
+            id="user"
+            className={name === 'user' ? 'active' : undefined}
+            onClick={handleUser}
+          >
+            사용자
+          </div>
         </div>
         <article className="commentAll">
           <div className="commentDiv">
-            <NewComment
+            <NewCommentList
               commentList={commentList}
               setCommentList={setCommentList}
             />
           </div>
+
           <div className="raitingBox">
             <div className="detailNum">{rait}</div>
             <div className="detailRaitBox"></div>

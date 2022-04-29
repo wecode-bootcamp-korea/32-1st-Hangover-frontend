@@ -1,8 +1,71 @@
 [
   {
+    "id": 1,
     "score": 2.5,
     "userName": "wecode",
     "content": "Welcome to world best coding bootcamp!",
-    "isLiked": true
+    "isLiked": false,
+    "likedCount": 0,
+    "date": "2022.4.24",
+    "reviewComment": [
+      {
+        "id": 1,
+        "contnets": "adasdsadsadas",
+        "userName": "ASdassaddsa",
+        "date": "2022.4.28"
+      },
+      {
+        "id": 2,
+        "contnets": "adasdsadsadas",
+        "userName": "ASdassaddsa",
+        "date": "2022.4.26"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "score": 4.5,
+    "userName": "wecode2",
+    "content": "Welcome to world best coding bootcamp!",
+    "isLiked": false,
+    "likedCount": 0,
+    "date": "2022.4.26",
+    "reviewComment": [
+      {
+        "id": 1,
+        "contnets": "adasdsadsadas",
+        "userName": "ASdassaddsa",
+        "date": "2022.4.28"
+      },
+      {
+        "id": 2,
+        "contnets": "adasdsadsadas",
+        "userName": "ASdassaddsa",
+        "date": "2022.4.26"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "score": 3.5,
+    "userName": "wecode3",
+    "content": "Welcome to world best coding bootcamp!",
+    "isLiked": false,
+    "likedCount": 0,
+    "date": "2022.4.22",
+    "reviewComment": [
+      {
+        "id": 3,
+        "contnets": "adasdsadsadasaaaa",
+        "userName": "ASdassaddsa",
+        "date": "2022.4.28"
+      },
+      {
+        "id": 4,
+        "contnets": "adasdsadsadas",
+        "userName": "ASdassaddsaasdasdsa",
+        "date": "2022.4.26"
+      }
+    ]
   }
 ]

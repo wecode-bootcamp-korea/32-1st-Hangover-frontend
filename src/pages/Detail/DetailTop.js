@@ -2,7 +2,7 @@ import './DetailTop.scss';
 import BeerImoji from './BeerImoji';
 import KeyWord from './KeyWord';
 const DetailTop = () => {
-  const rait = 4.5;
+  const rait = 3.5;
 
   return (
     <article className="detailArticle">
