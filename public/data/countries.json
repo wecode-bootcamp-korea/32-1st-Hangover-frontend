@@ -1,28 +1,24 @@
 [
   {
     "id": 1,
-    "countryFilter": "mock_01"
+    "countryFilter": "Korea"
   },
 
   {
     "id": 2,
-    "countryFilter": "mock_02"
+    "countryFilter": "USA"
   },
   {
     "id": 3,
-    "countryFilter": "mock_03"
+    "countryFilter": "France"
   },
   {
     "id": 4,
-    "countryFilter": "mock_04"
+    "countryFilter": "Germany"
   },
 
   {
     "id": 5,
-    "countryFilter": "mock_05"
-  },
-  {
-    "id": 6,
-    "countryFilter": "mock_06"
+    "countryFilter": "Russia"
   }
 ]

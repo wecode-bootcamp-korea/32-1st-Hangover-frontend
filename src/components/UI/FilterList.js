@@ -1,10 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './FilterList.scss';
 
-function FilterList(props) {
+function FilterList({ Filter }) {
+  const [clickButton, setClickButton] = useState(false);
+
+  const setbuttonClick = e => {
+    e.preventDefault();
+    setClickButton(clickButton => !clickButton);
+  };
+
   return (
-    <button className="filterSpan" onClick={props.onFilterBtnClick}>
-      {props.Filter}
+    <button
+      className={`filterSpan ${clickButton && 'Active'}`}
+      onClick={setbuttonClick}
+    >
+      {Filter}
     </button>
   );
 }

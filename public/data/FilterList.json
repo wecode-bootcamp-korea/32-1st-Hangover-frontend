@@ -1,26 +1,22 @@
 [
   {
     "id": 1,
-    "Filter": "Red"
+    "Filter": "wine"
   },
   {
     "id": 2,
-    "Filter": "White"
+    "Filter": "champagne"
   },
   {
     "id": 3,
-    "Filter": "Sparkling"
+    "Filter": "cognac"
   },
   {
     "id": 4,
-    "Filter": "Mock_01"
+    "Filter": "vodka"
   },
   {
     "id": 5,
-    "Filter": "Mock_02"
-  },
-  {
-    "id": 6,
-    "Filter": "Mock_03"
+    "Filter": "whisky"
   }
 ]

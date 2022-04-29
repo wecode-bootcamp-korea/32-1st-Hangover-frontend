@@ -3,11 +3,25 @@ import './ProductList.scss';
 import FilterTitle from '../../components/UI/filterTitle';
 import FilterList from '../../components/UI/FilterList';
 import Countries from '../../components/UI/countries';
+import FoodPairing from '../../components/UI/foodPairing';
 
 const ProductList = () => {
   const [filterButtons, setFilterButtons] = useState([]);
+  // const [handleFilterButton, sethandleFilterButton] = useState('none');
   const [products, setProducts] = useState([]);
   const [countries, setCountries] = useState([]);
+  const [foodPairings, setfoodPairings] = useState([]);
+
+  // // const handleFilterClick = e => {
+  // //   sethandleFilterButton(e.targer.value);
+  // //   console.log(e);
+  // // };
+  // const onClick = e => {
+  //   e.preventDefault(e);
+  //   handleFilterButton === 'none'
+  //     ? sethandleFilterButton('none')
+  //     : sethandleFilterButton('color');
+  // };
 
   //  주종 필터링
   useEffect(() => {
@@ -21,6 +35,12 @@ const ProductList = () => {
     fetch('./data/countries.json')
       .then(res => res.json())
       .then(data => setCountries(data));
+  }, []);
+  // 푸드 페어링 필터링
+  useEffect(() => {
+    fetch('./data/foodPairing.json')
+      .then(res => res.json())
+      .then(data => setfoodPairings(data));
   }, []);
 
   // 최초 데이터 요청
@@ -55,10 +75,11 @@ const ProductList = () => {
           리뷰
         </button>
       </div>
+
       <div className="cardLayout">
         <div className="filter">
           <div className="filterTitle">
-            <span className="title">Wine Types(주종)</span>
+            <span className="title">Types(주종)</span>
             <span>select mutiple</span>
           </div>
           <form className="filterList">
@@ -67,7 +88,8 @@ const ProductList = () => {
                 <FilterList
                   key={filterButton.id}
                   Filter={filterButton.Filter}
-                  onFilterBtnClick={aaa}
+                  type="button"
+                  // disabled={!setbutton}
                 />
               ))}
           </form>
@@ -76,12 +98,12 @@ const ProductList = () => {
             <FilterTitle />
           </div>
           <div className="grapes">
-            <span className="grapesTitle">Grapes(취하노)</span>
+            <span className="grapesTitle">Rating(취하노)</span>
             <span>search grapes</span>
           </div>
 
           <div className="country">
-            <span className="countryTitle">country(국가)</span>
+            <span className="countryTitle">Country(국가)</span>
           </div>
           <div className="countrySearch">
             <input
@@ -96,9 +118,9 @@ const ProductList = () => {
             ))}
           </form>
 
-          <div className="foodPairing">
+          {/* <div className="foodPairing">
             <span className="foodPairingTitle">foodPairing</span>
-          </div>
+          </div> */}
           <div className="countrySearch">
             <input
               className="foodPairingSearchInput"
@@ -106,21 +128,24 @@ const ProductList = () => {
               placeholder="💡search"
             />
           </div>
-          <div className="filterList">
-            {[1, 2, 3, 4, 5, 6].map((id, i) => (
-              <FilterList key={id} />
-            ))}
+          <div className="foodPairing">
+            <div className="foodPairingTitle">foodPairing</div>
           </div>
-        </div>
+          <form className="filterList">
+            {foodPairings.map(pairValue => (
+              <FoodPairing key={pairValue.id} pairList={pairValue.pairing} />
+            ))}
+          </form>
 
-        {/* {products.map(product => {
+          {/* {products.map(product => {
           return <Card product={product} />;
         })} */}
 
-        <div className="bigCardLayout">
-          <div className="bigCard">
-            <img src="/images/won.png" alt="alcohol" />
-            <span className="cardLayout">WonSoju</span>
+          <div className="bigCardLayout">
+            <div className="bigCard">
+              <img src="/images/won.png" alt="alcohol" />
+              <span className="cardLayout">WonSoju</span>
+            </div>
           </div>
         </div>
       </div>
