@@ -1,6 +1,5 @@
 import React, { useRef, useState } from 'react';
 import Header from '../Components/Header';
-import LeftImg from '../Components/LeftImg';
 import HeaderImg from '../Components/HeaderImg';
 import '../Form/LoginJoinForm.scss';
 
@@ -14,35 +13,56 @@ export default function LoginJoinForm({
   getValue,
   setLogin,
 }) {
-  const [exit, setExit] = useState(false);
+  const [isModalOut, setIsModalOut] = useState(false);
   const modalRef = useRef();
 
   const exitModal = e => {
     if (modalRef.current === e.target) {
       setLogin(false);
-      setExit(true);
+      setIsModalOut(true);
     }
   };
 
-  const [closed, setClosed] = useState(false);
+  const [isModalClosed, setisModalClosed] = useState(false);
   const closeRef = useRef();
   const closedModal = e => {
     if (closeRef.current === e.target) {
       setLogin(false);
-      setClosed(true);
+      setisModalClosed(true);
     }
+  };
+
+  const signUpBtnClick = () => {
+    handleBtn();
+    setIsLoginOpen(false);
   };
 
   return (
     <div>
       {
-        (!exit,
-        !closed && (
+        (!isModalOut,
+        !isModalClosed && (
           <div className="modalBox" ref={modalRef} onClick={exitModal}>
             <section>
-              <LeftImg />
+              {type === 'login' ? (
+                <div className="imgWrap">
+                  <img
+                    className="img"
+                    src="/images/gayatri-malhotra-_CqJImMQiVQ-unsplash.jpg"
+                    alt=""
+                  />
+                </div>
+              ) : (
+                <div className="imgWrap">
+                  <img
+                    className="img"
+                    src="/images/heineken-206147_1920.jpg"
+                    alt=""
+                  />
+                </div>
+              )}
               <article className="loginSignUpBox">
-                <HeaderImg />
+                <HeaderImg setIsLoginOpen />
                 <Header title={title} />
 
                 {inputData.map(({ id, type, name, placeholder }) => (
@@ -68,10 +88,7 @@ export default function LoginJoinForm({
                     <button
                       type="button"
                       className="buttons"
-                      onClick={handleBtn}
-                      onClick={() => {
-                        setIsLoginOpen(false);
-                      }}
+                      onClick={signUpBtnClick}
                     >
                       <span>회원가입</span>
                     </button>

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import LoginJoinForm from '../Form/LoginJoinForm';
 
-export default function LoginPage({ setLogin }) {
+export default function LoginJoinModal({ setLogin }) {
   const [isLoginOpen, setIsLoginOpen] = useState(true);
 
   const [loginInputs, setLoginInputs] = useState({
@@ -42,23 +42,23 @@ export default function LoginPage({ setLogin }) {
   };
 
   const handleLogin = () => {
-    fetch('받을 주소', {
-      method: 'POST',
-      body: JSON.stringify({
-        email: loginEmail,
-        password: loginPassword,
-      }),
-    })
-      .then(response => response.json())
-      .then(result => {
-        if (result.message === 'SUCCESS') {
-          localStorage.setItem('token', result.access_token);
-          alert('로그인 성공!');
-          // navigate('/main');
-        } else {
-          alert('아이디 혹은 비밀번호가 다릅니다.');
-        }
-      });
+    // fetch('받을 주소', {
+    //   method: 'POST',
+    //   body: JSON.stringify({
+    //     email: loginEmail,
+    //     password: loginPassword,
+    //   }),
+    // })
+    //   .then(response => response.json())
+    //   .then(result => {
+    //     if (result.message === 'SUCCESS') {
+    //       localStorage.setItem('token', result.access_token);
+    //       alert('로그인 성공!');
+    //       // navigate('/main');
+    //     } else {
+    //       alert('아이디 혹은 비밀번호가 다릅니다.');
+    //     }
+    //   });
   };
 
   const handleSignup = () => {

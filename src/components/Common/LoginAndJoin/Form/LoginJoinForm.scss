@@ -2,7 +2,6 @@
 
 .modalBox {
   background-color: rgba(0, 0, 0, 0.5);
-  position: absolute;
   width: 100%;
   height: 100vh;
   display: flex;
@@ -15,6 +14,20 @@
     border-radius: 10px;
     overflow: hidden;
 
+    .imgWrap {
+      width: 420px;
+    }
+    @media screen and (max-width: 1000px) {
+      .imgWrap {
+        display: none;
+      }
+    }
+
+    .img {
+      width: 420px;
+      height: 100%;
+    }
+
     .loginSignUpBox {
       height: 100%;
       width: 450px;
@@ -24,17 +37,17 @@
       background-color: $backGround;
 
       .input {
-        width: 380px;
+        width: 400px;
         padding: 13px;
-        margin-bottom: 15px;
+        margin-bottom: 20px;
         border: 1px solid rgb(0, 0, 0, 0.2);
-        border-radius: 5px;
+        border-radius: 10px;
         outline: none;
       }
       .buttonWrap {
         display: flex;
         flex-direction: column;
-        margin-bottom: 50px;
+        margin-bottom: 30px;
 
         .backAndClosedBtnWrap {
           display: flex;
@@ -44,9 +57,10 @@
           .backBtn,
           .closeBtn {
             padding: 10px;
-            border-radius: 13px;
+            border-radius: 20px;
             border: none;
             background-color: $iconColor;
+            color: white;
           }
         }
         .buttons {
@@ -54,8 +68,9 @@
           padding: 12px;
           margin-top: 20px;
           margin-bottom: 10px;
-          border-radius: 15px;
+          border-radius: 20px;
           border: none;
+          color: white;
           background-color: $iconColor;
 
           &:disabled {
@@ -63,11 +78,15 @@
           }
         }
         .closedBtnWrap {
+          display: flex;
+          justify-content: flex-end;
+          margin-top: 110px;
           .closeBtn {
             padding: 10px;
-            border-radius: 13px;
+            border-radius: 20px;
             border: none;
             background-color: $iconColor;
+            color: white;
           }
         }
       }
