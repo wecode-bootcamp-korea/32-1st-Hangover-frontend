@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import LoginJoinForm from '../Form/LoginJoinForm';
+import LoginJoinForm from '../Form/LoginJoinModal';
 
-export default function LoginJoinModal({ setLogin }) {
+export default function LoginJoin({ setLogin }) {
   const [isLoginOpen, setIsLoginOpen] = useState(true);
 
   const [loginInputs, setLoginInputs] = useState({

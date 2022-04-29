@@ -1,9 +1,9 @@
 import React, { useRef, useState } from 'react';
 import Header from '../Components/Header';
 import HeaderImg from '../Components/HeaderImg';
-import '../Form/LoginJoinForm.scss';
+import '../Form/LoginJoinModal.scss';
 
-export default function LoginJoinForm({
+export default function LoginJoinModal({
   type,
   title,
   inputData,
