@@ -35,6 +35,20 @@
         display: flex;
         flex-direction: column;
         margin-bottom: 50px;
+
+        .backAndClosedBtnWrap {
+          display: flex;
+          justify-content: space-between;
+          flex-direction: row;
+          margin-top: 40px;
+          .backBtn,
+          .closeBtn {
+            padding: 10px;
+            border-radius: 13px;
+            border: none;
+            background-color: $iconColor;
+          }
+        }
         .buttons {
           width: 400px;
           padding: 12px;
@@ -46,6 +60,14 @@
 
           &:disabled {
             opacity: 0.5;
+          }
+        }
+        .closedBtnWrap {
+          .closeBtn {
+            padding: 10px;
+            border-radius: 13px;
+            border: none;
+            background-color: $iconColor;
           }
         }
       }

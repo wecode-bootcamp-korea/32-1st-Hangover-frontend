@@ -5,7 +5,8 @@ import Footer from './components/Common/Footer';
 import Main from './pages/Main/Main';
 import ProductList from './pages/ProductList/ProductList';
 import Detail from './pages/Detail/Detail';
-const Router = props => {
+
+const Router = () => {
   return (
     <BrowserRouter>
       <Nav />

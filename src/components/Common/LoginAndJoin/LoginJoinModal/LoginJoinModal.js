@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import LoginJoinForm from '../Form/LoginJoinForm';
 
-export default function LoginPage() {
+export default function LoginPage({ setLogin }) {
   const [isLoginOpen, setIsLoginOpen] = useState(true);
 
   const [loginInputs, setLoginInputs] = useState({
@@ -69,6 +69,7 @@ export default function LoginPage() {
     <div>
       {isLoginOpen ? (
         <LoginJoinForm
+          setLogin={setLogin}
           type="login"
           title="로그인"
           inputData={LOGIN_DATA}
@@ -79,6 +80,7 @@ export default function LoginPage() {
         />
       ) : (
         <LoginJoinForm
+          setLogin={setLogin}
           type="signUp"
           title="회원가입"
           inputData={SIGNUP_DATA}
