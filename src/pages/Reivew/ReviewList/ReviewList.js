@@ -1,33 +1,38 @@
 import React, { useState, useEffect } from 'react';
-import NewCommentList from './NewCommentList';
+import NewReviewList from './NewReviewList';
+import UsersReviewList from './UsersReviewList';
 import RaitingSummary from './RaitingSummary';
-import Modal from './Modal';
-import AddRaiting from './AddRaiting';
+import CreateReivew from '../ReiviewComponents/CreateReivew';
+import AddRaiting from '../AddRaiting';
 import './CommentList.scss';
 
-const CommentList = () => {
+const ReviewList = () => {
   const rait = 4.3;
 
   useEffect(() => {
     fetch('/data/dummyData.json', { method: 'GET' })
       .then(res => res.json())
       .then(data => {
-        setCommentList(
-          data.sort(function (a, b) {
-            return b.score - a.score;
-          })
-        );
+        setCommentList(data);
       });
   }, []);
 
   const [rating, setRaiting] = useState(0);
   const [commentList, setCommentList] = useState([]);
+  const [modifyText, setModifyText] = useState('');
+  const [individualReview, setIndividualReview] = useState([]);
   const [isitfull, setIsIsFull] = useState(false);
+  const [isitFiltered, setIsItFiltered] = useState(false);
   const [name, setName] = useState('');
-  // state하나를 계속 쓰니까 그런거지ㅇㅇ
+
+  useEffect(() => {
+    setIndividualReview(commentList.filter(user => user.id === 5));
+  }, [commentList]);
+
   const handleReivew = e => {
     setName(e.target.id);
     if (e.target.id === 'review') {
+      setIsItFiltered(false);
       const newList = [...commentList];
       // e.target.style.borderBottomColor = 'red';
       setCommentList(
@@ -41,6 +46,7 @@ const CommentList = () => {
   const handleRecent = e => {
     setName(e.target.id);
     if (e.target.id === 'recent') {
+      setIsItFiltered(false);
       const newList = [...commentList];
       setCommentList(
         newList.sort(function (a, b) {
@@ -50,17 +56,16 @@ const CommentList = () => {
     }
   };
 
-  const handleUser = e => {
+  const getUserReview = e => {
     setName(e.target.id);
-    if (e.target.id === 'user') {
-      const newList = [...commentList];
-      setCommentList(
-        newList.sort(function (a, b) {
-          return new Date(b.date).getTime() - new Date(a.date).getTime();
-        })
-      );
+    if (e.target.id === 'user' && individualReview) {
+      console.log('Wlr');
+      setIsItFiltered(true);
+    } else {
+      setIsItFiltered(false);
     }
   };
+  console.log(isitFiltered);
 
   return (
     <section className="commentListSection">
@@ -83,17 +88,26 @@ const CommentList = () => {
           <div
             id="user"
             className={name === 'user' ? 'active' : undefined}
-            onClick={handleUser}
+            onClick={e => {
+              getUserReview(e);
+            }}
           >
             사용자
           </div>
         </div>
         <article className="commentAll">
           <div className="commentDiv">
-            <NewCommentList
-              commentList={commentList}
-              setCommentList={setCommentList}
-            />
+            {!isitFiltered ? (
+              <NewReviewList
+                setModifyText={setModifyText}
+                commentList={commentList}
+              />
+            ) : (
+              <UsersReviewList
+                isitFiltered={isitFiltered}
+                individualReview={individualReview}
+              />
+            )}
           </div>
 
           <div className="raitingBox">
@@ -115,12 +129,16 @@ const CommentList = () => {
               />
             </div>
             <div className="detaillLine"></div>
+
             {isitfull && (
-              <Modal
+              <CreateReivew
                 rating={rating}
                 commentList={commentList}
                 setCommentList={setCommentList}
                 setIsIsFull={setIsIsFull}
+                setModifyText={setModifyText}
+                modifyText={modifyText}
+                isitfull={isitfull}
               />
             )}
           </div>
@@ -130,4 +148,4 @@ const CommentList = () => {
   );
 };
 
-export default CommentList;
+export default ReviewList;

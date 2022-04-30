@@ -3,7 +3,7 @@ import ArticleWarp from './ArticleWrap';
 import DetailTop from './DetailTop';
 import DetailSummary from './DetailSummary';
 import FoodPairing from './FoodPairing';
-import CommentList from '../Comment/CommentList';
+import ReviewList from '../Reivew/ReviewList/ReviewList';
 import Origin from './Origin';
 
 const Detail = () => (
@@ -16,7 +16,7 @@ const Detail = () => (
       <FoodPairing />
     </ArticleWarp>
     <ArticleWarp title={'숙취후기'}>
-      <CommentList />
+      <ReviewList />
     </ArticleWarp>
     <section className="origin">
       <h2 className="originH2">Facts about the wine</h2>

@@ -1,36 +1,49 @@
 import { useState } from 'react';
 import BeerImogji from '../Detail/BeerImoji';
-import './Modal.scss';
+import './ModalCard.scss';
 
-const Modal = ({ rating, commentList, setCommentList, setIsIsFull }) => {
+const EditingReivew = ({
+  rating,
+  commentList,
+  setCommentList,
+  setIsIsFull,
+  modifyText,
+}) => {
   const [inputComment, setInputComment] = useState('');
   const date = new Date();
-  const handleEdit = e => {
-    setInputComment(e.target.value);
-  };
-  const data = {
-    score: rating,
-    userName: 'wecode',
-    contnets: inputComment,
-    date: date.toLocaleString(),
-  };
-  const handleSubmit = () => {
-    setIsIsFull(false);
-    setCommentList([...commentList, data]);
-  };
-  const cancleSubmit = () => {
-    setIsIsFull(false);
-  };
+
+  // const handleEdit = e => {
+  //   setInputComment(e.target.value);
+  // };
+  // const data = {
+  //   id: 5,
+  //   score: rating,
+  //   likedCount: 0,
+  //   userName: 'wecode',
+  //   content: inputComment,
+  //   isLiked: false,
+  //   reviewComment: [],
+  //   date: date.toLocaleString(),
+  // };
+
+  // const handleSubmit = () => {
+  //   setIsIsFull(false);
+  //   setCommentList([...commentList, data]);
+  // };
+
+  // const cancleSubmit = () => {
+  //   setIsIsFull(false);
+  // };
 
   return (
     <section className="modalSection">
       <article className="modalArticle">
         <div className="modalTitle">
           <div>
-            <h1>Your review</h1>
+            <h1>숙취 후기</h1>
           </div>
           <div>
-            <h1>You're rating the Saltram Pepperjack Shiraz 2019</h1>
+            <h1>술이름에 대한 후기를 남겨주세요!</h1>
           </div>
         </div>
         <div className="modalRatiBox">
@@ -57,4 +70,4 @@ const Modal = ({ rating, commentList, setCommentList, setIsIsFull }) => {
     </section>
   );
 };
-export default Modal;
+export default EditingReivewccc;

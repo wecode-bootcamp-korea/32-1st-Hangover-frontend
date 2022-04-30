@@ -10,8 +10,6 @@ const BeerImogji = ({ rate }) => {
 
   const empty = <img src="/images/beer.png" className="fulllBeer emptyBeer" />;
 
-  console.log([...Array(Math.ceil(rate))].map(item => item));
-
   {
     return (
       rate !== 0 && (
