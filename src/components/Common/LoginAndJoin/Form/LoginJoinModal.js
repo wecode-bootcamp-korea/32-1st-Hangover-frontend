@@ -1,6 +1,7 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import Header from '../Components/Header';
 import HeaderImg from '../Components/HeaderImg';
+import OverlayNoneScroll from '../../OverlayNoneScroll/OverlayNoneScroll';
 import '../Form/LoginJoinModal.scss';
 
 export default function LoginJoinModal({
@@ -38,7 +39,7 @@ export default function LoginJoinModal({
   };
 
   return (
-    <div>
+    <div className="loginJoinModal">
       {
         (!isModalOut,
         !isModalClosed && (
@@ -134,6 +135,7 @@ export default function LoginJoinModal({
                 )}
               </article>
             </section>
+            <OverlayNoneScroll />
           </div>
         ))
       }
