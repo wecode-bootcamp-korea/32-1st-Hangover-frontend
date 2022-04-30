@@ -12,29 +12,14 @@ export default function LoginJoinModal({
   handleBtn,
   isInputsValid,
   getValue,
-  setLogin,
+  isModalOut,
+  isModalClosed,
+  exitModal,
+  closedModal,
+  modalRef,
+  closeRef,
 }) {
-  const [isModalOut, setIsModalOut] = useState(false);
-  const modalRef = useRef();
-
-  const exitModal = e => {
-    if (modalRef.current === e.target) {
-      setLogin(false);
-      setIsModalOut(true);
-    }
-  };
-
-  const [isModalClosed, setisModalClosed] = useState(false);
-  const closeRef = useRef();
-  const closedModal = e => {
-    if (closeRef.current === e.target) {
-      setLogin(false);
-      setisModalClosed(true);
-    }
-  };
-
   const signUpBtnClick = () => {
-    handleBtn();
     setIsLoginOpen(false);
   };
 
