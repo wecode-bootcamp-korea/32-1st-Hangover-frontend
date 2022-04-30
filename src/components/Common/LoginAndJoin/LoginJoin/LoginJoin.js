@@ -94,7 +94,7 @@ export default function LoginJoin({ setLogin }) {
         firstname: firstName,
         lastname: lastName,
         password: signUpPassword,
-        password: signUpRePassword,
+        repassword: signUpRePassword,
       }),
     })
       .then(response => response.json())

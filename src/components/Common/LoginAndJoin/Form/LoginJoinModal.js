@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from 'react';
+import React from 'react';
 import Header from '../Components/Header';
 import HeaderImg from '../Components/HeaderImg';
 import OverlayNoneScroll from '../../OverlayNoneScroll/OverlayNoneScroll';
