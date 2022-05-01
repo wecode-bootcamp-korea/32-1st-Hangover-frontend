@@ -1,7 +1,8 @@
-import './NewComment.scss';
-import ReviewCommentList from './ReviewCommentList';
 import { useState } from 'react';
-const Review = ({ item, isitFiltered }) => {
+import ReviewCommentList from '../Comment/ReviewCommentList';
+import './Review.scss';
+
+const Review = ({ item }) => {
   const [isitOpen, setIsItOpen] = useState(false);
   const [isitLiked, setIsItLiked] = useState(false);
   const [reviewCommentList, setreviewCommentList] = useState(

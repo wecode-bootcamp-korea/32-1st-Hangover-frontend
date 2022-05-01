@@ -1,9 +1,9 @@
-import Table from './Table';
+import TasteRaitBar from './TasteRaitBar';
 import './DetailSummary.scss';
-const DetailSummary = () => {
+const DetailSummary = ({ productInfo }) => {
   return (
     <div className="detailSummaryTable">
-      <Table />
+      <TasteRaitBar productInfo={productInfo} />
     </div>
   );
 };

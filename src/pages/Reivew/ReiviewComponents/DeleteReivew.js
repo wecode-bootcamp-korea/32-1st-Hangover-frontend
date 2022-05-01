@@ -49,7 +49,6 @@ const DeleteReivew = ({
         <div className="modalRatiBox">
           <div className="modaluserRait">
             <div className="user"></div>
-            <BeerImogji rate={rating} />
           </div>
           <div>
             <textarea

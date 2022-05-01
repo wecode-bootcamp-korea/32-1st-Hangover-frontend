@@ -67,5 +67,15 @@
         "date": "2022.4.26"
       }
     ]
+  },
+  {
+    "id": 5,
+    "score": 4.0,
+    "userName": "wecode3",
+    "content": "Welcome to world best coding bootcamp!",
+    "isLiked": false,
+    "likedCount": 0,
+    "date": "2022.4.30",
+    "reviewComment": []
   }
 ]

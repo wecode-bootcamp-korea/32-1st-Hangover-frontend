@@ -1,6 +1,9 @@
+import { useState } from 'react';
 import './FoodPairing.scss';
 
-const FoodPairing = () => {
+const FoodPairing = ({ productInfo }) => {
+  const [food, setFood] = useState(productInfo.food_category);
+  console.log(food);
   return (
     <section className="foodpairing">
       <div className="foodPairingDes">
@@ -18,10 +21,9 @@ const FoodPairing = () => {
         <img alt="소주병" src="images/dummy.png" className="detailProductImg" />
       </div>
       <div className="foodPairingIconContainer">
-        {[1, 2, 3, 4, 5].map(item => (
+        {food.map(item => (
           <div className="foodPairinIconSingle">
-            {' '}
-            <i class="fa-solid fa-burger"></i>{' '}
+            <i class="fa-solid fa-burger"></i>
           </div>
         ))}
       </div>

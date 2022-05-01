@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "name": "한라산",
+    "category": "맥주",
+    "alcohol_percentage": 10,
+    "price": 10000,
+    "food_category": ["양식", "중식"],
+
+    "property": {
+      "bitterness": 4,
+      "sweetness": 5,
+      "raiting": 4.6
+    }
+  }
+]

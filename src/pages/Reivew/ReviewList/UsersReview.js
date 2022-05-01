@@ -1,8 +1,8 @@
-import './NewComment.scss';
-import ReviewCommentList from './ReviewCommentList';
+import './Review.scss';
+import ReviewCommentList from '../Comment/ReviewCommentList';
 import { useState } from 'react';
 
-const UserReview = ({ item, commentList }) => {
+const UserReview = ({ item, commentList, setUserModify, userModify }) => {
   const [isitOpen, setIsItOpen] = useState(false);
   const [isitLiked, setIsItLiked] = useState(false);
   const [reviewCommentList, setreviewCommentList] = useState(
@@ -16,6 +16,14 @@ const UserReview = ({ item, commentList }) => {
     } else if (isitLiked && item.likedCount !== 0) {
       setIsItLiked(false);
       item.likedCount--;
+    }
+  };
+
+  const showEditModal = userId => {
+    if (userId === item.id) {
+      setUserModify(!userModify);
+    } else {
+      setUserModify(userModify);
     }
   };
 
@@ -51,6 +59,16 @@ const UserReview = ({ item, commentList }) => {
             >
               댓글{reviewCommentList.length}
             </button>
+            <div>
+              <button
+                onClick={() => {
+                  showEditModal(5);
+                }}
+              >
+                수정
+              </button>
+              <button>삭제</button>
+            </div>
           </div>
         </div>
       </div>

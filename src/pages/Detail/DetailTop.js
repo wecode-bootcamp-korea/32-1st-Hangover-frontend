@@ -1,8 +1,9 @@
 import './DetailTop.scss';
 import BeerImoji from './BeerImoji';
 import KeyWord from './KeyWord';
-const DetailTop = () => {
-  const rait = 3.5;
+
+const DetailTop = ({ productInfo }) => {
+  const info = JSON.parse(productInfo);
 
   return (
     <article className="detailArticle">
@@ -17,18 +18,20 @@ const DetailTop = () => {
         <div className="detailTopLeft">
           <div className="detailProductInfo">
             <h1 className="detailH1">
-              <span>위치</span>
-              <span className="detailProductName">주종명</span>
+              <span>{info.country}</span>
+              <span className="detailProductName">{info.name}</span>
             </h1>
           </div>
           <div className="detailProcuctRati">
             <KeyWord />
             <div className="detailRaitContainer">
               <div className="detailRaitSummary">
-                <div className="detailNum">{rait}</div>
+                <div className="detailNum">
+                  {parseFloat(info.ave_rating).toFixed(2)}
+                </div>
                 <div className="raitingBox">
                   <div className="detailRaitBox">
-                    <BeerImoji rate={rait} />
+                    <BeerImoji rate={parseFloat(info.ave_rating).toFixed(2)} />
                   </div>
                   <div className="detaillReviewCount">
                     <a>200rating</a>
