@@ -1,12 +1,24 @@
 import React, { useState } from 'react';
 import './FilterList.scss';
 
-function FilterList({ Filter }) {
+function FilterList({
+  Filter,
+  filterButtonClick,
+  setfilterButtonClick,
+  setSelectedTypes,
+}) {
   const [clickButton, setClickButton] = useState(false);
 
   const setbuttonClick = e => {
     e.preventDefault();
-    setClickButton(clickButton => !clickButton);
+    setSelectedTypes(curr => ({ ...curr, [Filter]: !clickButton }));
+    setClickButton(!clickButton);
+    const clickFilter = [...filterButtonClick];
+    const clickValue = {
+      id: Filter,
+    };
+    clickFilter.push(clickValue);
+    setfilterButtonClick(clickFilter);
   };
 
   return (

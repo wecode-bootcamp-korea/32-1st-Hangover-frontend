@@ -1,0 +1,28 @@
+[
+  {
+    "id": 1,
+    "country_id": "이탈리아",
+    "category_id": "와인",
+    "food_categeory": "한식"
+  },
+  {
+    "id": 2,
+    "pairing": "일식"
+  },
+  {
+    "id": 3,
+    "pairing": "중식"
+  },
+  {
+    "id": 4,
+    "pairing": "양식"
+  },
+  {
+    "id": 5,
+    "pairing": "매운맛"
+  },
+  {
+    "id": 6,
+    "pairing": "단맛"
+  }
+]

@@ -1,14 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&family=Roboto&display=swap');
 
-article {
+.productList {
+  display: flex;
+  justify-content: center;
+  max-width: 1000px;
+  padding: 30px;
+  margin: 0 auto;
   font-family: 'Noto Sans KR', sans-serif;
   font-family: 'Roboto', sans-serif;
-  // background-color: #fafafa;
 
+  // background-color: #fafafa;
+  .wrapper {
+    margin: 0 auto;
+  }
   .list {
-    margin-top: 30px;
-    margin-left: 340px;
+    margin-bottom: 40px;
+
     font-size: 20px;
     font-family: 'Noto Sans KR', sans-serif;
 
@@ -16,108 +24,112 @@ article {
       font-weight: bold;
       padding-bottom: 15px;
     }
-  }
-
-  .cardLayout {
-    display: flex;
-    max-width: 1000px;
-    margin: auto;
-  }
-
-  .filter {
-    // border: 1px solid black;
-    width: 400px;
-    height: 1200px;
-    margin-top: 80px;
-  }
-
-  .filterTitle {
-    display: flex;
-    justify-content: space-between;
-    margin: 10px 5px 0px 5px;
-  }
-
-  .title {
-    font-size: 22px;
-    font-weight: bold;
-  }
-
-  .grapes {
-    display: flex;
-    justify-content: space-between;
-    padding-top: 120px;
-  }
-
-  .grapesTitle {
-    font-size: 22px;
-    font-weight: bold;
-  }
-  .country {
-    display: flex;
-    justify-content: space-between;
-    padding-top: 120px;
-  }
-
-  .countryTitle {
-    display: flex;
-    flex-direction: column;
-    font-size: 22px;
-    font-weight: bold;
-  }
-  .countrySearchInput {
-    width: 300px;
-    margin-top: 15px;
-    border: none;
-    border-bottom: 1px solid black;
-  }
-
-  .foodPairing {
-    display: flex;
-    justify-content: space-between;
-    padding-top: 120px;
-  }
-
-  .foodPairingTitle {
-    font-size: 22px;
-    font-weight: bold;
-  }
-  .foodPairingSearchInput {
-    width: 300px;
-    margin-top: 15px;
-    border: none;
-    border-bottom: 1px solid black;
-  }
-
-  .ProductList {
-    font-family: 'Noto Sans KR', sans-serif;
-  }
-
-  .sort {
-    margin-left: 670px;
-    width: 90px;
-    height: 35px;
-    border: 1px solid black;
-    border-radius: 30px;
-    background-color: white;
-  }
-
-  .bigCardLayout {
-    margin-top: 150px;
-
-    .bigCard {
-      display: flex;
+    .sort {
+      margin-left: 670px;
+      width: 90px;
+      height: 35px;
       border: 1px solid black;
-      border-radius: 10px;
-      width: 600px;
-      height: 280px;
-      margin-left: 30px;
+      border-radius: 30px;
       background-color: white;
     }
   }
 
-  .bigCard img {
-    margin-top: 10px;
-    width: 240px;
-    height: 250px;
+  .allLayout {
+    display: flex;
+    flex-direction: row;
+
+    .cardLayout {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      margin: auto;
+    }
+
+    .filter {
+      // border: 1px solid black;
+      width: 400px;
+      height: 1200px;
+    }
+
+    .filterTitle {
+      display: flex;
+      justify-content: space-between;
+      margin: 10px 5px 0px 5px;
+    }
+
+    .title {
+      font-size: 22px;
+      font-weight: bold;
+    }
+
+    .grapes {
+      display: flex;
+      justify-content: space-between;
+      padding-top: 120px;
+    }
+
+    .grapesTitle {
+      font-size: 22px;
+      font-weight: bold;
+    }
+    .country {
+      display: flex;
+      justify-content: space-between;
+      padding-top: 120px;
+    }
+
+    .countryTitle {
+      display: flex;
+      flex-direction: column;
+      font-size: 22px;
+      font-weight: bold;
+    }
+    .countrySearchInput {
+      width: 300px;
+      margin-top: 15px;
+      border: none;
+      border-bottom: 1px solid black;
+    }
+
+    .foodPairing {
+      display: flex;
+      justify-content: space-between;
+      padding-top: 120px;
+    }
+
+    .foodPairingTitle {
+      font-size: 22px;
+      font-weight: bold;
+    }
+    .foodPairingSearchInput {
+      width: 300px;
+      margin-top: 15px;
+      border: none;
+      border-bottom: 1px solid black;
+    }
+
+    .ProductList {
+      font-family: 'Noto Sans KR', sans-serif;
+    }
   }
+
+  // .bigCardLayout {
+  //   margin-top: 150px;
+
+  //   .bigCard {
+  //     display: flex;
+  //     border: 1px solid black;
+  //     border-radius: 10px;
+  //     width: 600px;
+  //     height: 280px;
+  //     margin-left: 30px;
+  //     background-color: white;
+  //   }
+  // }
+
+  // .bigCard img {
+  //   margin-top: 10px;
+  //   width: 240px;
+  //   height: 250px;
+  // }
 }

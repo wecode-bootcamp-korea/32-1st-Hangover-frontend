@@ -1,11 +1,11 @@
 [
   {
     "id": 1,
-    "Filter": "wine"
+    "Filter": "whisky"
   },
   {
     "id": 2,
-    "Filter": "champagne"
+    "Filter": "vodka"
   },
   {
     "id": 3,
@@ -13,10 +13,14 @@
   },
   {
     "id": 4,
-    "Filter": "vodka"
+    "Filter": "beer"
   },
   {
     "id": 5,
-    "Filter": "whisky"
+    "Filter": "wine"
+  },
+  {
+    "id": 6,
+    "Filter": "champagne"
   }
 ]
