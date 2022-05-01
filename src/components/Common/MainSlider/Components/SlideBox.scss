@@ -1,26 +1,49 @@
 @import '../../../../styles/variable.scss';
+
 .wrap {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 100px;
+  margin-top: 40px;
+  // padding: 50px;
 
   .slideWrap {
     width: 1000px;
     overflow-x: hidden;
-    padding: 40px 0px;
-
+    .hangOverTopLank {
+      font-size: 50px;
+      font-weight: 700;
+    }
     .carousel {
       display: flex;
+
       ul {
         display: flex;
+        position: relative;
+
         li {
           display: flex;
-          width: 250px;
-          border: 1px solid rgba(0, 0, 0, 0.1);
+          width: 240px;
+          border: 1px solid rgba(0, 0, 0, 0.05);
           border-radius: 30px;
+          padding: 25px;
+          margin: 50px 10px 10px 0px;
 
+          .cardTextWrap {
+            display: flex;
+            flex-direction: column;
+            h2 {
+              margin: 70px 0px;
+            }
+            .cardBottomText {
+              margin-top: 40px;
+              p {
+                margin-top: 20px;
+              }
+            }
+          }
           img {
+            width: 150px;
             height: 330px;
           }
           &:hover {
@@ -28,8 +51,13 @@
           }
 
           &:hover img {
-            transform: translateY(-50px);
-            transition-duration: 0.5s;
+            transform: translateY(-60px);
+            transition-duration: 0.7s;
+          }
+        }
+        @media screen and (max-width: 1110px) {
+          li {
+            display: none;
           }
         }
       }
@@ -45,5 +73,9 @@
     border-radius: 50%;
     background-color: $iconColor;
     border: none;
+    margin-top: 70px;
+  }
+  .slideLeftBtn {
+    margin-right: 10px;
   }
 }
