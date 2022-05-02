@@ -1,18 +1,16 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './FilterList.scss';
 
 function FilterList({
   Filter,
   filterButtonClick,
   setfilterButtonClick,
-  setSelectedTypes,
+  filter,
+  handleFilter,
 }) {
-  const [clickButton, setClickButton] = useState(false);
-
   const setbuttonClick = e => {
     e.preventDefault();
-    setSelectedTypes(curr => ({ ...curr, [Filter]: !clickButton }));
-    setClickButton(!clickButton);
+    // setSelectedTypes(curr => ({ ...curr, [Filter]: !clickButton }));
     const clickFilter = [...filterButtonClick];
     const clickValue = {
       id: Filter,
@@ -21,25 +19,16 @@ function FilterList({
     setfilterButtonClick(clickFilter);
   };
 
+  const isSelected = filter.some(opt => opt.value === Filter);
+
   return (
     <button
-      className={`filterSpan ${clickButton && 'Active'}`}
-      onClick={setbuttonClick}
+      className={`filterSpan ${isSelected ? 'Active' : ' '}`}
+      type="button"
+      onClick={() => handleFilter(Filter)}
     >
       {Filter}
     </button>
   );
 }
 export default FilterList;
-
-// const Card = ({ product }) => {
-//   const { name, value, price } = product;
-
-//   return (
-//     <div>
-//       <span>{name}</span>
-//       <span>{value}</span>
-//       <span>{price}</span>
-//     </div>
-//   );
-// };

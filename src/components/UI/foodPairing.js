@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './foodPairing.scss';
 
-function FoodPairing({ pairValue }) {
+function FoodPairing({ pairList }) {
   const [pairButton, setPairButton] = useState(false);
 
   const handlePairButton = e => {
@@ -14,7 +14,7 @@ function FoodPairing({ pairValue }) {
       className={`filterSpan ${pairButton && 'Active'}`}
       onClick={handlePairButton}
     >
-      {pairValue}
+      {pairList}
     </button>
   );
 }

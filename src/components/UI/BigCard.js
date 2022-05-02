@@ -1,36 +1,43 @@
 import './BigCard.scss';
 
-const BigCard = () => {
-  <div>this is BigCard</div>;
+const BigCard = ({
+  id,
+  price,
+  name,
+  country,
+  image_url,
+  rating,
+  review_counts,
+}) => {
   return (
     <div className="bigCardsContainer">
       <div className="container">
         <div className="bigCardId">
           <div className="bottleContainer">
             <div className="bottleImgContainer">
-              <img src="images/dummy.png" className="cardBottleImg" />
+              <img src={image_url} className="cardBottleImg" />
             </div>
           </div>
 
           <div className="wineInfoContainer">
             <div className="wineInfo">
-              <span>Donnafugata</span>
-              <span className="originCounter">Tancredi 2016</span>
+              <span>{name}</span>
+              <span className="originCounter">{name}</span>
             </div>
             <div className="drinkOrigin">
               <div>
                 <img />
-                <span>Terre Siciliane, Italy</span>
+                <span>Terre Siciliane, {country}</span>
               </div>
             </div>
           </div>
           <div className="drinkRatingContainer">
             <div className="drinkRating">
-              <div>4.1</div>
+              <div>{rating}</div>
               <div>별점</div>
-              <div>1410 ratings</div>
+              <div>{review_counts} ratings</div>
             </div>
-            <div>Available online from </div>
+            <div>Available online from {price}</div>
           </div>
         </div>
       </div>

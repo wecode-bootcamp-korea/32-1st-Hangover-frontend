@@ -5,8 +5,10 @@ import FilterList from '../../components/UI/FilterList';
 import Countries from '../../components/UI/countries';
 import FoodPairing from '../../components/UI/foodPairing';
 import BigCard from '../../components/UI/BigCard';
+import { type } from '@testing-library/user-event/dist/type';
 
 const ProductList = () => {
+  const [isClicked, setIsClicked] = useState(false);
   // 필터 데이터 받아오는 것
   const [filterButtons, setFilterButtons] = useState([]);
   const [countries, setCountries] = useState([]);
@@ -15,26 +17,24 @@ const ProductList = () => {
   // const [handleFilterButton, sethandleFilterButton] = useState('none');
   const [products, setProducts] = useState([]);
 
-  // 필터 값 넣어두는 바구니
-  const [selectedTypes, setSelectedTypes] = useState({
-    whisky: false,
-    vodka: false,
-    cognac: false,
-    beer: false,
-    wine: false,
-    champagne: false,
-  });
+  //1. filter state에 실제 필터링 하는 데이터가 이 모양대로 추가되도록!
+  //2. 이미 존재하는 데이터인 경우 삭제되도록!
+  //3. filter state를 query parameter 형태로 가공
+
+  const [filter, setFilter] = useState([]);
 
   //selectedCountry
-
   const [filterButtonClick, setfilterButtonClick] = useState([]);
 
-  // const onClick = e => {
-  //   e.preventDefault(e);
-  //   handleFilterButton === 'none'
-  //     ? sethandleFilterButton('none')
-  //     : sethandleFilterButton('color');
-  // };
+  const handleFilter = (type, value) => {
+    // 이미 존재하는 필터인 경우 제거하는 로직 필요 hint : filter()
+    // 1. 이미 존재하는지 확인
+
+    // 2. 제거 => filter 메서드 활용해서, 선택한 필터 이외의 내용만 보이도록 setFilter
+    setFilter(filter.concat({ type, value }));
+
+    // setFilter({ type: type, value: value });
+  };
 
   const postFilter = () => {
     // selectedTypes에서 value가 true인 키를 다 꺼내, 그 키들을 패치에 넘겨
@@ -44,15 +44,30 @@ const ProductList = () => {
     // 필터 되서 온 데이터를 products에 다시 담아서
   };
 
-  /*
   //주종 필터링
+  // useEffect(() => {
+  //   fetch('http://10.58.6.41:8000/products')
+  //     .then(res => res.json())
+  //     .then(data => setProducts(data));
+  //   // .catch(e => console.log('error', e));
+  // }, [filter]);
+
   useEffect(() => {
-    fetch('http://10.58.6.41:8000/products')
+    fetch('http://10.58.0.242:8000/products')
       .then(res => res.json())
-      .then(data => setProducts(data));
+      .then(data => setProducts(data.result));
     // .catch(e => console.log('error', e));
   }, []);
-  */
+
+  useEffect(() => {
+    fetch('')
+      .then(res => res.json())
+      .then(data => {
+        setCountries(data.countries);
+        setFoodPairings(data.foodPairings);
+        setFilterButtons(data.filterButton);
+      });
+  }, []);
 
   // 국가 필터링
   useEffect(() => {
@@ -60,6 +75,7 @@ const ProductList = () => {
       .then(res => res.json())
       .then(data => setCountries(data));
   }, []);
+
   // 푸드 페어링 필터링
   useEffect(() => {
     fetch('./data/foodPairing.json')
@@ -75,20 +91,20 @@ const ProductList = () => {
   }, []);
 
   // 필터링 버튼 눌렀을 때 필터링 요청
-  // const aaa = e => {
-  //   e.preventDefault();
+  const aaa = e => {
+    e.preventDefault();
 
-  //   fetch('http://10.58.6.41:8000/products', {
-  //     method: 'POST',
-  //     body: JSON.stringify({
-  //       type: e.target.textContent.toLowerCase(),
-  //     }),
-  //   })
-  //     .then(res => res.json())
-  //     .then(res => setProducts(res));
+    fetch('http://10.58.6.41:8000/products', {
+      method: 'POST',
+      body: JSON.stringify({
+        type: e.target.textContent.toLowerCase(),
+      }),
+    })
+      .then(res => res.json())
+      .then(res => setProducts(res));
 
-  //   console.log(e.target.textContent.toLowerCase());
-  // };
+    console.log(e.target.textContent.toLowerCase());
+  };
 
   return (
     <article className="productList">
@@ -101,12 +117,12 @@ const ProductList = () => {
           <button className="sort" type="button">
             리뷰
           </button>
-          <div className="buttonResultLayout">
+          {/* <div className="buttonResultLayout">
             {filterButtonClick.map(e => {
               return;
               <div key={e.id}>{e.id}</div>;
             })}
-          </div>
+          </div> */}
         </div>
         <div className="allLayout">
           <div className="cardLayout">
@@ -116,20 +132,18 @@ const ProductList = () => {
                 <span>select mutiple</span>
               </div>
               <form className="filterList">
-                {filterButtons &&
-                  filterButtons.map(filterButton => (
-                    <FilterList
-                      key={filterButton.id}
-                      Filter={filterButton.Filter}
-                      type="button"
-                      filterButtonClick={filterButtonClick}
-                      setfilterButtonClick={setfilterButtonClick}
-                      setSelectedTypes={setSelectedTypes}
-                      // disabled={!setbutton}
-                    />
-                  ))}
+                {filterButtons.map(filterButton => (
+                  <FilterList
+                    key={filterButton.id}
+                    Filter={filterButton.Filter}
+                    filterButtonClick={filterButtonClick}
+                    setfilterButtonClick={setfilterButtonClick}
+                    filter={filter}
+                    handleFilter={value => handleFilter('types', value)}
+                    // disabled={!setbutton}
+                  />
+                ))}
               </form>
-
               <div className="price">
                 <FilterTitle />
               </div>
@@ -149,13 +163,15 @@ const ProductList = () => {
                 />
               </div>
               <form className="filterList">
-                {countries &&
-                  countries.map(name => (
-                    <Countries
-                      key={name.id}
-                      countryFilter={name.countryFilter}
-                    />
-                  ))}
+                {countries.map(name => (
+                  <Countries
+                    key={name.id}
+                    countryFilter={name.countryFilter}
+                    filter={filter}
+                    handleFilter={value => handleFilter('countries', value)}
+                    // countries값은 고정시키고 value만 보내
+                  />
+                ))}
               </form>
 
               {/* <div className="foodPairing">
@@ -195,10 +211,33 @@ const ProductList = () => {
               <BigCard />
 
             ))} */}
+            {products.map(product => {
+              const {
+                id,
+                price,
+                name,
+                country,
+                image_url,
+                rating,
+                review_counts,
+                // 구조분해할당
+              } = product;
+              return (
+                <BigCard
+                  key={id}
+                  price={price}
+                  name={name}
+                  country={country}
+                  image_url={image_url}
+                  rating={rating}
+                  review_counts={review_counts}
+                />
+              );
+            })}
+            {/* <BigCard />
             <BigCard />
             <BigCard />
-            <BigCard />
-            <BigCard />
+            <BigCard /> */}
           </div>
         </div>
       </div>
