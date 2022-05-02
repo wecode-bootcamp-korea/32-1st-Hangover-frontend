@@ -24,11 +24,31 @@
       height: 30px;
       margin-right: 20px;
     }
+
+    .inputList {
+      border: 1px solid rgb(0, 0, 0, 0.5);
+      border-top: none;
+      position: absolute;
+      z-index: 100;
+      background-color: white;
+
+      li {
+        display: flex;
+        align-items: center;
+        width: 380px;
+        padding: 15px;
+        color: black;
+        img {
+          width: 50px;
+          margin-right: 20px;
+        }
+      }
+    }
   }
 }
 .inputNav {
-  width: 350px;
-  height: 30px;
+  width: 380px;
+  height: 35px;
   border-radius: 10px;
   border: 1px solid black;
   padding-left: 45px;
