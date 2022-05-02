@@ -40,7 +40,12 @@ export default function SlideBox() {
   }, [buttomSlideid]);
 
   useEffect(() => {
-    fetch('https://jsonplaceholder.typicode.com/users')
+    fetch('https://jsonplaceholder.typicode.com/users', {
+      // method: 'POST',
+      // body: JSON.stringify({
+      //   list:
+      // }),
+    })
       .then(res => {
         return res.json();
       })
@@ -67,25 +72,25 @@ export default function SlideBox() {
           onClick={topPrevBtnClick}
           id="hangOverLank"
         >
-          1
+          {`<`}
         </button>
         <div className="slideWrap">
-          <span className="hangOverTopLank">HangOver TopLank 12</span>
+          <span className="hangOverTopLank">HangOver TopRank 12</span>
           <div className="carousel">
             <ul ref={carouselTop}>
               {hangOverLists.map(cardList => {
                 return (
-                  <li>
-                    <img
-                      src={`https://robohash.org/${cardList.id}?set=set2&size=180x180`}
-                      alt="cardImg"
-                    />
+                  <li key={cardList.id}>
+                    <img src={cardList.image_url} alt="cardImg" />
                     <div className="cardTextWrap">
                       <h2>취하노 지수</h2>
                       <div className="cardBottomText">
-                        <p>술 종류</p>
-                        <p>술 이름</p>
-                        <p>원산지</p>
+                        <p>{cardList.rating}</p>
+                        <p>{cardList.name}</p>
+                        <p>{cardList.category}</p>
+                        <p>{cardList.country}</p>
+                        <p>{cardList.created_at}</p>
+                        <p>{cardList.price}</p>
                       </div>
                     </div>
                   </li>
@@ -100,11 +105,11 @@ export default function SlideBox() {
           onClick={topNextBtnClick}
           id="hangOverLank"
         >
-          2
+          {`>`}
         </button>
       </div>
 
-      <img src="" />
+      <img src="../../../../../public/images/dummy.png" />
 
       <div className="randomLank">
         <button
@@ -113,7 +118,7 @@ export default function SlideBox() {
           onClick={buttomPrevBtnClick}
           id="recommendList"
         >
-          1
+          {`<`}
         </button>
         <div className="slideWrap">
           <span className="hangOverTopLank">This week's recommended list</span>
@@ -121,17 +126,17 @@ export default function SlideBox() {
             <ul ref={carouselBottom}>
               {recommendedList.map(cardList => {
                 return (
-                  <li>
-                    <img
-                      src={`https://robohash.org/${cardList.id}?set=set2&size=180x180`}
-                      alt="cardImg"
-                    />
+                  <li key={cardList}>
+                    <img src={cardList.img} alt="cardImg" />
                     <div className="cardTextWrap">
                       <h2>취하노 지수</h2>
                       <div className="cardBottomText">
-                        <p>술 종류</p>
-                        <p>술 이름</p>
-                        <p>원산지</p>
+                        <p>{cardList.rating}</p>
+                        <p>{cardList.name}</p>
+                        <p>{cardList.category}</p>
+                        <p>{cardList.country}</p>
+                        <p>{cardList.created_at}</p>
+                        <p>{cardList.price}</p>
                       </div>
                     </div>
                   </li>
@@ -146,7 +151,7 @@ export default function SlideBox() {
           onClick={buttomNextBtnClick}
           id="recommendList"
         >
-          2
+          {`>`}
         </button>
       </div>
     </>
