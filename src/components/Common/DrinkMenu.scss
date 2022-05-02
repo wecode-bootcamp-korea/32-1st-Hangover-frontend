@@ -1,0 +1,41 @@
+.navMenu {
+  border: 1px solid lightgray;
+  position: absolute;
+  background-color: white;
+  transform: translateY(80px);
+  display: flex;
+  flex-direction: column;
+  width: 150px;
+  left: 25px;
+    visibility: hidden;
+  transition: all 200ms ease-in-out;
+  border-radius: 10px;
+  padding: 10px 0;
+
+  &::before {
+    content: '';
+    width: 10px;
+    height: 10px;
+    background-color: white;
+    border-top: 1px solid lightgray;
+    border-right: 1px solid lightgray;
+    transform: rotate(-45deg);
+    left: 60px;
+    top: -6px;
+    position: absolute;
+  }
+
+  > li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3px 0;
+  }
+}
+
+.hoverMenu {
+  color: black;
+  border-radius: 10px;
+  visibility: unset;
+  transform: translateY(30px);
+}
