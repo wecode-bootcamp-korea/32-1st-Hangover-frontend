@@ -6,7 +6,7 @@ const Nav = () => {
   const [searchInputList, setSearchInputList] = useState([]);
   const [userInput, setUserInput] = useState('');
   useEffect(() => {
-    fetch('https://jsonplaceholder.typicode.com/users')
+    fetch('http://10.58.0.74:8000/products/search?search=whisky')
       .then(res => {
         return res.json();
       })
@@ -20,8 +20,8 @@ const Nav = () => {
   };
 
   const search = userInput.length
-    ? searchInputList.filter(list => {
-        return list.name.toLowerCase().includes(userInput.toLowerCase());
+    ? searchInputList.result.filter(list => {
+        return list[0].name.toLowerCase().includes(userInput.toLowerCase());
       })
     : [];
 
@@ -38,16 +38,21 @@ const Nav = () => {
               onChange={handleChange}
             />
             <ul className="inputList">
-              {search.map(list => {
-                return (
-                  <li key={list.id}>
-                    <img
-                      src={`https://robohash.org/${list.id}?set=set2&size=180x180`}
-                    />
-                    <span>{list.name}</span>
-                    <span>{list.name}</span>
-                  </li>
-                );
+              {search.map((list, idx) => {
+                if (list) {
+                  return (
+                    <li key={list.result.id}>
+                      <img src={list.result[0].image_url} art="img" />
+                      <span>{list.result[0].name}</span>
+                    </li>
+                  );
+                } else {
+                  return (
+                    <li key={idx}>
+                      <span>{list.result[1].Category}</span>
+                    </li>
+                  );
+                }
               })}
             </ul>
             <div>
