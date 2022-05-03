@@ -6,20 +6,17 @@ const BeerImoji = ({ rate }) => {
   const halfBeer = <img src="/images/beer_50.png" className="fulllBeer" />;
   const empty = <img src="/images/beer.png" className="fulllBeer" />;
 
-  {
-    return rate !== 0 ? (
-      <div className="imojiContainer">
-        {rate % 1 === 0
-          ? [...Array(parseInt(rate))].map(icon => fillBeer)
-          : [...Array(parseInt(rate))]
-              .map(icon => fillBeer)
-              .concat(halfBeer)
-              .concat([...Array(5 - Math.floor(rate) - 1)].map(item => empty))}
-      </div>
-    ) : (
-      <div className="imojiContainer">{[Array(5)].map(icon => empty)} </div>
-    );
-  }
+  return rate !== 0 ? (
+    <div className="beerImoji">
+      {rate % 1 === 0
+        ? [...Array(parseInt(rate))].map(icon => fillBeer)
+        : [...Array(parseInt(rate))]
+            .map(icon => fillBeer)
+            .concat(halfBeer)
+            .concat([...Array(5 - Math.floor(rate) - 1)].map(item => empty))}
+    </div>
+  ) : (
+    <div className="beerImoji">{[Array(5)].map(icon => empty)} </div>
+  );
 };
-
 export default BeerImoji;

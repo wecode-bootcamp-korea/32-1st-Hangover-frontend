@@ -9,7 +9,7 @@ const DetailTop = ({ productInfo }) => {
   console.log(rait);
 
   return (
-    <article className="detailArticle">
+    <article className="detailTop">
       <section className="detailTopSection">
         <div className="detailTopImg">
           <img

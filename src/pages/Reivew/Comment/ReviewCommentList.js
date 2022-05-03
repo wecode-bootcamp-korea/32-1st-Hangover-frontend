@@ -4,7 +4,7 @@ import './ReviewCommentList.scss';
 const ReviewCommentList = ({ commentList, isitOpen, setreviewCommentList }) => {
   return (
     isitOpen && (
-      <article className="reviewCommentListArticle">
+      <article className="reviewCommentList">
         <ReviewComment
           setreviewCommentList={setreviewCommentList}
           reviewCommentList={commentList}

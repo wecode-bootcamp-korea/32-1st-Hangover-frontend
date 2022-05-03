@@ -1,10 +1,12 @@
-.reviewCommentListArticle {
+.reviewCommentList {
   display: flex;
   flex-direction: column;
+
   .reviewCommentDiv {
     display: flex;
     align-items: center;
     padding: 0px 0px 16px 0px;
+
     .reviewCommentUserDiv {
       display: flex;
       justify-content: center;
@@ -19,6 +21,7 @@
   }
   .reviewCommentBox {
     display: flex;
+
     p {
       font-size: 20px;
       line-height: 28px;

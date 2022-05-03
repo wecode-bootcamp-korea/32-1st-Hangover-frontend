@@ -3,7 +3,7 @@ import './TasteRaitBar.scss';
 const TasteRaitBar = ({ items }) => {
   let key = 0;
   return (
-    <div key={key++} className="tableContainer">
+    <div key={key++} className="tasteRaitBar">
       <div className="tableName">{items[0]}</div>
       <div className="tableRow">
         <div className="tableBar"></div>

@@ -30,7 +30,7 @@ const UpdateReivew = ({ commentList, rating, writerId }) => {
   const handleUpdate = e => {};
 
   return (
-    <section className="modalSection">
+    <section className="modal">
       <article className="modalArticle">
         <div className="modalTitle">
           <div>

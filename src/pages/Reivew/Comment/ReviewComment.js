@@ -24,7 +24,7 @@ const ReviewComment = ({ setreviewCommentList, reviewCommentList }) => {
   };
 
   return (
-    <div className="reviewCommentDiv">
+    <div className="reviewComment">
       <div className="reviewCommentUserDiv">
         <i class="fa-solid fa-user"></i>
       </div>

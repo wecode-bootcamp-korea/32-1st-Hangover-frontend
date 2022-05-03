@@ -9,7 +9,7 @@ const AddRaiting = ({ rating, setRaiting, setIsIsFull }) => {
 
   {
     return rating === 0 ? (
-      <div className="imojiContainer">
+      <div className="beerImoji">
         {[...Array(5)].map((icon, index) => {
           index += 1;
           return (

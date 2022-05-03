@@ -29,7 +29,7 @@ const CreateReivew = ({ rating, commentList, setCommentList, setIsIsFull }) => {
   };
 
   return (
-    <section className="modalSection">
+    <section className="createReview">
       <article className="modalArticle">
         <div className="modalTitle">
           <div>

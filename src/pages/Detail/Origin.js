@@ -2,7 +2,7 @@ import './Orgin.scss';
 
 const Origin = () => {
   return (
-    <table className="originTable">
+    <table className="origin">
       <tbody>
         {[1, 2, 3, 4].map(item => (
           <tr>

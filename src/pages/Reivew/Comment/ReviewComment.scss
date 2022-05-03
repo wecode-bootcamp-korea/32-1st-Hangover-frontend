@@ -1,6 +1,7 @@
-.reviewCommentDiv {
+.reviewComment {
   display: flex;
   padding: 0px 0px 16px 0px;
+
   .reviewCommentUserDiv {
     display: flex;
     justify-content: center;
@@ -12,8 +13,10 @@
     background-color: rgba(158, 155, 155, 0.596);
     font-size: 13px;
   }
+
   .reviewCommentBox {
     width: 100%;
+
     textarea {
       border-radius: 16px;
       padding: 24px 32px;

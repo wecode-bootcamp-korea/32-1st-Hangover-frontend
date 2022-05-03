@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import './Review.scss';
+import './ReviewList.scss';
 
 const ReviewList = ({
   commentList,
@@ -38,7 +38,7 @@ const ReviewList = ({
       created_at,
     } = item;
     return (
-      <section className="newComment">
+      <section className="reviewList">
         <div className="newCommnetSingle">
           <span className="newCommentSpan">
             <span className="newCommentIcon">

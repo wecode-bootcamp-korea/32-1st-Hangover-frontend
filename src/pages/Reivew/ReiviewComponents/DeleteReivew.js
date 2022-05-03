@@ -13,7 +13,7 @@ const DeleteReivew = ({
   const date = new Date();
 
   return (
-    <section className="modalSection">
+    <section className="modal">
       <article className="modalArticle">
         <div className="modalTitle">
           <div>

@@ -3,7 +3,7 @@ import './DetailSummary.scss';
 const DetailSummary = ({ productInfo }) => {
   console.log(productInfo);
   return (
-    <div className="detailSummaryTable">
+    <div className="detailSummary">
       <TasteRaitBar productInfo={productInfo} />
     </div>
   );

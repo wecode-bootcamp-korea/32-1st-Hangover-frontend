@@ -75,7 +75,7 @@ const ReviewSection = () => {
 
   return (
     commentList && (
-      <section className="commentListSection">
+      <section className="reivewSection">
         <div className="commentNavContainer">
           <div className="commentNav">
             <div

@@ -13,7 +13,7 @@ const KEY_WORD = [
 
 const KeyWord = () => {
   return (
-    <div className="detailKey">
+    <div className="keyWord">
       {KEY_WORD.map(keyItems => (
         <>
           <span className="keyContent" key={keyItems.id}>
