@@ -1,4 +1,12 @@
-@import '../../../../styles/variable.scss';
+@import '../../../../styles//variable.scss';
+
+$img-height: 400px;
+$carousel-margin-top: 50px;
+$carousel-margin-right: 10px;
+$carousel-padding: 25px;
+$carousel-border: 1px;
+$btn-top: $carousel-margin-top + $img-height/2 + $carousel-padding +
+  $carousel-border;
 
 .hangOverLank {
   display: flex;
@@ -13,33 +21,40 @@
     .carousel {
       position: relative;
       display: flex;
+      margin-bottom: 80px;
 
       .btnWrapper {
         .slideLeftBtn {
           position: absolute;
           left: 0;
+          top: $btn-top;
+          transform: translateY(-50%);
           z-index: 5;
+          cursor: pointer;
         }
 
         .slideRigthBtn {
           position: absolute;
-          right: 0;
+          right: $carousel-margin-right;
+          top: $btn-top;
+          transform: translateY(-50%);
           z-index: 5;
+          cursor: pointer;
         }
       }
 
       ul {
         display: flex;
         position: relative;
-
+        transition: transform 500ms;
         li {
           display: flex;
           width: 240px;
           background-color: rgb(254, 250, 245);
-          border: 1px solid rgba(0, 0, 0, 0.05);
+          border: $carousel-border solid rgba(0, 0, 0, 0.05);
           border-radius: 20px;
-          padding: 25px;
-          margin: 50px 10px 10px 0px;
+          padding: $carousel-padding;
+          margin: $carousel-margin-top $carousel-margin-right 10px 0px;
 
           .cardTextWrap {
             display: flex;
@@ -54,6 +69,8 @@
               margin-top: 40px;
 
               p {
+                font-size: 20px;
+                font-weight: 600;
                 margin-top: 20px;
               }
             }
@@ -61,7 +78,7 @@
 
           img {
             width: 100px;
-            height: 400px;
+            height: $img-height;
           }
 
           &:hover {
@@ -69,7 +86,7 @@
           }
 
           &:hover img {
-            transform: translateY(-80px);
+            transform: translateY(-70px);
             transition-duration: 0.7s;
           }
         }
@@ -94,7 +111,6 @@
     background-color: $iconColor;
     opacity: 0.6;
     border: none;
-    margin-top: 75px;
     font-size: 20px;
     color: white;
   }

@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import '../Components/SlideBox.scss';
-import Carousel from '../Carousel';
-
+import Carousel from '../MainCarousel/Components/CarouselList';
+import './MainCarousel.scss';
 export default function SlideBox() {
   const [hangOverLists, sethangOverLists] = useState([]);
   const [ramdomList, setRamdomList] = useState([]);
@@ -26,11 +25,15 @@ export default function SlideBox() {
       });
   }, []);
   return (
-    <>
+    <div className="mainCarousel">
       <span className="hangOverTopLank">HangOver TopRank 12</span>
       <Carousel hangOverLists={hangOverLists} />
-      <span className="hangOverTopLank">HangOver TopRank 12</span>
+
+      <video autoPlay muted loop>
+        <source src="/images/Wine - 56914.mp4" />
+      </video>
+      <span className="recommendList">Recommendation of the week 12</span>
       <Carousel hangOverLists={ramdomList} />
-    </>
+    </div>
   );
 }

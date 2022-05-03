@@ -1,0 +1,17 @@
+.mainCarousel {
+  display: flex;
+  flex-direction: column;
+  .recommendList,
+  .hangOverTopLank {
+    display: inline-block;
+    margin: 0 auto;
+    font-weight: 800;
+    font-size: 50px;
+    margin-top: 80px;
+  }
+  video {
+    width: 100vw;
+    height: 350px;
+    object-fit: cover;
+  }
+}

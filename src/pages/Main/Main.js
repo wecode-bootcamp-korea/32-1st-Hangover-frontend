@@ -1,12 +1,12 @@
 import { useState } from 'react';
-import SlideBox from '../../components/Common/MainSlider/Components/SlideBox';
+import MainCarousel from '../../components/Common/MainCarousel/MainCarousel';
 
 import './Main.scss';
 
 const Main = () => {
   return (
     <div>
-      <SlideBox />
+      <MainCarousel />
     </div>
   );
 };
