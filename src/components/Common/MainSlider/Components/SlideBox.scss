@@ -1,7 +1,6 @@
 @import '../../../../styles/variable.scss';
 
-.hangOverLank,
-.randomLank {
+.hangOverLank {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -16,6 +15,16 @@
     }
     .carousel {
       display: flex;
+      .btnWrapper {
+        .slideLeftBtn {
+          position: absolute;
+          left: 0;
+        }
+        .slideRigthBtn {
+          position: absolute;
+          right: 0;
+        }
+      }
 
       ul {
         display: flex;
@@ -53,7 +62,7 @@
           }
 
           &:hover img {
-            transform: translateY(980px);
+            transform: translateY(-80px);
             transition-duration: 0.7s;
           }
         }
@@ -79,8 +88,5 @@
     margin-top: 75px;
     font-size: 20px;
     color: white;
-  }
-  .slideLeftBtn {
-    margin-right: 10px;
   }
 }
