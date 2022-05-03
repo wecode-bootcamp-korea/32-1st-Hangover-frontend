@@ -29,29 +29,36 @@ const Detail = () => {
       });
   }, []);
 
-  if (isloading || !productInfo) return null;
+  // if (isloading || !productInfo) return null;
 
-  if (error) return <>에러가 발생했습니다. code : {error}</>;
+  // if (error) return <>에러가 발생했습니다. code : {error}</>;
+
+  // return (
+  //   // <article className="detail">
+  //   //   <DetailTop productInfo={productInfo} />
+  //   //   <ArticleWrap title={'술의 맛이 어떠셨나요?'}>
+  //   //     {Object.entries(productInfo.property).map(items => (
+  //   //       <DetailSummary items={items} />
+  //   //     ))}
+  //   //   </ArticleWrap>
+  //   //   <ArticleWrap title={'술의 맛이 어떠셨나요?'}>
+  //   //     <FoodPairing productInfo={productInfo.product_detail} />
+  //   //   </ArticleWrap>
+  //   //   <ArticleWrap title={'숙취후기'}>
+  //   //     <ReviewSection />
+  //   //   </ArticleWrap>
+  //   //   <section className="origin">
+  //   //     <h2 className="originH2">Facts about the wine</h2>
+  //   //     <Origin />
+  //   //   </section>
+  //   // </article>
+
+  // );
 
   return (
-    <article className="detail">
-      <DetailTop productInfo={productInfo} />
-      <ArticleWrap title={'술의 맛이 어떠셨나요?'}>
-        {Object.entries(productInfo.property).map(items => (
-          <DetailSummary items={items} />
-        ))}
-      </ArticleWrap>
-      <ArticleWrap title={'술의 맛이 어떠셨나요?'}>
-        <FoodPairing productInfo={productInfo.product_detail} />
-      </ArticleWrap>
-      <ArticleWrap title={'숙취후기'}>
-        <ReviewSection />
-      </ArticleWrap>
-      <section className="origin">
-        <h2 className="originH2">Facts about the wine</h2>
-        <Origin />
-      </section>
-    </article>
+    <ArticleWrap title={'숙취후기'}>
+      <ReviewSection />
+    </ArticleWrap>
   );
 };
 
