@@ -12,29 +12,6 @@ const DeleteReivew = ({
   const [inputComment, setInputComment] = useState('');
   const date = new Date();
 
-  // const handleEdit = e => {
-  //   setInputComment(e.target.value);
-  // };
-  // const data = {
-  //   id: 5,
-  //   score: rating,
-  //   likedCount: 0,
-  //   userName: 'wecode',
-  //   content: inputComment,
-  //   isLiked: false,
-  //   reviewComment: [],
-  //   date: date.toLocaleString(),
-  // };
-
-  // const handleSubmit = () => {
-  //   setIsIsFull(false);
-  //   setCommentList([...commentList, data]);
-  // };
-
-  // const cancleSubmit = () => {
-  //   setIsIsFull(false);
-  // };
-
   return (
     <section className="modalSection">
       <article className="modalArticle">

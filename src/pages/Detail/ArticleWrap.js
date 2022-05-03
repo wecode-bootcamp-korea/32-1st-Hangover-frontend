@@ -1,14 +1,12 @@
 import './ArticleWrap.scss';
 
-const ArticleWarp = props => {
+const ArticleWrap = props => {
   return (
     <section className="articleWarp">
-      <div className="detailtitle">
-        <h2>{props.title}</h2>
-      </div>
+      <h2 className="detailtitle">{props.title}</h2>
       {props.children}
     </section>
   );
 };
 
-export default ArticleWarp;
+export default ArticleWrap;

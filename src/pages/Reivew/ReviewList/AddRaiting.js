@@ -27,7 +27,7 @@ const AddRaiting = ({ rating, setRaiting, setIsIsFull }) => {
       <div className="imojiContainer">
         {array.concat(
           [...Array(5 - array.length)].map(item => (
-            <img src="/images/beer.png" className="fulllBeer emptyBeer" />
+            <img src="/images/beer.png" className="fulllBeer" />
           ))
         )}
       </div>

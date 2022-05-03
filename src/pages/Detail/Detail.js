@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-
-import ArticleWarp from './ArticleWrap';
+import { useData } from '../../provider/useData';
+import ArticleWrap from './ArticleWrap';
 import DetailTop from './DetailTop';
 import DetailSummary from './DetailSummary';
 import FoodPairing from './FoodPairing';
@@ -8,58 +8,53 @@ import ReviewSection from '../Reivew/ReviewList/ReviewSection';
 import Origin from './Origin';
 import './Detail.scss';
 
+//객체 초기값이면 값이있다고 판단해서 함수를 실행시키므로,
+//null로 설정해주어야함....
 const Detail = () => {
-  const [productInfo, setProductInfo] = useState(
-    localStorage.getItem('product')
-  );
-
+  const data = useData().reviewData;
+  const issue = useData().issueData('안녕');
+  alert(data);
+  const [productInfo, setProductInfo] = useState(null);
   const [isloading, setIsLoading] = useState(true);
-  /// 새로고침 하면서 리렌더링되니까 날라감
+  const [error, setError] = useState();
   useEffect(() => {
-    fetch('http://10.58.6.41:8000/products/1', { method: 'GET' })
+    fetch(`http://10.58.7.97:8000/products/1`)
       .then(res => res.json())
       .then(data => {
-        localStorage.setItem('product', JSON.stringify(data.product_detail));
-        setIsLoading(false);
+        setProductInfo({ ...data });
       })
       .catch(error => {
-        console.log(error);
+        setError(error);
+      })
+      .finally(() => {
         setIsLoading(false);
       });
   }, []);
 
   return (
-    <article className="detailAllArticle">
-      <DetailTop productInfo={productInfo} />
-      <ArticleWarp title={'술의 맛이 어떠셨나요?'}>
-        <DetailSummary productInfo={JSON.parse(productInfo)} />
-      </ArticleWarp>
-      <ArticleWarp title={'술의 맛이 어떠셨나요?'}>
-        <FoodPairing productInfo={JSON.parse(productInfo)} />
-      </ArticleWarp>
-      <ArticleWarp title={'숙취후기'}>
-        <ReviewSection />
-      </ArticleWarp>
-      <section className="origin">
-        <h2 className="originH2">Facts about the wine</h2>
-        <Origin />
-      </section>
-    </article>
+    // productInfo !== null &&
+    // productInfo !== undefined && (
+    //   <article className="detailAllArticle">
+    //     {/* <DetailTop productInfo={productInfo} />
+    //     <ArticleWrap title={'술의 맛이 어떠셨나요?'}>
+    //       {Object.entries(productInfo.property).map(items => (
+    //         <DetailSummary items={items} />
+    //       ))}
+    //     </ArticleWrap>
+    //     <ArticleWrap title={'술의 맛이 어떠셨나요?'}>
+    //       <FoodPairing productInfo={productInfo.product_detail} />
+    //     </ArticleWrap> */}
+
+    //     {/* <section className="origin">
+    //       <h2 className="originH2">Facts about the wine</h2>
+    //       <Origin />
+    //     </section> */}
+    //   </article>
+    // )
+    <ArticleWrap title={'숙취후기'}>
+      <ReviewSection />
+    </ArticleWrap>
   );
 };
 
 export default Detail;
-
-/*
-  {name: 'Sonny', price: '161000.000', country: 'Korea', alcohol_percentage: '2.0', food_category: Array(2), …}
-alcohol_percentage: "2.0"
-country: "Korea"
-food_category: (2) ['chinese', 'japanese']
-name: "Sonny"
-price: "161000.000"
-property:
-bitterness: "90"
-sparkling: "10"
-sweetness: "40"
-[[Prototype]]: Object
-reviews: 8 */

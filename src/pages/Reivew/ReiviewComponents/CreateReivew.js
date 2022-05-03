@@ -10,14 +10,13 @@ const CreateReivew = ({ rating, commentList, setCommentList, setIsIsFull }) => {
     setInputComment(e.target.value);
   };
   const data = {
-    id: 5,
-    score: rating,
-    likedCount: 0,
-    userName: 'wecode',
+    firstname: 'Scappy',
+    lastname: 'Kim',
+    user_id: 1,
     content: inputComment,
-    isLiked: false,
-    reviewComment: [],
-    date: date.toLocaleString(),
+    rating: '4.5',
+    created_at: date.getDate(),
+    review_id: 5,
   };
 
   const handleSubmit = () => {

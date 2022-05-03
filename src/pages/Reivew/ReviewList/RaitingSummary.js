@@ -2,6 +2,7 @@ import BeerImogji from '../../Detail/BeerImoji';
 import './RaitingSummary.scss';
 
 const RaitingSummary = () => {
+  let keys = 0;
   return (
     <div className="ratingSummary">
       <div className="ratingIcon">
