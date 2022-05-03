@@ -9,20 +9,22 @@
   .slideWrap {
     width: 1000px;
     overflow-x: hidden;
-    .hangOverTopLank {
-      font-size: 50px;
-      font-weight: 700;
-    }
+
     .carousel {
+      position: relative;
       display: flex;
+
       .btnWrapper {
         .slideLeftBtn {
           position: absolute;
           left: 0;
+          z-index: 5;
         }
+
         .slideRigthBtn {
           position: absolute;
           right: 0;
+          z-index: 5;
         }
       }
 
@@ -43,20 +45,25 @@
             display: flex;
             flex-direction: column;
             margin-left: 30px;
+
             h2 {
               margin: 70px 0px;
             }
+
             .cardBottomText {
               margin-top: 40px;
+
               p {
                 margin-top: 20px;
               }
             }
           }
+
           img {
             width: 100px;
             height: 400px;
           }
+
           &:hover {
             box-shadow: 5px 5px 5px 5px lightgray;
           }
@@ -66,6 +73,7 @@
             transition-duration: 0.7s;
           }
         }
+
         @media screen and (max-width: 1110px) {
           li {
             display: none;
@@ -74,6 +82,7 @@
       }
     }
   }
+
   .slideLeftBtn,
   .slideRigthBtn {
     display: flex;

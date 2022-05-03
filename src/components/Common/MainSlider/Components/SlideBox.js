@@ -5,8 +5,6 @@ import Carousel from '../Carousel';
 export default function SlideBox() {
   const [hangOverLists, sethangOverLists] = useState([]);
   const [ramdomList, setRamdomList] = useState([]);
-  console.log(hangOverLists);
-  console.log(ramdomList);
 
   useEffect(() => {
     fetch('https://node-pagnation.herokuapp.com/users?offset=0&limit=12')

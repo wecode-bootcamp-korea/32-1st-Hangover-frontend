@@ -22,25 +22,23 @@ export default function Carousel({ hangOverLists }) {
     <div className="hangOverLank">
       <div className="slideWrap">
         <div className="carousel">
-          <div>
-            <div className="btnWrapper">
-              <button
-                className="slideLeftBtn"
-                slideid={topSlideid}
-                onClick={topPrevBtnClick}
-                id="hangOverLank"
-              >
-                {`<`}
-              </button>
-              <button
-                className="slideRigthBtn"
-                slideid={topSlideid}
-                onClick={topNextBtnClick}
-                id="hangOverLank"
-              >
-                {`>`}
-              </button>
-            </div>
+          <div className="btnWrapper">
+            <button
+              className="slideLeftBtn"
+              slideid={topSlideid}
+              onClick={topPrevBtnClick}
+              id="hangOverLank"
+            >
+              {`<`}
+            </button>
+            <button
+              className="slideRigthBtn"
+              slideid={topSlideid}
+              onClick={topNextBtnClick}
+              id="hangOverLank"
+            >
+              {`>`}
+            </button>
           </div>
           <ul ref={carouselTop}>
             {hangOverLists.map(cardList => {
@@ -50,12 +48,7 @@ export default function Carousel({ hangOverLists }) {
                   <div className="cardTextWrap">
                     <h2>취하노 지수</h2>
                     <div className="cardBottomText">
-                      {/* <p>{cardList.rating}</p> */}
                       <p>{cardList.name}</p>
-                      {/* <p>{cardList.category}</p>
-                      <p>{cardList.country}</p>
-                      <p>{cardList.created_at}</p>
-                      <p>{cardList.price}</p> */}
                     </div>
                   </div>
                 </li>
