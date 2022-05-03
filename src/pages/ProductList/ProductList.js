@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react';
 import './ProductList.scss';
 import BeerImoji from '../Detail/BeerImoji';
 import FilterType from './components/FilterType';
-import FilterList from '../../components/UI/FilterList';
-import Countries from '../../components/UI/countries';
-import FoodPairing from '../../components/UI/foodPairing';
+import FilterList from './components/FilterList';
+import Countries from './components/countries';
+import FoodPairing from './components/foodPairing';
 import BigCard from '../../components/UI/BigCard';
 
 const ProductList = () => {
@@ -13,50 +13,34 @@ const ProductList = () => {
   const [countries, setCountries] = useState([]);
   const [foodPairings, setFoodPairings] = useState([]);
   const [priceList, setPriceList] = useState([]);
-  const [raitList, setRaitList] = useState([]);
-  // const [handleFilterButton, sethandleFilterButton] = useState('none');
   const [products, setProducts] = useState([]);
-
-  const [isitChecked, setIsItChecked] = useState(false);
-
-  //1. filter state에 실제 필터링 하는 데이터가 이 모양대로 추가되도록!
-  //2. 이미 존재하는 데이터인 경우 삭제되도록!
-  //3. filter state를 query parameter 형태로 가공
-
   const [filter, setFilter] = useState([]);
+  const [rating, setRating] = useState();
 
-  const filterQuery = filter
-    .map(opt => [opt.type, opt.value].join('='))
-    .join('&');
+  const mappedQueryArray = filter.map(opt => [opt.type, opt.value].join('='));
 
-  // console.log(filterQuery.replaceAll('만원 이상', ''));
-  //selectedCountry
+  const filterQuery = !!rating
+    ? mappedQueryArray.concat(`rating=${rating}`).join('&')
+    : mappedQueryArray.join('&');
+
+  console.log('query :', filterQuery);
 
   const handleFilter = (type, value) => {
-    // 이미 존재하는 필터인 경우 제거하는 로직 필요 hint : filter()
-    // 1. 이미 존재하는지 확인
-    // const newFilter = filter.map(item => {
-    // })
     const isIncluded = filter.map(item => item.value).includes(value);
-    // value가 중복되는지 확인 ->
 
     isIncluded
       ? setFilter(prev => prev.filter(item => item.value !== value))
       : setFilter(prev => [...prev, { type, value }]);
-    // !isIncluded &&
-
-    // 2. 제거 => filter 메서드 활용해서, 선택한 필터 이외의 내용만 보이도록 setFilter
-    // setFilter(filter.concat({ type, value }));
-
-    // setFilter({ type: type, value: value });
   };
 
-  const chekedItem = (type, value,e) => {
-    if (!isitChecked&&) {
-      setIsItChecked(true);
-      setFilter(prev => [...prev, { type, value }]);
+  const handleRating = item => {
+    if (rating === item) {
+      setRating();
+    } else {
+      setRating(item);
     }
   };
+
   console.log(filter);
 
   const postFilter = () => {
@@ -105,14 +89,12 @@ const ProductList = () => {
       .then(res => res.json())
       .then(data => setPriceList(data));
   }, []);
-
   // 푸드 페어링 필터링
   useEffect(() => {
     fetch('./data/foodPairing.json')
       .then(res => res.json())
       .then(data => setFoodPairings(data));
   }, []);
-
   // 최초 데이터 요청
   useEffect(() => {
     fetch('/data/FilterList.json')
@@ -157,14 +139,14 @@ const ProductList = () => {
         <div className="allLayout">
           <div className="cardLayout">
             <div className="filter">
-              <FilterType title="Types" subTitle="select mutiple">
+              <FilterType title="Category" subTitle="select mutiple">
                 <form className="filterList">
                   {filterButtons.map(filterButton => (
                     <FilterList
                       key={filterButton.id}
                       Filter={filterButton.Filter}
                       filter={filter}
-                      handleFilter={value => handleFilter('types', value)}
+                      handleFilter={value => handleFilter('category', value)}
                       // disabled={!setbutton}
                     />
                   ))}
@@ -193,10 +175,11 @@ const ProductList = () => {
                         <BeerImoji rate={item} />
                         <input
                           type="radio"
-                          checked={isitChecked}
-                          onClick={value => {
-                            chekedItem('rate', item);
-                          }}
+                          value={item}
+                          name="checked"
+                          checked={rating === item}
+                          handleFilter={value => handleFilter('raitng', value)}
+                          onClick={() => handleRating(item)}
                         />
                       </div>
                     ))}
@@ -204,14 +187,14 @@ const ProductList = () => {
                 </form>
               </FilterType>
 
-              <FilterType title="Rate">
+              <FilterType title="Country">
                 <form className="filterList">
                   {countries.map(name => (
                     <Countries
                       key={name.id}
                       countryFilter={name.countryFilter}
                       filter={filter}
-                      handleFilter={value => handleFilter('countries', value)}
+                      handleFilter={value => handleFilter('country', value)}
                       // countries값은 고정시키고 value만 보내
                     />
                   ))}
@@ -225,7 +208,7 @@ const ProductList = () => {
                       key={filterButton.id}
                       Filter={filterButton.pairing}
                       filter={filter}
-                      handleFilter={value => handleFilter('types', value)}
+                      handleFilter={value => handleFilter('foodPairing', value)}
                       // disabled={!setbutton}
                     />
                   ))}
