@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useData } from '../../provider/useData';
+
 import ArticleWrap from './ArticleWrap';
 import DetailTop from './DetailTop';
 import DetailSummary from './DetailSummary';
@@ -11,9 +11,6 @@ import './Detail.scss';
 //객체 초기값이면 값이있다고 판단해서 함수를 실행시키므로,
 //null로 설정해주어야함....
 const Detail = () => {
-  const data = useData().reviewData;
-  const issue = useData().issueData('안녕');
-  alert(data);
   const [productInfo, setProductInfo] = useState(null);
   const [isloading, setIsLoading] = useState(true);
   const [error, setError] = useState();
