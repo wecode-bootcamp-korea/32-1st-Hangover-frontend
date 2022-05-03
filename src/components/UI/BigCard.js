@@ -1,7 +1,5 @@
 import './BigCard.scss';
 
-const BigCard = () => {
-  <div>this is BigCard</div>;
-};
+const BigCard = () => {};
 
 export default BigCard;
