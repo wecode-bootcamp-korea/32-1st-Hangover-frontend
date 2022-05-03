@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import './Nav.scss';
 import DrinkMenu from './DrinkMenu';
+import './Nav.scss';
 
 const Nav = () => {
   const [visible, setVisible] = useState(false);
@@ -8,7 +8,9 @@ const Nav = () => {
     <nav className="nav">
       <div className="upperNav">
         <div className="layout">
-          <img src="/images/logo.png" alt="Logopng" className="logo" />
+          <a href="/">
+            <img src="/images/logo.png" alt="Logopng" className="logo" />
+          </a>
           <input
             className="inputNav"
             type="text"
@@ -24,15 +26,13 @@ const Nav = () => {
         </div>
       </div>
       <div className="downNav">
-        <div className="dropDownContainer">
+        <div
+          className="dropDownContainer"
+          onMouseOver={() => setVisible(true)}
+          onMouseLeave={() => setVisible(false)}
+        >
           <i class="fa-solid fa-wine-glass" />
-          <span
-            className="navDrinkMenu"
-            onMouseOver={() => setVisible(true)}
-            onMouseOut={() => setVisible(false)}
-          >
-            주류
-          </span>
+          <span className="navDrinkMenu">주류</span>
           <DrinkMenu visible={visible} />
 
           <div>
