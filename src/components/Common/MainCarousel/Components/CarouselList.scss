@@ -8,13 +8,13 @@ $carousel-border: 1px;
 $btn-top: $carousel-margin-top + $img-height/2 + $carousel-padding +
   $carousel-border;
 
-.hangOverRank {
+.carouselList {
   display: flex;
   justify-content: center;
   align-items: center;
   margin-top: 40px;
 
-  .slideWrap {
+  .carouseWrap {
     width: 1000px;
     overflow-x: hidden;
 
@@ -24,7 +24,7 @@ $btn-top: $carousel-margin-top + $img-height/2 + $carousel-padding +
       margin-bottom: 80px;
 
       .btnWrapper {
-        .slideLeftBtn {
+        .leftBtn {
           position: absolute;
           left: 40;
           top: $btn-top;
@@ -33,7 +33,7 @@ $btn-top: $carousel-margin-top + $img-height/2 + $carousel-padding +
           cursor: pointer;
         }
 
-        .slideRigthBtn {
+        .rigthBtn {
           position: absolute;
           right: $carousel-margin-right;
           top: $btn-top;
@@ -43,12 +43,12 @@ $btn-top: $carousel-margin-top + $img-height/2 + $carousel-padding +
         }
       }
 
-      ul {
+      .cardWrap {
         display: flex;
         position: relative;
         transition: transform 500ms;
         margin-top: 10px;
-        li {
+        .cardList {
           display: flex;
           width: 240px;
           background-color: rgb(255, 248, 248);
@@ -88,7 +88,7 @@ $btn-top: $carousel-margin-top + $img-height/2 + $carousel-padding +
             }
           }
 
-          img {
+          .carouseCardImg {
             width: 100px;
             height: $img-height;
           }
@@ -104,7 +104,7 @@ $btn-top: $carousel-margin-top + $img-height/2 + $carousel-padding +
         }
 
         @media screen and (max-width: 1110px) {
-          li {
+          .cardList {
             display: none;
           }
         }
@@ -112,8 +112,8 @@ $btn-top: $carousel-margin-top + $img-height/2 + $carousel-padding +
     }
   }
 
-  .slideLeftBtn,
-  .slideRigthBtn {
+  .leftBtn,
+  .rigthBtn {
     display: flex;
     align-items: center;
     justify-content: center;

@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import BeerImoji from './BeerImoji';
 import './CarouselList.scss';
 
 export default function CarouselList({ hangOverLists }) {
@@ -32,12 +31,12 @@ export default function CarouselList({ hangOverLists }) {
   };
 
   return (
-    <div className="hangOverRank">
-      <div className="slideWrap">
+    <div className="carouselList">
+      <div className="carouseWrap">
         <div className="carousel">
           <div className="btnWrapper">
             <button
-              className="slideLeftBtn"
+              className="leftBtn"
               carouselListid={carouselListId}
               onClick={prevBtnClick}
               id="hangOverRank"
@@ -45,7 +44,7 @@ export default function CarouselList({ hangOverLists }) {
               {`<`}
             </button>
             <button
-              className="slideRigthBtn"
+              className="rigthBtn"
               carouselListId={carouselListId}
               onClick={nextBtnClick}
               id="hangOverLank"
@@ -53,24 +52,27 @@ export default function CarouselList({ hangOverLists }) {
               {`>`}
             </button>
           </div>
-          <ul ref={carouselTop}>
-            {hangOverLists.map(cardList => {
+          <ul className="cardWrap" ref={carouselTop}>
+            {hangOverLists.map(list => {
               return (
                 <li
-                  key={cardList.id}
+                  className="cardList"
+                  key={list.id}
                   onClick={() => {
-                    goDetail(cardList.id);
+                    goDetail(list.id);
                   }}
                 >
-                  <img src={cardList.image_url} alt="cardImg" />
+                  <img
+                    className="carouseCardImg"
+                    src={list.image_url}
+                    alt="cardImg"
+                  />
                   <div className="cardTextWrap">
                     <div className="cardBottomText">
-                      <p className="alcohoName">{cardList.name}</p>
-                      <p className="alcoholCategory">{cardList.category}</p>
-                      <p className="alcoholCountry">{cardList.country}</p>
-                      <p className="alcoholPrice">
-                        ₩{Math.floor(cardList.price)}
-                      </p>
+                      <p className="alcohoName">{list.name}</p>
+                      <p className="alcoholCategory">{list.category}</p>
+                      <p className="alcoholCountry">{list.country}</p>
+                      <p className="alcoholPrice">₩{Math.floor(list.price)}</p>
                     </div>
                   </div>
                 </li>
