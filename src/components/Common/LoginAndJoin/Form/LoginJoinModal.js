@@ -34,7 +34,7 @@ export default function LoginJoinModal({
                 <div className="imgWrap">
                   <img
                     className="img"
-                    src="/images/gayatri-malhotra-_CqJImMQiVQ-unsplash.jpg"
+                    src="/images/alcohol-4049656_1920.jpg"
                     alt=""
                   />
                 </div>
@@ -42,7 +42,7 @@ export default function LoginJoinModal({
                 <div className="imgWrap">
                   <img
                     className="img"
-                    src="/images/heineken-206147_1920.jpg"
+                    src="/images/rose-4593831_1920.jpg"
                     alt=""
                   />
                 </div>
@@ -75,7 +75,7 @@ export default function LoginJoinModal({
                         className="buttons"
                         onClick={signUpBtnClick}
                       >
-                        <span>회원가입</span>
+                        <span>회원가입 </span>
                       </button>
                       <div className="closedBtnWrap">
                         <button
@@ -91,7 +91,7 @@ export default function LoginJoinModal({
                   ) : (
                     <>
                       <button className="buttons" disabled={!isInputsValid}>
-                        <span>회원가입 완료</span>
+                        <span>회원가입 완료 </span>
                       </button>
                       <div className="backAndClosedBtnWrap">
                         <button

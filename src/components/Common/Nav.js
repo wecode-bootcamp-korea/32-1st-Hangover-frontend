@@ -1,9 +1,22 @@
 import React, { useState } from 'react';
 import DrinkMenu from './DrinkMenu';
 import './Nav.scss';
+import LoginJoin from './LoginAndJoin/LoginJoin/LoginJoin';
 
 const Nav = () => {
   const [visible, setVisible] = useState(false);
+  const [login, setLogin] = useState(false);
+
+  const openModal = () => {
+    localStorage.getItem('JWT_TOKEN') ? logOut() : setLogin(true);
+  };
+
+  const logOut = () => {
+    const isLogOut = window.confirm('로그아웃 하시겠습니까?');
+    if (isLogOut) {
+      localStorage.removeItem('JWT_TOKEN');
+    }
+  };
   return (
     <nav className="nav">
       <div className="upperNav">
@@ -22,7 +35,14 @@ const Nav = () => {
           <i class="fa-solid fa-angle-down" />
           <span>Langauage</span>
           <i class="fa-solid fa-angle-down" />
-          <i class="fa-regular fa-user" />
+          <i
+            className={
+              localStorage.getItem('JWT_TOKEN')
+                ? 'fa-solid fa-user'
+                : 'fa-regular fa-user'
+            }
+            onClick={openModal}
+          />
         </div>
       </div>
       <div className="downNav">
@@ -50,6 +70,7 @@ const Nav = () => {
         </div>
       </div>
       <hr className="bottomNavLine" />
+      {login && <LoginJoin setLogin={setLogin} login={login} />}
     </nav>
   );
 };

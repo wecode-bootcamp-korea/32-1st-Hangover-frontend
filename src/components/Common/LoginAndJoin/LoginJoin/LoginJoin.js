@@ -203,7 +203,7 @@ const SIGNUP_DATA = [
     id: 6,
     type: 'password',
     name: 'signUpPassword',
-    placeholder: '영어 , 숫자 , 특수문자 를 포함한 10자리를 입력해주세요.',
+    placeholder: '영어,숫자,특수문자를 포함한 비밀번호 10자리를 입력해주세요.',
   },
   {
     id: 7,
