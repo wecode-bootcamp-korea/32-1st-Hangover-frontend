@@ -4,37 +4,39 @@ import LoginJoin from '../Common/LoginAndJoin/LoginJoin/LoginJoin';
 import './Nav.scss';
 
 const Nav = () => {
-  const [visible, setVisible] = useState(false);
+  const [drinkMenuVisible, setDrinkMenuVisible] = useState(false);
   const [login, setLogin] = useState(false);
-  const [searchInputList, setSearchInputList] = useState([]);
-  const [userInput, setUserInput] = useState('');
+  const [searchList, setSearchList] = useState([]);
+  const [searchInput, setSearchInput] = useState('');
 
-  const logOutLogin = () => {
-    localStorage.getItem('JWT_TOKEN') ? logOut() : setLogin(true);
+  const loginAndLogout = () => {
+    localStorage.getItem('JWT_TOKEN') ? clickLogout() : setLogin(true);
   };
-  const logOut = () => {
+
+  const clickLogout = () => {
     const isLogOut = window.confirm('로그아웃 하시겠습니까?');
     if (isLogOut) {
       localStorage.removeItem('JWT_TOKEN');
     }
   };
+
   useEffect(() => {
     fetch(`http://10.58.3.174:8000/products/search?search`)
       .then(res => {
         return res.json();
       })
       .then(data => {
-        setSearchInputList(data.result);
+        setSearchList(data.result);
       });
   }, []);
 
   const handleChange = e => {
-    return setUserInput(e.target.value);
+    return setSearchInput(e.target.value);
   };
 
-  const search = userInput.length
-    ? searchInputList.filter(list => {
-        return list.name.toLowerCase().includes(userInput.toLowerCase());
+  const search = searchInput.length
+    ? searchList.filter(list => {
+        return list.name.toLowerCase().includes(searchInput.toLowerCase());
       })
     : [];
 
@@ -47,7 +49,7 @@ const Nav = () => {
             <input
               className="inputNav"
               type="text"
-              placeholder="🔍   Search any alcohol"
+              placeholder="🔍   Search any HangOver"
               onChange={handleChange}
             />
             <ul className="inputList">
@@ -71,7 +73,7 @@ const Nav = () => {
           <i class="fa-solid fa-angle-down" />
           <span>Langauage</span>
           <i class="fa-solid fa-angle-down" />
-          <span className="" onClick={logOutLogin}>
+          <span className="" onClick={loginAndLogout}>
             {localStorage.getItem('JWT_TOKEN') ? 'Log Out' : 'Log In'}
           </span>
         </div>
@@ -79,12 +81,12 @@ const Nav = () => {
       <div className="downNav">
         <div
           className="dropDownContainer"
-          onMouseOver={() => setVisible(true)}
-          onMouseLeave={() => setVisible(false)}
+          onMouseOver={() => setDrinkMenuVisible(true)}
+          onMouseLeave={() => setDrinkMenuVisible(false)}
         >
           <i class="fa-solid fa-wine-glass" />
-          <span className="navDrinkMenu">주류</span>
-          <DrinkMenu visible={visible} />
+          <span className="navDrinkMenu">Drink Menu</span>
+          <DrinkMenu drinkMenuVisible={drinkMenuVisible} />
         </div>
       </div>
       <hr className="bottomNavLine" />
