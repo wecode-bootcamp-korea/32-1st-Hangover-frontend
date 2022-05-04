@@ -22,7 +22,11 @@ export default function LoginJoin({ setLogin }) {
   const { signUpEmail, firstName, lastName, signUpPassword, signUpRePassword } =
     signupInputs;
 
-  const isLoginValid = loginEmail.includes('@') && loginPassword.length > 10;
+  const isLoginValid =
+    loginEmail.includes('@') &&
+    loginPassword.match(
+      /^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{10,}$/
+    );
 
   const isSignupValid =
     signUpEmail.includes('@') &&
