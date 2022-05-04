@@ -40,6 +40,7 @@
         height: 100%;
         width: 450px;
         display: flex;
+
         flex-direction: column;
         align-items: center;
         background-color: $backGround;
@@ -52,53 +53,53 @@
           border-radius: 10px;
           outline: none;
         }
-        .buttonWrap {
-          display: flex;
-          flex-direction: column;
-          margin-bottom: 30px;
-
-          .backAndClosedBtnWrap {
-            display: flex;
-            justify-content: space-between;
-            flex-direction: row;
-            margin-top: 40px;
-            .backBtn,
-            .closeBtn {
-              padding: 10px;
-              border-radius: 20px;
-              border: none;
-              background-color: $iconColor;
-              color: white;
-            }
-          }
-          .buttons {
-            width: 400px;
-            padding: 12px;
-            margin-top: 20px;
-            margin-bottom: 10px;
-            border-radius: 20px;
-            border: none;
-            color: white;
-            background-color: $iconColor;
-
-            &:disabled {
-              opacity: 0.5;
-            }
-          }
-          .closedBtnWrap {
-            display: flex;
-            justify-content: flex-end;
-            margin-top: 110px;
-            .closeBtn {
-              padding: 10px;
-              border-radius: 20px;
-              border: none;
-              background-color: $iconColor;
-              color: white;
-            }
-          }
-        }
       }
     }
   }
+}
+.loginSignUpForm {
+  display: flex;
+  flex-direction: column;
+  .backBtn,
+  .closeBtn {
+    padding: 10px;
+    border-radius: 20px;
+    border: none;
+    background-color: $iconColor;
+    color: white;
+  }
+
+  .buttons {
+    width: 400px;
+    padding: 12px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    border-radius: 20px;
+    border: none;
+    color: white;
+    background-color: $iconColor;
+
+    &:disabled {
+      opacity: 0.5;
+    }
+  }
+  .closedBtnWrap {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 80px;
+
+    .closeBtn {
+      padding: 10px;
+      border-radius: 20px;
+      border: none;
+      background-color: $iconColor;
+      color: white;
+    }
+  }
+}
+.backAndClosedBtnWrap {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 50px;
+  margin-bottom: 50px;
 }

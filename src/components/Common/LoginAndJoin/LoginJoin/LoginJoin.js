@@ -59,14 +59,16 @@ export default function LoginJoin({ setLogin }) {
 
   const [isModalClosed, setisModalClosed] = useState(false);
   const closeRef = useRef();
+
   const closedModal = e => {
     if (closeRef.current === e.target) {
       setLogin(false);
       setisModalClosed(true);
     }
   };
-  const handleLogin = () => {
-    fetch('http://10.58.6.41:8000/users/signin', {
+  const handleLogin = e => {
+    e.preventDefault();
+    fetch('http://10.58.1.45:8000/users/signin', {
       method: 'POST',
       body: JSON.stringify({
         email: loginEmail,
@@ -86,11 +88,12 @@ export default function LoginJoin({ setLogin }) {
       });
   };
 
-  const handleSignup = () => {
-    fetch('http://10.58.6.41:8000/users/signup', {
+  const handleSignup = e => {
+    e.preventDefault();
+    fetch('http://10.58.1.45:8000/users/signup', {
       method: 'POST',
       body: JSON.stringify({
-        email: loginEmail,
+        email: signUpEmail,
         firstname: firstName,
         lastname: lastName,
         password: signUpPassword,
@@ -102,8 +105,11 @@ export default function LoginJoin({ setLogin }) {
         if (result.message === 'SUCCESS') {
           localStorage.setItem('JWT_TOKEN', result.JWT_TOKEN);
           alert('회원가입 성공!');
-        } else {
-          alert('아이디 혹은 비밀번호가 형식에 맞지 않습니다.');
+          setIsLoginOpen(true);
+        } else if (result.message === 'EMAIL_EXISTS') {
+          alert('중복된 이메일입니다.');
+        } else if (result.message && 'INVALID_EMAIL' && 'INVALID_PASSWORD') {
+          alert('이메일 혹은 비밀번호가 형식에 맞지 않습니다.');
         }
       });
   };
