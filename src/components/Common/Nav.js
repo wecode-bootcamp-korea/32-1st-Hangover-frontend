@@ -82,7 +82,7 @@ const Nav = () => {
           <span className="navDrinkMenu">주류</span>
           <DrinkMenu visible={visible} />
 
-          <div>
+          {/* <div>
             <i class="fa-solid fa-burger" />
             <span>소개</span>
           </div>
@@ -93,7 +93,7 @@ const Nav = () => {
           <div>
             <i class="fa-solid fa-check" />
             <span>영역2</span>
-          </div>
+          </div> */}
         </div>
       </div>
       <hr className="bottomNavLine" />
