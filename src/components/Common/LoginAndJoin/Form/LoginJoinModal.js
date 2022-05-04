@@ -8,7 +8,7 @@ export default function LoginJoinModal({
   type,
   title,
   inputData,
-  setIsLoginOpen,
+  setIsModalOpen,
   handleBtn,
   isInputsValid,
   getValue,
@@ -20,7 +20,7 @@ export default function LoginJoinModal({
   closeRef,
 }) {
   const signUpBtnClick = () => {
-    setIsLoginOpen(false);
+    setIsModalOpen(false);
   };
 
   return (
@@ -90,11 +90,7 @@ export default function LoginJoinModal({
                     </>
                   ) : (
                     <>
-                      <button
-                        className="buttons"
-                        // onClick={handleBtn}
-                        disabled={!isInputsValid}
-                      >
+                      <button className="buttons" disabled={!isInputsValid}>
                         <span>회원가입 완료</span>
                       </button>
                       <div className="backAndClosedBtnWrap">
@@ -102,7 +98,7 @@ export default function LoginJoinModal({
                           type="button"
                           className="backBtn"
                           onClick={() => {
-                            setIsLoginOpen(true);
+                            setIsModalOpen(true);
                           }}
                         >
                           <span>뒤로가기</span>
