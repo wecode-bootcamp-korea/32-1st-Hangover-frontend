@@ -1,6 +1,6 @@
 @import '../../../../styles//variable.scss';
 
-$img-height: 400px;
+$img-height: 350px;
 $carousel-margin-top: 50px;
 $carousel-margin-right: 10px;
 $carousel-padding: 25px;
@@ -8,7 +8,7 @@ $carousel-border: 1px;
 $btn-top: $carousel-margin-top + $img-height/2 + $carousel-padding +
   $carousel-border;
 
-.hangOverLank {
+.hangOverRank {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -26,7 +26,7 @@ $btn-top: $carousel-margin-top + $img-height/2 + $carousel-padding +
       .btnWrapper {
         .slideLeftBtn {
           position: absolute;
-          left: 0;
+          left: 40;
           top: $btn-top;
           transform: translateY(-50%);
           z-index: 5;
@@ -50,12 +50,12 @@ $btn-top: $carousel-margin-top + $img-height/2 + $carousel-padding +
         li {
           display: flex;
           width: 240px;
-          background-color: rgb(254, 250, 245);
+          background-color: rgb(255, 248, 248);
           border: $carousel-border solid rgba(0, 0, 0, 0.05);
           border-radius: 20px;
           padding: $carousel-padding;
           margin: $carousel-margin-top $carousel-margin-right 10px 0px;
-
+          box-shadow: 0px 3px 3px 0px lightgray;
           .cardTextWrap {
             display: flex;
             flex-direction: column;
@@ -72,6 +72,18 @@ $btn-top: $carousel-margin-top + $img-height/2 + $carousel-padding +
                 font-size: 20px;
                 font-weight: 600;
                 margin-top: 20px;
+              }
+              .alcohoName {
+                font-size: 30px;
+                font-weight: 700;
+                opacity: 0.6;
+              }
+              .alcoholCategory {
+                margin-top: 70px;
+                font-size: 20px;
+              }
+              .alcoholCountry {
+                font-size: 15px;
               }
             }
           }

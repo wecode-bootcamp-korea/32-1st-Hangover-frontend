@@ -1,10 +1,13 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+
 import BeerImoji from './BeerImoji';
 import './CarouselList.scss';
 
 export default function CarouselList({ hangOverLists }) {
   const [carouselListId, setCarouselListId] = useState(0);
   const carouselTop = useRef();
+  const navigate = useNavigate();
 
   useEffect(() => {
     carouselTop.current.style.transform = `translate(${
@@ -24,8 +27,12 @@ export default function CarouselList({ hangOverLists }) {
     setCarouselListId(carouselListId < 2 ? carouselListId + 1 : carouselListId);
   };
 
+  const goDetail = id => {
+    navigate(`detail/${id}`);
+  };
+
   return (
-    <div className="hangOverLank">
+    <div className="hangOverRank">
       <div className="slideWrap">
         <div className="carousel">
           <div className="btnWrapper">
@@ -33,7 +40,7 @@ export default function CarouselList({ hangOverLists }) {
               className="slideLeftBtn"
               carouselListid={carouselListId}
               onClick={prevBtnClick}
-              id="hangOverLank"
+              id="hangOverRank"
             >
               {`<`}
             </button>
@@ -49,7 +56,12 @@ export default function CarouselList({ hangOverLists }) {
           <ul ref={carouselTop}>
             {hangOverLists.map(cardList => {
               return (
-                <li key={cardList.id}>
+                <li
+                  key={cardList.id}
+                  onClick={() => {
+                    goDetail(cardList.id);
+                  }}
+                >
                   <img src={cardList.image_url} alt="cardImg" />
                   <div className="cardTextWrap">
                     {/* <BeerImoji rate={hangOverLists.ratings} /> */}
@@ -58,7 +70,7 @@ export default function CarouselList({ hangOverLists }) {
                       <p className="alcoholCategory">{cardList.category}</p>
                       <p className="alcoholCountry">{cardList.country}</p>
                       <p className="alcoholPrice">
-                        {Math.floor(cardList.price)}
+                        ₩{Math.floor(cardList.price)}
                       </p>
                     </div>
                   </div>

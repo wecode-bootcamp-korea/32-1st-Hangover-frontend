@@ -6,27 +6,30 @@ export default function SlideBox() {
   const [ramdomList, setRamdomList] = useState([]);
 
   useEffect(() => {
-    fetch('https://node-pagnation.herokuapp.com/users?offset=0&limit=12')
+    fetch(' http://10.58.3.174:8000/products?sorting=high_rating')
       .then(res => {
         return res.json();
       })
       .then(data => {
-        return sethangOverLists(data.users);
+        return sethangOverLists(data.result);
       });
   }, []);
 
   useEffect(() => {
-    fetch('https://node-pagnation.herokuapp.com/users?offset=12&limit=24')
+    fetch('http://10.58.3.174:8000/products?sorting=random')
       .then(res => {
         return res.json();
       })
       .then(data => {
-        return setRamdomList(data.users);
+        return setRamdomList(data.result);
       });
   }, []);
   return (
     <div className="mainCarousel">
-      <span className="hangOverTopLank">HangOver TopRank 12</span>
+      <video autoPlay muted loop>
+        <source src="/images/Beer - 80133 (online-video-cutter.com).mp4" />
+      </video>
+      <span className="hangOverTopRank">HangOver TopRank 12</span>
       <Carousel hangOverLists={hangOverLists} />
 
       <video autoPlay muted loop>
