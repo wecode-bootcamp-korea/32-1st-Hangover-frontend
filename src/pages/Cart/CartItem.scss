@@ -1,0 +1,18 @@
+.p {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .u {
+    margin-left: 20px;
+  }
+
+  .productInfo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    .g {
+      margin-right: 0;
+    }
+  }
+}
