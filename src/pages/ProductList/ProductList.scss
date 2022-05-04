@@ -14,9 +14,9 @@
   .wrapper {
     margin: 0 auto;
   }
+
   .list {
     margin-bottom: 40px;
-
     font-size: 20px;
     font-family: 'Noto Sans KR', sans-serif;
 
@@ -24,8 +24,9 @@
       font-weight: bold;
       padding-bottom: 15px;
     }
+
     .sort {
-      margin-left: 670px;
+      margin-left: 800px;
       width: 90px;
       height: 35px;
       border: 1px solid black;
@@ -57,7 +58,7 @@
     }
 
     .title {
-      font-size: 22px;
+      font-size: 20px;
       font-weight: bold;
     }
 
@@ -71,6 +72,7 @@
       font-size: 22px;
       font-weight: bold;
     }
+
     .country {
       display: flex;
       justify-content: space-between;
@@ -83,6 +85,7 @@
       font-size: 22px;
       font-weight: bold;
     }
+
     .countrySearchInput {
       width: 300px;
       margin-top: 15px;
@@ -111,24 +114,4 @@
       font-family: 'Noto Sans KR', sans-serif;
     }
   }
-
-  // .bigCardLayout {
-  //   margin-top: 150px;
-
-  //   .bigCard {
-  //     display: flex;
-  //     border: 1px solid black;
-  //     border-radius: 10px;
-  //     width: 600px;
-  //     height: 280px;
-  //     margin-left: 30px;
-  //     background-color: white;
-  //   }
-  // }
-
-  // .bigCard img {
-  //   margin-top: 10px;
-  //   width: 240px;
-  //   height: 250px;
-  // }
 }

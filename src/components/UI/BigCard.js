@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import './BigCard.scss';
 
 const BigCard = ({
@@ -9,8 +10,14 @@ const BigCard = ({
   rating,
   review_counts,
 }) => {
+  const navigate = useNavigate();
+
+  const handleMove = productId => {
+    navigate(`/detail/${productId}`);
+  };
+
   return (
-    <div className="bigCardsContainer">
+    <div className="bigCardsContainer" onClick={handleMove(id)}>
       <div className="container">
         <div className="bigCardId">
           <div className="bottleContainer">

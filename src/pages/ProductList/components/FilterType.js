@@ -7,7 +7,7 @@ function FilterType(props) {
     <div className="price">
       <div className="filterTitle">
         <span className="title">{title}</span>
-        {subTitle && <span>{subTitle}</span>}
+        {subTitle && <span className="subTitle">{subTitle}</span>}
       </div>
       {children}
     </div>

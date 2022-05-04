@@ -8,7 +8,6 @@ import FoodPairing from './components/foodPairing';
 import BigCard from '../../components/UI/BigCard';
 
 const ProductList = () => {
-  // 필터 데이터 받아오는 것
   const [filterButtons, setFilterButtons] = useState([]);
   const [countries, setCountries] = useState([]);
   const [foodPairings, setFoodPairings] = useState([]);
@@ -41,31 +40,21 @@ const ProductList = () => {
     }
   };
 
-  console.log(filter);
+  console.log(products);
 
   const postFilter = () => {
     // selectedTypes에서 value가 true인 키를 다 꺼내, 그 키들을 패치에 넘겨
-    fetch(``)
+    fetch('')
       .then(res => res.json())
       .then(data => setProducts(data));
-    // 필터 되서 온 데이터를 products에 다시 담아서
   };
 
   //주종 필터링
   useEffect(() => {
-    fetch(`http://10.58.0.74:8000/product?${filterQuery}`)
+    fetch(`http://10.58.3.174:8000/products?${filterQuery}`)
       .then(res => res.json())
       .then(data => setProducts(data.result));
-    // .catch(e => console.log('error', e));
   }, [filter]);
-
-  console.log(products);
-  // useEffect(() => {
-  //   fetch('http://10.58.0.242:8000/products')
-  //     .then(res => res.json())
-  //     .then(data => setProducts(data.result));
-  //   // .catch(e => console.log('error', e));
-  // }, []);
 
   useEffect(() => {
     fetch('')
@@ -103,7 +92,7 @@ const ProductList = () => {
   }, []);
 
   // 필터링 버튼 눌렀을 때 필터링 요청
-  const aaa = e => {
+  const handleFliterButtons = e => {
     e.preventDefault();
 
     fetch('http://10.58.6.41:8000/products', {
@@ -122,19 +111,11 @@ const ProductList = () => {
     <article className="productList">
       <div className="wrapper">
         <div className="list">
-          <h1 className="listCopy">
-            Showing 280 wines between ₩10,000 - ₩40,000 rated above 3.8 stars
-          </h1>
+          <h1 className="listCopy">Showing {products.length} drinks</h1>
           <span className="listSubCopy">From 1 regional wine style</span>
           <button className="sort" type="button">
-            리뷰
+            리뷰 <i class="fa-solid fa-angle-down" />
           </button>
-          {/* <div className="buttonResultLayout">
-            {filterButtonClick.map(e => {
-              return;
-              <div key={e.id}>{e.id}</div>;
-            })}
-          </div> */}
         </div>
         <div className="allLayout">
           <div className="cardLayout">
@@ -147,7 +128,6 @@ const ProductList = () => {
                       Filter={filterButton.Filter}
                       filter={filter}
                       handleFilter={value => handleFilter('category', value)}
-                      // disabled={!setbutton}
                     />
                   ))}
                 </form>
@@ -161,7 +141,6 @@ const ProductList = () => {
                       Filter={filterButton.price}
                       filter={filter}
                       handleFilter={value => handleFilter('price', value)}
-                      // disabled={!setbutton}
                     />
                   ))}
                 </form>
@@ -195,7 +174,6 @@ const ProductList = () => {
                       countryFilter={name.countryFilter}
                       filter={filter}
                       handleFilter={value => handleFilter('country', value)}
-                      // countries값은 고정시키고 value만 보내
                     />
                   ))}
                 </form>
@@ -208,8 +186,9 @@ const ProductList = () => {
                       key={filterButton.id}
                       Filter={filterButton.pairing}
                       filter={filter}
-                      handleFilter={value => handleFilter('foodPairing', value)}
-                      // disabled={!setbutton}
+                      handleFilter={value =>
+                        handleFilter('food_pairing', value)
+                      }
                     />
                   ))}
                 </form>
@@ -218,10 +197,6 @@ const ProductList = () => {
           </div>
 
           <div className="bigCardLayout">
-            {/* {products.map(it => (
-              <BigCard />
-
-            ))} */}
             {products.map(product => {
               const {
                 id,
@@ -231,7 +206,6 @@ const ProductList = () => {
                 image_url,
                 rating,
                 review_counts,
-                // 구조분해할당
               } = product;
               return (
                 <BigCard

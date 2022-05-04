@@ -31,6 +31,15 @@
         transition-duration: 1s;
       }
 
+      &:hover {
+        box-shadow: 5px 5px 5px 5px lightgray;
+
+        .cardBottleImg {
+          transform: translateY(-20px);
+          transition-duration: 1s;
+        }
+      }
+
       .bottleContainer {
         margin-top: -25px;
         margin-left: 10px;
@@ -40,6 +49,7 @@
           }
         }
       }
+
       .wineInfoContainer {
         display: flex;
         flex-direction: column;
@@ -54,6 +64,7 @@
           }
         }
       }
+
       .drinkRatingContainer {
         display: flex;
         flex-direction: column;
