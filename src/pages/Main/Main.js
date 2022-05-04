@@ -1,7 +1,9 @@
+import { useState } from 'react';
+
 import './Main.scss';
 
 const Main = () => {
-  return <main>this is main</main>;
+  return <div></div>;
 };
 
 export default Main;

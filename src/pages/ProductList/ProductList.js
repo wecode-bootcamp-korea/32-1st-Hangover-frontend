@@ -206,9 +206,11 @@ const ProductList = () => {
                 image_url,
                 rating,
                 review_counts,
+                review,
               } = product;
               return (
                 <BigCard
+                  id={id}
                   key={id}
                   price={price}
                   name={name}
@@ -216,13 +218,14 @@ const ProductList = () => {
                   image_url={image_url}
                   rating={rating}
                   review_counts={review_counts}
+                  review={review}
                 />
               );
             })}
-            {/* <BigCard />
             <BigCard />
             <BigCard />
-            <BigCard /> */}
+            <BigCard />
+            <BigCard />
           </div>
         </div>
       </div>

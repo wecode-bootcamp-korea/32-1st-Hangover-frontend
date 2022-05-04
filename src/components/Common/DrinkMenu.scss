@@ -1,0 +1,45 @@
+.DrinkMenu {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  border: 1px solid lightgray;
+  width: 150px;
+  padding: 10px 0;
+  background-color: rgb(255, 255, 255);
+  transform: translateY(80px);
+  left: 25px;
+  visibility: hidden;
+  transition: all 200ms ease-in-out;
+  border-radius: 10px;
+
+  &::before {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    left: 60px;
+    top: -6px;
+    background-color: rgb(255, 255, 255);
+    border-top: 1px solid lightgray;
+    border-right: 1px solid lightgray;
+    transform: rotate(-45deg);
+  }
+
+  li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3px 0;
+
+    a {
+      color: black;
+    }
+  }
+
+  &.hoverMenu {
+    color: black;
+    border-radius: 10px;
+    visibility: unset;
+    transform: translateY(30px);
+  }
+}
