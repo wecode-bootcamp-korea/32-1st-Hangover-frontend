@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import LoginJoinForm from '../Form/LoginJoinModal';
 
 export default function LoginJoin({ setLogin }) {
+  const navigate = useNavigate();
   const [isLoginOpen, setIsLoginOpen] = useState(true);
 
   const [loginInputs, setLoginInputs] = useState({
@@ -41,28 +43,69 @@ export default function LoginJoin({ setLogin }) {
     setSignupInputs({ ...signupInputs, [name]: value });
   };
 
+  const [isModalOut, setIsModalOut] = useState(false);
+  const modalRef = useRef();
+
+  const exitModal = e => {
+    setLogin(false);
+    setIsModalOut(true);
+  };
+
+  const onModalBGClick = e => {
+    if (modalRef.current === e.target) {
+      exitModal();
+    }
+  };
+
+  const [isModalClosed, setisModalClosed] = useState(false);
+  const closeRef = useRef();
+  const closedModal = e => {
+    if (closeRef.current === e.target) {
+      setLogin(false);
+      setisModalClosed(true);
+    }
+  };
   const handleLogin = () => {
-    // fetch('받을 주소', {
-    //   method: 'POST',
-    //   body: JSON.stringify({
-    //     email: loginEmail,
-    //     password: loginPassword,
-    //   }),
-    // })
-    //   .then(response => response.json())
-    //   .then(result => {
-    //     if (result.message === 'SUCCESS') {
-    //       localStorage.setItem('token', result.access_token);
-    //       alert('로그인 성공!');
-    //       // navigate('/main');
-    //     } else {
-    //       alert('아이디 혹은 비밀번호가 다릅니다.');
-    //     }
-    //   });
+    fetch('http://10.58.6.41:8000/users/signin', {
+      method: 'POST',
+      body: JSON.stringify({
+        email: loginEmail,
+        password: loginPassword,
+      }),
+    })
+      .then(response => response.json())
+      .then(result => {
+        if (result.message === 'SUCCESS') {
+          localStorage.setItem('JWT_TOKEN', result.JWT_TOKEN);
+          alert('로그인 성공!');
+          navigate('/detail');
+          exitModal();
+        } else {
+          alert('아이디 혹은 비밀번호가 다릅니다.');
+        }
+      });
   };
 
   const handleSignup = () => {
-    fetch();
+    fetch('http://10.58.6.41:8000/users/signup', {
+      method: 'POST',
+      body: JSON.stringify({
+        email: loginEmail,
+        firstname: firstName,
+        lastname: lastName,
+        password: signUpPassword,
+        repassword: signUpRePassword,
+      }),
+    })
+      .then(response => response.json())
+      .then(result => {
+        if (result.message === 'SUCCESS') {
+          localStorage.setItem('JWT_TOKEN', result.JWT_TOKEN);
+          alert('회원가입 성공!');
+        } else {
+          alert('아이디 혹은 비밀번호가 형식에 맞지 않습니다.');
+        }
+      });
   };
 
   return (
@@ -77,6 +120,12 @@ export default function LoginJoin({ setLogin }) {
           handleBtn={handleLogin}
           isInputsValid={isLoginValid}
           getValue={getLoginValue}
+          isModalOut={isModalOut}
+          isModalClosed={isModalClosed}
+          exitModal={onModalBGClick}
+          closedModal={closedModal}
+          modalRef={modalRef}
+          closeRef={closeRef}
         />
       ) : (
         <LoginJoinForm
@@ -88,6 +137,12 @@ export default function LoginJoin({ setLogin }) {
           handleBtn={handleSignup}
           isInputsValid={isSignupValid}
           getValue={getSignupValue}
+          isModalOut={isModalOut}
+          isModalClosed={isModalClosed}
+          exitModal={onModalBGClick}
+          closedModal={closedModal}
+          modalRef={modalRef}
+          closeRef={closeRef}
         />
       )}
     </div>

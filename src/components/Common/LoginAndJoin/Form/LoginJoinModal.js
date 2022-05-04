@@ -1,7 +1,8 @@
-import React, { useRef, useState } from 'react';
+import React from 'react';
 import Header from '../Components/Header';
 import HeaderImg from '../Components/HeaderImg';
-import '../Form/LoginJoinModal.scss';
+import OverlayNoneScroll from '../../OverlayNoneScroll/OverlayNoneScroll';
+import './LoginJoinModal.scss';
 
 export default function LoginJoinModal({
   type,
@@ -11,34 +12,19 @@ export default function LoginJoinModal({
   handleBtn,
   isInputsValid,
   getValue,
-  setLogin,
+  isModalOut,
+  isModalClosed,
+  exitModal,
+  closedModal,
+  modalRef,
+  closeRef,
 }) {
-  const [isModalOut, setIsModalOut] = useState(false);
-  const modalRef = useRef();
-
-  const exitModal = e => {
-    if (modalRef.current === e.target) {
-      setLogin(false);
-      setIsModalOut(true);
-    }
-  };
-
-  const [isModalClosed, setisModalClosed] = useState(false);
-  const closeRef = useRef();
-  const closedModal = e => {
-    if (closeRef.current === e.target) {
-      setLogin(false);
-      setisModalClosed(true);
-    }
-  };
-
   const signUpBtnClick = () => {
-    handleBtn();
     setIsLoginOpen(false);
   };
 
   return (
-    <div>
+    <div className="loginJoinModal">
       {
         (!isModalOut,
         !isModalClosed && (
@@ -134,6 +120,7 @@ export default function LoginJoinModal({
                 )}
               </article>
             </section>
+            <OverlayNoneScroll />
           </div>
         ))
       }
