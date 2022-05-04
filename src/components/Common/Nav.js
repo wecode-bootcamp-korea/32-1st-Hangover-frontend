@@ -8,6 +8,16 @@ const Nav = () => {
   const [login, setLogin] = useState(false);
   const [searchInputList, setSearchInputList] = useState([]);
   const [userInput, setUserInput] = useState('');
+
+  const logOutLogin = () => {
+    localStorage.getItem('JWT_TOKEN') ? logOut() : setLogin(true);
+  };
+  const logOut = () => {
+    const isLogOut = window.confirm('로그아웃 하시겠습니까?');
+    if (isLogOut) {
+      localStorage.removeItem('JWT_TOKEN');
+    }
+  };
   useEffect(() => {
     fetch('https://jsonplaceholder.typicode.com/users')
       .then(res => {
@@ -64,12 +74,9 @@ const Nav = () => {
           <i class="fa-solid fa-angle-down" />
           <span>Langauage</span>
           <i class="fa-solid fa-angle-down" />
-          <i
-            className="fa-regular fa-user"
-            onClick={() => {
-              login === false ? setLogin(true) : setLogin(false);
-            }}
-          />
+          <span className="" onClick={logOutLogin}>
+            {localStorage.getItem('JWT_TOKEN') ? 'Log Out' : 'Log In'}
+          </span>
         </div>
       </div>
       <div className="downNav">
@@ -81,19 +88,6 @@ const Nav = () => {
           <i class="fa-solid fa-wine-glass" />
           <span className="navDrinkMenu">주류</span>
           <DrinkMenu visible={visible} />
-
-          {/* <div>
-            <i class="fa-solid fa-burger" />
-            <span>소개</span>
-          </div>
-          <div>
-            <i class="fa-solid fa-check" />
-            <span>영역1</span>
-          </div>
-          <div>
-            <i class="fa-solid fa-check" />
-            <span>영역2</span>
-          </div> */}
         </div>
       </div>
       <hr className="bottomNavLine" />
