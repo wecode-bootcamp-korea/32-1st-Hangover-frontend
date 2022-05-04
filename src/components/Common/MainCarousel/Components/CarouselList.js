@@ -64,7 +64,6 @@ export default function CarouselList({ hangOverLists }) {
                 >
                   <img src={cardList.image_url} alt="cardImg" />
                   <div className="cardTextWrap">
-                    {/* <BeerImoji rate={hangOverLists.ratings} /> */}
                     <div className="cardBottomText">
                       <p className="alcohoName">{cardList.name}</p>
                       <p className="alcoholCategory">{cardList.category}</p>

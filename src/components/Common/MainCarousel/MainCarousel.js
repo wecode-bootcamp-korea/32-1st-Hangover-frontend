@@ -24,6 +24,7 @@ export default function SlideBox() {
         return setRamdomList(data.result);
       });
   }, []);
+
   return (
     <div className="mainCarousel">
       <video autoPlay muted loop>
