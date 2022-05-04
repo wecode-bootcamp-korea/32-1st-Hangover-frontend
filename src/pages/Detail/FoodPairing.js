@@ -1,6 +1,15 @@
 import './FoodPairing.scss';
 
+const FOODS = {
+  korea: <img src="/images/bibimbap.png" alt="비빔밥사진" />,
+  japanese: <img src="/images/onigiri.png" alt="주먹밥사진" />,
+  chinese: <img src="/images/buns.png" alt="만두사진" />,
+  pizza: <img src="/images/pizza.png" alt="만두사진" />,
+};
+
 const FoodPairing = ({ productInfo }) => {
+  const imgSrc = productInfo.image_url;
+
   return (
     <section className="foodpairing">
       <div className="foodPairingDes">
@@ -15,14 +24,10 @@ const FoodPairing = ({ productInfo }) => {
         </div>
       </div>
       <div className="detailTopImg">
-        <img alt="소주병" src="images/dummy.png" className="detailProductImg" />
+        <img alt="소주병" src={imgSrc} className="detailProductImg" />
       </div>
       <div className="foodPairingIconContainer">
-        {productInfo.food_category.map(item => (
-          <div className="foodPairinIconSingle">
-            <i class="fa-solid fa-burger"></i>
-          </div>
-        ))}
+        {productInfo.food_category.map(item => FOODS[item])}
       </div>
     </section>
   );

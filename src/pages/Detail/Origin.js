@@ -1,18 +1,21 @@
 import './Orgin.scss';
 
-const Origin = () => {
+const Origin = ({ productInfo }) => {
+  const originArry = Object.entries(productInfo);
+  console.log(originArry);
+
   return (
     <table className="origin">
       <tbody>
-        {[1, 2, 3, 4].map(item => (
+        {originArry.map(item => (
           <tr>
             <th>
               <div className="originTitle">
                 <span>아이콘</span>
-                <span>이름</span>
+                <span>{item[0]}</span>
               </div>
             </th>
-            <td>정보</td>
+            <td></td>
           </tr>
         ))}
       </tbody>

@@ -66,7 +66,7 @@ export default function LoginJoin({ setLogin }) {
     }
   };
   const handleLogin = () => {
-    fetch('http://10.58.6.41:8000/users/signin', {
+    fetch('http://10.58.1.45:8000/users/signin', {
       method: 'POST',
       body: JSON.stringify({
         email: loginEmail,
@@ -77,24 +77,25 @@ export default function LoginJoin({ setLogin }) {
       .then(result => {
         if (result.message === 'SUCCESS') {
           localStorage.setItem('JWT_TOKEN', result.JWT_TOKEN);
+          localStorage.setItem('user_id', result.user_id);
           alert('로그인 성공!');
           navigate('/detail');
           exitModal();
         } else {
           alert('아이디 혹은 비밀번호가 다릅니다.');
         }
-      });
+      })
+      .catch(e => console.log(e));
   };
 
   const handleSignup = () => {
-    fetch('http://10.58.6.41:8000/users/signup', {
+    fetch('http://10.58.1.45:8000/users/signup', {
       method: 'POST',
       body: JSON.stringify({
         email: loginEmail,
         firstname: firstName,
         lastname: lastName,
         password: signUpPassword,
-        repassword: signUpRePassword,
       }),
     })
       .then(response => response.json())
@@ -105,7 +106,8 @@ export default function LoginJoin({ setLogin }) {
         } else {
           alert('아이디 혹은 비밀번호가 형식에 맞지 않습니다.');
         }
-      });
+      })
+      .catch(e => console.log(e));
   };
 
   return (

@@ -1,31 +1,71 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useLocation, useParams } from 'react-router-dom';
 import BeerImogji from '../../Detail/BeerImoji';
 import './ModalCard.scss';
 
-const CreateReivew = ({ rating, commentList, setCommentList, setIsIsFull }) => {
-  const [inputComment, setInputComment] = useState('');
-  const date = new Date();
+const CreateReivew = ({ rating, commentList, setCommentList, setIsItFull }) => {
+  const params = useParams();
+  console.log(params.id);
+  const location = useLocation();
+
+  const [initValue, setInItValue] = useState({
+    lastname: null,
+    firstname: null,
+    product_id: parseInt(params.id),
+    content: '',
+    rating: rating,
+    created_at: null,
+    review_id: null,
+    user_id: null,
+  });
 
   const handleEdit = e => {
-    setInputComment(e.target.value);
-  };
-  const data = {
-    firstname: 'Scappy',
-    lastname: 'Kim',
-    user_id: 1,
-    content: inputComment,
-    rating: '4.5',
-    created_at: date.getDate(),
-    review_id: 5,
+    setInItValue(prev => {
+      return { ...prev, [e.target.name]: e.target.value };
+    });
   };
 
-  const handleSubmit = () => {
-    setIsIsFull(false);
-    setCommentList([...commentList, data]);
+  const handleSubmit = e => {
+    e.preventDefault();
+
+    fetch(`http://10.58.1.45:8000/reviews`, {
+      method: 'post',
+      headers: {
+        Authorization: localStorage.getItem('JWT_TOKEN'),
+      },
+      body: JSON.stringify({
+        product_id: 1,
+        content: initValue.content,
+        rating: initValue.rating,
+      }),
+    })
+      .then(res => res.json())
+      .then(result => {
+        if (result.message === 'SUCCESS') {
+          fetch(`http://10.58.1.45:8000/reviews?product_id=${params.id}`, {
+            headers: {
+              Authorization: localStorage.getItem('JWT_TOKEN'),
+            },
+          })
+            .then(res => res.json())
+            .then(data => {
+              console.log(data);
+              setCommentList(data.Reviews);
+            })
+            .catch(error => {
+              console.log(error);
+            });
+        }
+      })
+      .catch(error => {
+        console.log(error);
+      });
   };
+
+  console.log(commentList);
 
   const cancleSubmit = () => {
-    setIsIsFull(false);
+    setIsItFull(false);
   };
 
   return (
@@ -44,21 +84,25 @@ const CreateReivew = ({ rating, commentList, setCommentList, setIsIsFull }) => {
             <div className="user"></div>
             <BeerImogji rate={rating} />
           </div>
+        </div>
+        <form onSubmit={e => handleSubmit(e)}>
           <div>
             <textarea
+              name="content"
               placeholder="Say a few words"
               maxlength="512"
-              value={inputComment}
-              onChange={handleEdit}
+              onChange={e => {
+                handleEdit(e);
+              }}
             ></textarea>
           </div>
-        </div>
-        <div className="modalSubmitBtn">
-          <button onClick={handleSubmit}>제출</button>
-        </div>
-        <div className="modalSubmitBtn">
-          <button onClick={cancleSubmit}>취소</button>
-        </div>
+          <div className="modalSubmitBtn">
+            <button>제출</button>
+          </div>
+          <div className="modalSubmitBtn">
+            <button onClick={cancleSubmit}>취소</button>
+          </div>
+        </form>
       </article>
     </section>
   );

@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Nav from './components/Common/Nav';
 import Footer from './components/Common/Footer';
@@ -14,7 +13,7 @@ const Router = () => {
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/explore" element={<ProductList />} />
-        <Route path="/detail/" element={<Detail />} />
+        <Route path="/detail/:id" element={<Detail />} />
       </Routes>
       <Footer />
     </BrowserRouter>

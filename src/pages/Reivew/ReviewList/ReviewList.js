@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useParams } from 'react-router-dom';
 
 import './ReviewList.scss';
 
@@ -10,7 +11,7 @@ const ReviewList = ({
   setWriterId,
 }) => {
   const [isitLiked, setIsItLiked] = useState(false);
-
+  const params = useParams();
   const handleLiked = () => {
     if (!isitLiked) {
       setIsItLiked(true);
@@ -25,6 +26,28 @@ const ReviewList = ({
     } else {
       setUserModify(userModify);
     }
+  };
+
+  const handleDelete = e => {
+    fetch(
+      `http://10.58.1.45:8000/reviews?review_id=${e.target.id}&product_id=${params.id}`,
+      {
+        method: 'DELETE',
+        headers: {
+          Authorization: localStorage.getItem('JWT_TOKEN'),
+        },
+        body: JSON.stringify({
+          review_id: e.target.id,
+        }),
+      }
+    )
+      .then(res => res.json())
+      .then(result => {
+        console.log(result);
+      })
+      .catch(error => {
+        console.log(error);
+      });
   };
 
   return commentList.map(item => {
@@ -42,10 +65,10 @@ const ReviewList = ({
         <div className="newCommnetSingle">
           <span className="newCommentSpan">
             <span className="newCommentIcon">
-              <img src="images/beer_100.png" />
+              <img src="/images/beer_100.png" className="fulllBeer" />
               <span>{rating}</span>
             </span>
-            <span className="newCommentReview" key={user_id} id={review_id}>
+            <span className="newCommentReview" key={user_id} id={user_id}>
               {content}
             </span>
           </span>
@@ -76,6 +99,9 @@ const ReviewList = ({
                 <button
                   key={user_id}
                   id={review_id}
+                  onClick={e => {
+                    handleDelete(e);
+                  }}
                   className="newCommentLikeBtn"
                 >
                   삭제

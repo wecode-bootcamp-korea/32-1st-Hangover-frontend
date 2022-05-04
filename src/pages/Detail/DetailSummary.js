@@ -1,10 +1,19 @@
-import TasteRaitBar from './TasteRaitBar';
 import './DetailSummary.scss';
+import './TasteRaitBar.scss';
 const DetailSummary = ({ productInfo }) => {
-  console.log(productInfo);
+  let key = 0;
   return (
     <div className="detailSummary">
-      <TasteRaitBar productInfo={productInfo} />
+      <div key={key++} className="tasteRaitBar">
+        <div className="tableName">{productInfo[0]}</div>
+        <div className="tableRow">
+          <div className="tableBar"></div>
+          <span
+            className="tableRange"
+            style={{ left: `${productInfo[1]}%` }}
+          ></span>
+        </div>
+      </div>
     </div>
   );
 };

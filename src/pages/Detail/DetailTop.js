@@ -4,27 +4,20 @@ import KeyWord from './KeyWord';
 import { useState } from 'react';
 
 const DetailTop = ({ productInfo }) => {
-  console.log(productInfo.product_detail);
-  const [rait, setRait] = useState(productInfo.product_detail['ave_rating']);
-  console.log(rait);
+  const [rait, setRait] = useState(productInfo['ave_rating']);
+  const imgSrc = productInfo.image_url;
 
   return (
     <article className="detailTop">
       <section className="detailTopSection">
         <div className="detailTopImg">
-          <img
-            alt="소주병"
-            src="images/dummy.png"
-            className="detailProductImg"
-          />
+          <img alt="소주병" src={imgSrc} className="detailProductImg" />
         </div>
         <div className="detailTopLeft">
           <div className="detailProductInfo">
             <h1 className="detailH1">
-              <span>{productInfo.product_detail.country}</span>
-              <span className="detailProductName">
-                {productInfo.product_detail.name}
-              </span>
+              <span>{productInfo.country}</span>
+              <span className="detailProductName">{productInfo.name}</span>
             </h1>
           </div>
           <div className="detailProcuctRati">

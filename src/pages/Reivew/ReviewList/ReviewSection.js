@@ -12,30 +12,38 @@ const ReviewSection = () => {
   const [name, setName] = useState('');
   const [writerId, setWriterId] = useState('');
   const [rating, setRaiting] = useState(0);
+
   const [commentList, setCommentList] = useState(null);
   const [userModify, setUserModify] = useState(false);
-  const [isitfull, setIsIsFull] = useState(false);
+  const [isitfull, setIsItFull] = useState(false);
   const [isitFiltered, setIsItFiltered] = useState(false);
   const [individualReview, setIndividualReview] = useState([]);
-
   const params = useParams();
-  //http://10.58.7.97:8000/reviews?product_id=${params.id}
+  console.log(params);
+  //
   useEffect(() => {
-    fetch(`/data/dummyData.json`)
+    fetch(`http://10.58.1.45:8000/reviews?product_id=${params.id}`, {
+      headers: {
+        Authorization: localStorage.getItem('JWT_TOKEN'),
+      },
+    })
       .then(res => res.json())
       .then(data => {
-        setCommentList(data);
+        setCommentList(data.Reviews);
       })
       .catch(error => {
         console.log(error);
       });
   }, []);
 
+  const userId = localStorage.getItem('user_id');
+  console.log(userId);
   useEffect(() => {
     commentList &&
-      setIndividualReview(commentList.filter(item => item.review_id === 5));
+      setIndividualReview(
+        commentList.filter(item => item.review_id === userId)
+      );
   }, [commentList]);
-  console.log(individualReview);
 
   const handleReivew = e => {
     setName(e.target.id);
@@ -108,7 +116,7 @@ const ReviewSection = () => {
                 writerId={writerId}
                 setWriterId={setWriterId}
                 isitFiltered={isitFiltered}
-                commentList={isitFiltered ? individualReview : commentList}
+                commentList={commentList}
                 setUserModify={setUserModify}
                 userModify={userModify}
               />
@@ -116,7 +124,9 @@ const ReviewSection = () => {
             <div className="raitingBox">
               <div className="detailNum">{rait}</div>
               <div className="detailRaitBox"></div>
-              <div className="detaillReviewCount">200rating </div>
+              <div className="detaillReviewCount">
+                {commentList.length}개의 리뷰가 있어요!
+              </div>
               <div className="detaillLine"></div>
               <RaitingSummary />
               <span className="raitingDes">
@@ -128,7 +138,7 @@ const ReviewSection = () => {
                 <AddRaiting
                   rating={rating}
                   setRaiting={setRaiting}
-                  setIsIsFull={setIsIsFull}
+                  setIsIsFull={setIsItFull}
                 />
               </div>
               <div className="detaillLine"></div>
@@ -137,7 +147,7 @@ const ReviewSection = () => {
                   rating={rating}
                   commentList={commentList}
                   setCommentList={setCommentList}
-                  setIsIsFull={setIsIsFull}
+                  setIsItFull={setIsItFull}
                   isitfull={isitfull}
                 />
               )}
