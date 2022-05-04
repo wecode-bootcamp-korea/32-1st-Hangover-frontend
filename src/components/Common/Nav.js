@@ -19,12 +19,12 @@ const Nav = () => {
     }
   };
   useEffect(() => {
-    fetch('https://jsonplaceholder.typicode.com/users')
+    fetch(`http://10.58.3.174:8000/products/search?search`)
       .then(res => {
         return res.json();
       })
       .then(data => {
-        return setSearchInputList(data);
+        setSearchInputList(data.result);
       });
   }, []);
 
@@ -42,7 +42,7 @@ const Nav = () => {
     <nav className="nav">
       <div className="upperNav">
         <div className="layout">
-          <img src="/images/logo.png" alt="Logopng" className="logo" />
+          <img src="/images/HangOver_Logo.png" alt="Logopng" className="logo" />
           <div className="searchInput">
             <input
               className="inputNav"
@@ -54,13 +54,10 @@ const Nav = () => {
               {search.map(list => {
                 return (
                   <li key={list.id}>
-                    <img
-                      src={`https://robohash.org/${list.id}?set=set2&size=180x180`}
-                      art="img"
-                    />
+                    <img src={list.image_url} art="img" />
                     <div>
                       <p className="alcoholName">{list.name}</p>
-                      <p className="alcoholCategoris">{list.name}</p>
+                      <p className="alcoholCategoris">{list.category}</p>
                     </div>
                   </li>
                 );
