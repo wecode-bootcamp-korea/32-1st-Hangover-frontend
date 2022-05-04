@@ -8,7 +8,6 @@
 
   .upperNav {
     display: flex;
-    justify-content: space-between;
     max-width: 1000px;
     align-items: center;
     margin: auto;
@@ -42,10 +41,20 @@
 
   .downNav {
     display: flex;
-    justify-content: space-between;
-    width: 20%;
-    margin-left: 375px;
+    margin-left: 70px;
     padding-top: 15px;
+    max-width: 1000px;
+    margin: 0 auto;
+
+    .dropDownContainer {
+      display: flex;
+      margin-left: 40px;
+      
+      .fa-solid {
+        margin-right: 10px;
+        margin-left: 20px;
+      }
+    }
   }
 
   .bottomNavLine {
