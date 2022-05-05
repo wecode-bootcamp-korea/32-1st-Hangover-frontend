@@ -2,8 +2,19 @@ import React, { useState, useEffect } from 'react';
 import DrinkMenu from './DrinkMenu';
 import LoginJoin from '../Common/LoginAndJoin/LoginJoin/LoginJoin';
 import './Nav.scss';
+import LoginJoin from './LoginAndJoin/LoginJoin/LoginJoin';
 
 const Nav = () => {
+<<<<<<< HEAD
+  const [visible, setVisible] = useState(false);
+  const [login, setLogin] = useState(false);
+
+  const openModal = () => {
+    localStorage.getItem('JWT_TOKEN') ? logOut() : setLogin(true);
+  };
+
+  const logOut = () => {
+=======
   const [drinkMenuVisible, setDrinkMenuVisible] = useState(false);
   const [login, setLogin] = useState(false);
   const [searchList, setSearchList] = useState([]);
@@ -14,11 +25,14 @@ const Nav = () => {
   };
 
   const clickLogout = () => {
+>>>>>>> main
     const isLogOut = window.confirm('로그아웃 하시겠습니까?');
     if (isLogOut) {
       localStorage.removeItem('JWT_TOKEN');
     }
   };
+<<<<<<< HEAD
+=======
 
   useEffect(() => {
     fetch(`http://10.58.3.174:8000/products/search?search`)
@@ -40,6 +54,7 @@ const Nav = () => {
       })
     : [];
 
+>>>>>>> main
   return (
     <nav className="nav">
       <div className="upperNav">
@@ -73,9 +88,20 @@ const Nav = () => {
           <i class="fa-solid fa-angle-down" />
           <span>Langauage</span>
           <i class="fa-solid fa-angle-down" />
+<<<<<<< HEAD
+          <i
+            className={
+              localStorage.getItem('JWT_TOKEN')
+                ? 'fa-solid fa-user'
+                : 'fa-regular fa-user'
+            }
+            onClick={openModal}
+          />
+=======
           <span className="" onClick={loginAndLogout}>
             {localStorage.getItem('JWT_TOKEN') ? 'Log Out' : 'Log In'}
           </span>
+>>>>>>> main
         </div>
       </div>
       <div className="downNav">
