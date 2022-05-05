@@ -1,5 +1,4 @@
 import React, { useState, useRef } from 'react';
-import { useNavigate } from 'react-router-dom';
 import LoginJoinForm from '../Form/LoginJoinModal';
 
 export default function LoginJoin({ setLogin }) {
@@ -75,10 +74,15 @@ export default function LoginJoin({ setLogin }) {
       setisModalClosed(true);
     }
   };
+<<<<<<< HEAD
+  const handleLogin = () => {
+    fetch('http://10.58.5.238:8000/users/signin', {
+=======
 
   const handleLogin = e => {
     e.preventDefault();
     fetch('http://10.58.1.45:8000/users/signin', {
+>>>>>>> main
       method: 'POST',
       body: JSON.stringify({
         email: loginEmail,
@@ -89,25 +93,30 @@ export default function LoginJoin({ setLogin }) {
       .then(result => {
         if (result.message === 'SUCCESS') {
           localStorage.setItem('JWT_TOKEN', result.JWT_TOKEN);
+          localStorage.setItem('user_id', result.user_id);
           alert('로그인 성공!');
-          navigate('/detail');
           exitModal();
         } else {
           alert('아이디 혹은 비밀번호가 다릅니다.');
         }
-      });
+      })
+      .catch(e => console.log(e));
   };
 
+<<<<<<< HEAD
+  const handleSignup = () => {
+    fetch('http://10.58.5.238:8000/users/signup', {
+=======
   const handleSignup = e => {
     e.preventDefault();
     fetch('http://10.58.1.45:8000/users/signup', {
+>>>>>>> main
       method: 'POST',
       body: JSON.stringify({
         email: signUpEmail,
         firstname: firstName,
         lastname: lastName,
         password: signUpPassword,
-        repassword: signUpRePassword,
       }),
     })
       .then(response => response.json())
@@ -121,7 +130,8 @@ export default function LoginJoin({ setLogin }) {
         } else if (result.message === 'INVALID_EMAIL' || 'INVALID_PASSWORD') {
           alert('이메일 혹은 비밀번호가 형식에 맞지 않습니다.');
         }
-      });
+      })
+      .catch(e => console.log(e));
   };
 
   return (

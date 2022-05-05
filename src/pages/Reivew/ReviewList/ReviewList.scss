@@ -1,0 +1,57 @@
+.reviewList {
+  margin-top: 10px;
+  margin-bottom: 15px;
+  min-width: 700px;
+
+  .newCommnetSingle {
+    display: flex;
+    padding: 24px 32px;
+    border: 1px solid black;
+    border-radius: 16px;
+    margin-bottom: 13px;
+
+    &:hover {
+      transition: all 0.1s ease-in-out;
+      box-shadow: 0px 9px 17px -2px #acacac;
+    }
+
+    .newCommentReview {
+      font-size: 24px;
+      line-height: 40px;
+    }
+
+    .newCommentIcon {
+      padding: 3px;
+      text-align: center;
+      width: 62px;
+      height: 31px;
+      background-color: antiquewhite;
+      border-radius: 30px;
+
+      img {
+        width: 15px;
+      }
+    }
+
+    .newCommentSpan {
+      margin-left: 10px;
+    }
+  }
+}
+.newCommentUserInfo {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 24px 16px;
+
+  .newCommentUserDate {
+    display: flex;
+  }
+
+  .newCommentBtnBox {
+    display: flex;
+
+    div {
+      margin: 2px;
+    }
+  }
+}
