@@ -1,0 +1,93 @@
+.reivewSection {
+  display: flex;
+  margin-top: 20px;
+  flex-direction: column;
+
+  .commentNav {
+    div {
+      margin: 0px 0px 8px 0px;
+      padding: 0px 8px 8px 8px;
+      border-bottom: 1px solid #eae0da;
+    }
+
+    .active {
+      border-bottom-color: red;
+    }
+    .red {
+      margin: 0px 0px 8px 0px;
+      padding: 0px 8px 8px 8px;
+      border-bottom: 1px solid red;
+    }
+  }
+
+  .commentH1 {
+    font-size: 28px;
+    line-height: 40px;
+    font-weight: 600;
+    margin: 0 0 24px;
+  }
+
+  .commentNav {
+    display: flex;
+    flex-direction: row;
+    font-size: 20px;
+    line-height: 28px;
+    font-weight: 500;
+
+    li {
+      margin: 5px;
+    }
+  }
+  .commentAll {
+    display: flex;
+    max-width: 1000px;
+
+    .commentDiv {
+      width: 70%;
+    }
+
+    .raitingBox {
+      margin: 10px 20px 20px 30px;
+      text-align: center;
+      width: 312px;
+
+      .detailNum {
+        font-size: 40px;
+        line-height: 48px;
+        font-weight: 400;
+        margin-right: 8px;
+      }
+
+      .detailBeerIcon {
+        height: 14px;
+        margin: 2px;
+      }
+
+      .detaillLine {
+        margin-top: 10px;
+
+        border-bottom: 0.1px solid black;
+      }
+
+      .userStar {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 15px 0px 20px 0px;
+
+        .user {
+          width: 33px;
+          height: 33px;
+          background-color: gainsboro;
+          border-radius: 50%;
+          margin: 5px;
+        }
+
+        img {
+          height: 22px;
+          margin: 2px;
+        }
+      }
+    }
+  }
+}

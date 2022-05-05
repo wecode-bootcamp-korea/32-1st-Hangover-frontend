@@ -1,0 +1,34 @@
+@import '../../styles/variable.scss';
+
+.tasteRaitBar {
+  display: flex;
+  min-width: 1000px;
+  align-items: center;
+  margin: 10px 0px 10px 0px;
+
+  .tableName {
+    margin-right: 5px;
+  }
+
+  .tableRow {
+    display: flex;
+    margin-left: 10px;
+    position: relative;
+    border-radius: 5px;
+
+    .tableBar {
+      width: 700px;
+      height: 8px;
+      background-color: #f7f3f0;
+      border-radius: 5px;
+    }
+
+    .tableRange {
+      position: absolute;
+      width: 10%;
+      height: 8px;
+      background-color: $iconColor;
+      border-radius: 5px;
+    }
+  }
+}

@@ -1,0 +1,57 @@
+@import '../../styles/variable.scss';
+@import '../../styles/common.scss';
+
+.foodpairing {
+  display: flex;
+  align-items: center;
+  margin: 0px auto 30px auto;
+
+  .foodPairingDes {
+    margin-right: 10px;
+
+    h2 {
+      font-size: 28px;
+      line-height: 40px;
+      font-weight: 600;
+      margin: 0 0 24px;
+      width: 60%;
+    }
+
+    div {
+      display: flex;
+      flex-direction: column;
+      width: fit-content;
+
+      span {
+        font-size: 18px;
+        line-height: normal;
+        font-weight: 400;
+        width: 70%;
+      }
+    }
+  }
+  .detailTopImg {
+    margin: 20px;
+
+    img {
+      width: 70px;
+      height: 140px;
+    }
+  }
+
+  .foodPairingIconContainer {
+    display: flex;
+
+    .foodPairinIconSingle {
+      background-color: $iconColor;
+      padding: 10px;
+      margin: 5px;
+      border-radius: 50%;
+
+      i {
+        font-size: 50px;
+        color: white;
+      }
+    }
+  }
+}
