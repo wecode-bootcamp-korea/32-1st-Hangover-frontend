@@ -1,9 +1,7 @@
 import React, { useState, useRef } from 'react';
-import { useNavigate } from 'react-router-dom';
 import LoginJoinForm from '../Form/LoginJoinModal';
 
 export default function LoginJoin({ setLogin }) {
-  const navigate = useNavigate();
   const [isLoginOpen, setIsLoginOpen] = useState(true);
 
   const [loginInputs, setLoginInputs] = useState({
@@ -79,7 +77,6 @@ export default function LoginJoin({ setLogin }) {
           localStorage.setItem('JWT_TOKEN', result.JWT_TOKEN);
           localStorage.setItem('user_id', result.user_id);
           alert('로그인 성공!');
-          navigate('/detail');
           exitModal();
         } else {
           alert('아이디 혹은 비밀번호가 다릅니다.');

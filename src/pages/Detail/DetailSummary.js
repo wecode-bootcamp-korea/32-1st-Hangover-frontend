@@ -4,12 +4,15 @@ const DetailSummary = ({ productInfo }) => {
   let key = 0;
 
   return (
-    <div className="detailSummary">
-      <div key={key++} className="tasteRaitBar">
-        <div className="tableName">{productInfo[0]}</div>
+    <div className="detailSummary" key={key++}>
+      <div className="tasteRaitBar">
+        <div className="tableName" key={key++}>
+          {productInfo[0]}
+        </div>
         <div className="tableRow">
           <div className="tableBar"></div>
           <span
+            key={key++}
             className="tableRange"
             style={{ left: `${productInfo[1]}%` }}
           ></span>

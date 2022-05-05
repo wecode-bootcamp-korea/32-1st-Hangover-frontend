@@ -9,7 +9,7 @@ import './ReviewSection.scss';
 
 const userId = localStorage.getItem('user_id');
 
-const ReviewSection = ({ average }) => {
+const ReviewSection = ({ average, productName }) => {
   const params = useParams();
   const [name, setName] = useState('');
   const [rating, setRaiting] = useState(0);
@@ -121,14 +121,14 @@ const ReviewSection = ({ average }) => {
               <div className="detailNum">{average}</div>
               <div className="detailRaitBox"></div>
               <div className="detaillReviewCount">
-                {commentList.length}개의 리뷰가 있어요!
+                {isitFiltered
+                  ? `내가 적은 ${individualReview.length}`
+                  : commentList.length}
+                개의 리뷰가 있어요!
               </div>
               <div className="detaillLine"></div>
               <RaitingSummary />
-              <span className="raitingDes">
-                Add your own rating and help other Vivino users pick the right
-                wine!
-              </span>
+              <span className="raitingDes">숙취 고통을 공유해주세요!</span>
               <div className="userStar">
                 <div className="user"></div>
                 <AddRaiting
@@ -140,7 +140,9 @@ const ReviewSection = ({ average }) => {
               <div className="detaillLine"></div>
               {isitfull && (
                 <CreateReivew
+                  productName={productName}
                   rating={rating}
+                  setRaiting={setRaiting}
                   commentList={commentList}
                   setCommentList={setCommentList}
                   setIsItFull={setIsItFull}

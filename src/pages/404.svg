@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1000px" height="1200px" viewBox="0 0 1000 1200" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>404</title>
+    <g id="404" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect fill="#FFFFFF" x="0" y="0" width="1000" height="1200"></rect>
+        <g id="circle" transform="translate(283.000000, 151.000000)">
+            <circle id="Oval" fill="#F4F4F4" cx="216.5" cy="216.5" r="216.5"></circle>
+            <text id="ㅠ_ㅠ" font-family="AppleSDGothicNeo-Bold, Apple SD Gothic Neo" font-size="80" font-weight="bold" fill="#A6A6A6">
+                <tspan x="131" y="238">ㅠ_ㅠ</tspan>
+            </text>
+        </g>
+        <text id="요청하신-페이지를-찾을-수-없습니다." font-family="AppleSDGothicNeo-Light, Apple SD Gothic Neo" font-size="29" font-weight="300" fill="#A6A6A6">
+            <tspan x="293" y="655">요청하신 페이지를 찾을 수 없습니다.</tspan>
+        </text>
+        <g id="Group" transform="translate(381.000000, 709.000000)">
+            <rect id="Rectangle" fill="#00BFD0" x="0" y="0" width="238" height="82" rx="15"></rect>
+            <text id="Main" font-family="AppleSDGothicNeo-SemiBold, Apple SD Gothic Neo" font-size="30" font-weight="500" fill="#FFFFFF">
+                <tspan x="87" y="50">Main</tspan>
+            </text>
+        </g>
+    </g>
+</svg>

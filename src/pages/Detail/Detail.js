@@ -9,6 +9,7 @@ import Origin from './Origin';
 import './Detail.scss';
 
 const Detail = () => {
+  let key = 0;
   const [productInfo, setProductInfo] = useState(null);
   const [isloading, setIsLoading] = useState(true);
   const [error, setError] = useState();
@@ -47,7 +48,10 @@ const Detail = () => {
         <FoodPairing productInfo={product_detail} />
       </ArticleWrap>
       <ArticleWrap title="숙취후기">
-        <ReviewSection average={product_detail['ave_rating']} />
+        <ReviewSection
+          average={product_detail['ave_rating']}
+          productName={product_detail.name}
+        />
       </ArticleWrap>
       <section className="origin">
         <h2 className="originH2">Facts about the wine</h2>

@@ -9,7 +9,7 @@ const FOODS = {
 
 const FoodPairing = ({ productInfo }) => {
   const imgSrc = productInfo.image_url;
-
+  let key = 0;
   return (
     <section className="foodpairing">
       <div className="foodPairingDes">
@@ -23,11 +23,13 @@ const FoodPairing = ({ productInfo }) => {
           </span>
         </div>
       </div>
-      <div className="detailTopImg">
-        <img alt="소주병" src={imgSrc} className="detailProductImg" />
-      </div>
-      <div className="foodPairingIconContainer">
-        {productInfo.food_category.map(item => FOODS[item])}
+      <div className="foodPairring">
+        <div className="detailTopImg">
+          <img alt="소주병" src={imgSrc} className="detailProductImg" />
+        </div>
+        <div className="foodPairingIconContainer" key={key++}>
+          {productInfo.food_category.map(item => FOODS[item])}
+        </div>
       </div>
     </section>
   );

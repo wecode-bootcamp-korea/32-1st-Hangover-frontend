@@ -3,8 +3,12 @@ const AddRaiting = ({ rating, setRaiting, setIsIsFull }) => {
   const array = [...Array(parseInt(rating))].map(icon => fillBeer);
 
   const handleClick = e => {
-    setRaiting(e.target.id);
-    setIsIsFull(true);
+    if (!localStorage.getItem('JWT_TOKEN')) {
+      alert('로그인해주세요!');
+    } else {
+      setRaiting(e.target.id);
+      setIsIsFull(true);
+    }
   };
 
   return rating === 0 ? (

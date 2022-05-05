@@ -5,6 +5,7 @@ import './ReviewList.scss';
 
 const ReviewList = ({
   commentList,
+  setCommentList,
   setUserModify,
   userModify,
   isitFiltered,
@@ -26,29 +27,55 @@ const ReviewList = ({
       setUserModify(userModify);
     }
   };
-  console.log(localStorage.getItem('user_id'));
+
   const handleDelete = e => {
-    fetch(
-      `http://10.58.5.238:8000/reviews?review_id=${e.target.id}&product_id=${params.id}`,
-      {
-        method: 'DELETE',
-        headers: {
-          Authorization: localStorage.getItem('JWT_TOKEN'),
-        },
-        body: JSON.stringify({
-          review_id: e.target.id,
-          product_id: params.id,
-        }),
-      }
-    )
-      .then(res => res.json())
-      .then(result => {
-        console.log(result);
-      })
-      .catch(error => {
-        console.log(error);
-      });
+    console.log(e.target.id);
+    console.log(params.id);
+    if (window.confirm('리뷰를 삭제하실건가요?')) {
+      fetch(
+        `http://10.58.5.238:8000/reviews?review_id=${e.target.id}&product_id=${params.id}`,
+        {
+          method: 'DELETE',
+          headers: {
+            Authorization: localStorage.getItem('JWT_TOKEN'),
+          },
+          body: JSON.stringify({
+            review_id: e.target.id,
+            product_id: params.id,
+          }),
+        }
+      )
+        .then(response => {
+          if (response.status === 204) {
+            fetch(`http://10.58.5.238:8000/reviews?product_id=${params.id}`, {
+              headers: {
+                Authorization: localStorage.getItem('JWT_TOKEN'),
+              },
+            })
+              .then(res => res.json())
+              .then(data => {
+                setCommentList(data.Reviews);
+              })
+              .catch(error => {
+                console.log(error);
+              });
+          }
+        })
+        .catch(error => {
+          console.log(error);
+        });
+    } else {
+      return;
+    }
   };
+
+  if (commentList.length === 0) {
+    return (
+      <section className="reviewList">
+        <div>리뷰를 입력해주세요 😀</div>
+      </section>
+    );
+  }
 
   return commentList.map(item => {
     const {
