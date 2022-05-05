@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from '../Components/Header';
 import HeaderImg from '../Components/HeaderImg';
+import OverlayNoneScroll from '../../OverlayNoneScroll/OverlayNoneScroll';
 import './LoginJoinModal.scss';
 
 export default function LoginJoinModal({
@@ -119,6 +120,7 @@ export default function LoginJoinModal({
           </div>
         ))
       }
+      <OverlayNoneScroll />
     </div>
   );
 }
