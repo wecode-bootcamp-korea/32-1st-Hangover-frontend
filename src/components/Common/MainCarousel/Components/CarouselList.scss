@@ -24,9 +24,22 @@ $btn-top: $carousel-margin-top + $img-height/2 + $carousel-padding +
       margin-bottom: 80px;
 
       .btnWrapper {
+        .leftBtn,
+        .rigthBtn {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 50px;
+          height: 50px;
+          border-radius: 30%;
+          background-color: $iconColor;
+          opacity: 0.5;
+          border: none;
+          font-size: 20px;
+          color: white;
+        }
         .leftBtn {
           position: absolute;
-          left: 40;
           top: $btn-top;
           transform: translateY(-50%);
           z-index: 5;
@@ -114,20 +127,5 @@ $btn-top: $carousel-margin-top + $img-height/2 + $carousel-padding +
         }
       }
     }
-  }
-
-  .leftBtn,
-  .rigthBtn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 30px;
-    height: 30px;
-    border-radius: 30%;
-    background-color: $iconColor;
-    opacity: 0.5;
-    border: none;
-    font-size: 20px;
-    color: white;
   }
 }
