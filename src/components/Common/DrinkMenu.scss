@@ -7,7 +7,6 @@
   padding: 10px 0;
   background-color: rgb(255, 255, 255);
   transform: translateY(80px);
-  left: 25px;
   visibility: hidden;
   transition: all 200ms ease-in-out;
   border-radius: 10px;
@@ -17,7 +16,7 @@
     position: absolute;
     width: 10px;
     height: 10px;
-    left: 60px;
+    left: 70px;
     top: -6px;
     background-color: rgb(255, 255, 255);
     border-top: 1px solid lightgray;
@@ -30,6 +29,8 @@
     align-items: center;
     justify-content: center;
     padding: 3px 0;
+    margin-top: 10px;
+    margin-bottom: 10px;
 
     a {
       color: black;

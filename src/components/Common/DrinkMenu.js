@@ -1,23 +1,23 @@
 import React from 'react';
 import './DrinkMenu.scss';
 
-const DrinkMenu = ({ visible }) => {
+const DrinkMenu = ({ drinkMenuVisible }) => {
   return (
-    <ul className={`DrinkMenu ${visible ? 'hoverMenu' : ''}`}>
+    <ul className={`DrinkMenu ${drinkMenuVisible ? 'hoverMenu' : ''}`}>
       <li>
-        <a href="#">소주</a>
+        <a href="#">Vodca</a>
       </li>
       <li>
-        <a href="#">맥주</a>
+        <a href="#">Beer</a>
       </li>
       <li>
-        <a href="#">꼬냑</a>
+        <a href="#">Cognac</a>
       </li>
       <li>
-        <a href="#">막걸리</a>
+        <a href="#">Wihsky</a>
       </li>
       <li>
-        <a href="#">와인</a>
+        <a href="#">Wine</a>
       </li>
     </ul>
   );

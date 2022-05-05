@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&family=Roboto&display=swap');
-
+@import '../../styles/variable.scss';
 .nav {
   background-color: white;
   font-family: 'Noto Sans KR', sans-serif;
@@ -10,27 +10,68 @@
     display: flex;
     max-width: 1000px;
     align-items: center;
-    margin: auto;
+    justify-content: center;
+    margin: 0 auto;
 
     .layout {
       display: flex;
+      align-items: center;
       justify-content: space-between;
       margin: 30px;
 
       .logo {
-        width: 140px;
-        height: 30px;
+        width: 200px;
+        height: 50px;
         margin-right: 20px;
       }
     }
   }
+  .inputList {
+    border: 1px solid rgb(0, 0, 0, 0.1);
+    border-radius: 10px;
+    border-top: none;
+    position: absolute;
+    background-color: $backGround;
+    li {
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid rgb(0, 0, 0, 0.1);
+      width: 350px;
+      padding: 15px;
+      color: black;
+      font-size: 17px;
+      img {
+        width: 35px;
+        height: 95px;
+        margin-right: 20px;
+      }
+
+      div {
+        margin-right: 50px;
+
+        .alcoholName,
+        .alcoholCategoris {
+          color: black;
+          font-weight: 700;
+          margin-bottom: 10px;
+        }
+
+        .alcoholCategoris {
+          opacity: 0.4;
+          font-weight: 500;
+        }
+      }
+    }
+  }
+
   .inputNav {
     width: 350px;
     height: 30px;
     border-radius: 10px;
-    border: 1px solid black;
+    border: 1px solid rgb(0, 0, 0, 0.1);
     padding-left: 45px;
     margin-right: 20%;
+    outline: none;
   }
 
   .upperRightNav {
@@ -41,15 +82,15 @@
 
   .downNav {
     display: flex;
-    margin-left: 70px;
-    padding-top: 15px;
     max-width: 1000px;
     margin: 0 auto;
+    position: relative;
 
     .dropDownContainer {
+      position: absolute;
       display: flex;
-      margin-left: 40px;
-      
+      margin-left: 45px;
+
       .fa-solid {
         margin-right: 10px;
         margin-left: 20px;
