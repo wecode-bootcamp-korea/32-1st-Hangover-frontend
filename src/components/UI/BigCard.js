@@ -16,7 +16,6 @@ const BigCard = ({
   const handleMove = () => {
     navigate(`/detail/${id}`);
   };
-  console.log(review);
 
   return (
     <div className="bigCardsContainer">

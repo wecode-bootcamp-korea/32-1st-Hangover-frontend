@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import MainCarousel from '../../components/Common/MainCarousel/MainCarousel';
 
 import './Main.scss';

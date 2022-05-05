@@ -1,10 +1,7 @@
 import React, { useState, useRef } from 'react';
 import LoginJoinForm from '../Form/LoginJoinModal';
-import { useNavigate } from 'react-router-dom';
 
 export default function LoginJoin({ setLogin }) {
-  const navigate = useNavigate();
-
   const [isModalOpen, setIsModalOpen] = useState(true);
 
   const [loginInputs, setLoginInputs] = useState({

@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-
 import './CarouselList.scss';
 
 export default function CarouselList({ hangOverLists }) {
