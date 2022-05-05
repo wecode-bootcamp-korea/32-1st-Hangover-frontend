@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "countryFilter": "Korea"
+  },
+  {
+    "id": 2,
+    "countryFilter": "USA"
+  },
+  {
+    "id": 3,
+    "countryFilter": "France"
+  },
+  {
+    "id": 4,
+    "countryFilter": "Germany"
+  },
+  {
+    "id": 5,
+    "countryFilter": "Russia"
+  }
+]

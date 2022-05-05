@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "Filter": "whisky"
+  },
+  {
+    "id": 2,
+    "Filter": "vodka"
+  },
+  {
+    "id": 3,
+    "Filter": "cognac"
+  },
+  {
+    "id": 4,
+    "Filter": "beer"
+  },
+  {
+    "id": 5,
+    "Filter": "wine"
+  },
+  {
+    "id": 6,
+    "Filter": "champagne"
+  }
+]

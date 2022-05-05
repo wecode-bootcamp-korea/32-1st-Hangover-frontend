@@ -1,0 +1,73 @@
+.bigCardsContainer {
+  display: flex;
+  flex-direction: column;
+  margin-left: 30px;
+  min-height: 200px;
+  flex-basis: 66%;
+  justify-content: space-between;
+  max-height: max-content;
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 550px;
+
+    .bigCardId {
+      width: 550px;
+      display: block;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      border: 1px solid lightgray;
+      border-top: none;
+      align-items: center;
+      border-radius: 15px;
+      margin-bottom: 50px;
+
+      &:hover {
+        box-shadow: 5px 5px 5px 5px lightgray;
+
+        .cardBottleImg {
+          transform: translateY(-30px);
+          transition-duration: 0.7s;
+        }
+      }
+
+      .cardTop {
+        width: 550px;
+        height: 250px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-evenly;
+        border: 1px solid lightgray;
+        border-radius: 15px;
+        border-bottom: none;
+
+        &.isBox {
+          border-radius: 15px 15px 0 0;
+        }
+        .cardBottleImg {
+          height: 220px;
+        }
+      }
+      .reviewerCommentContainer {
+        display: flex;
+        width: 550px;
+        height: 50px;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        justify-content: center;
+        border-top: 1px solid lightgray;
+        flex-direction: column;
+        justify-content: center;
+        .userComment {
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+      }
+    }
+  }
+}

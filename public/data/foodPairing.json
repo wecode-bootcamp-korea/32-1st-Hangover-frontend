@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "pairing": "korean"
+  },
+  {
+    "id": 2,
+    "pairing": "chinese"
+  },
+  {
+    "id": 3,
+    "pairing": "japanese"
+  },
+  {
+    "id": 4,
+    "pairing": "western"
+  }
+]
