@@ -9,7 +9,6 @@ const BigCard = ({
   image_url,
   rating,
   review_counts,
-  review,
 }) => {
   const navigate = useNavigate();
 
@@ -26,7 +25,7 @@ const BigCard = ({
             handleMove();
           }}
         >
-          <div className={`cardTop ${review ? 'isBox' : 'null'}`}>
+          <div className="cardTop">
             {/* // {`p ${text ? "isBox" : ""}`}> */}
             <div className="bottleContainer">
               <div className="bottleImgContainer">
@@ -57,16 +56,6 @@ const BigCard = ({
               <div>{Number(price).toLocaleString()}won</div>
             </div>
           </div>
-          {review &&
-            review.map(item => (
-              <div className="reviewerComment" key={item.id}>
-                <div className="userComment">{item.content}</div>
-                <div>
-                  <span>{item.username}</span>
-                  <span>{item.created_at}</span>
-                </div>
-              </div>
-            ))}
         </div>
       </div>
     </div>

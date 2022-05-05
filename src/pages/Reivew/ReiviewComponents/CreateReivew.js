@@ -44,7 +44,7 @@ const CreateReivew = ({
         Authorization: localStorage.getItem('JWT_TOKEN'),
       },
       body: JSON.stringify({
-        product_id: 1,
+        product_id: params.id,
         content: initValue.content,
         rating: initValue.rating,
       }),

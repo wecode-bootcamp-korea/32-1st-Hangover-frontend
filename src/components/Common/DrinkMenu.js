@@ -12,10 +12,10 @@ const DrinkMenu = ({ drinkMenuVisible }) => {
       <li>
         <a href="/explore">All</a>
       </li>
-      <li>Vodca</li>
+      <li>Vodka</li>
       <li>Beer</li>
       <li>Cognac</li>
-      <li>Wihsky</li>
+      <li>Whiskey</li>
       <li>Wine</li>
     </ul>
   );

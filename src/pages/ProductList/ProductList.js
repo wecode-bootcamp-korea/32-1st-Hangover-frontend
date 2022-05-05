@@ -22,8 +22,6 @@ const ProductList = () => {
     ? mappedQueryArray.concat(`rating=${rating}`).join('&')
     : mappedQueryArray.join('&');
 
-  console.log('query :', filterQuery);
-
   const handleFilter = (type, value) => {
     const isIncluded = filter.map(item => item.value).includes(value);
 
@@ -39,8 +37,6 @@ const ProductList = () => {
       setRating(item);
     }
   };
-
-  console.log(products);
 
   const postFilter = () => {
     fetch('')
@@ -218,10 +214,6 @@ const ProductList = () => {
                 />
               );
             })}
-            {/* <BigCard />
-            <BigCard />
-            <BigCard />
-            <BigCard /> */}
           </div>
         </div>
       </div>

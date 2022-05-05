@@ -5,6 +5,7 @@ import KeyWord from './KeyWord';
 const DetailTop = ({ productInfo }) => {
   const rate = productInfo['ave_rating'];
   const imgSrc = productInfo.image_url;
+  console.log(productInfo);
 
   return (
     <article className="detailTop">
