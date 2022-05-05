@@ -130,6 +130,7 @@ const Footer = () => {
 
             <div className="footerSocialCopyright">
               <div className="footerSns">
+                <i class="fa-brands fa-github" />
                 <i className="fa-brands fa-instagram" />
                 <i className="fa-brands fa-facebook" />
                 <i className="fa-brands fa-twitter" />
