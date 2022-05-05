@@ -222,10 +222,10 @@ const ProductList = () => {
                 />
               );
             })}
+            {/* <BigCard />
             <BigCard />
             <BigCard />
-            <BigCard />
-            <BigCard />
+            <BigCard /> */}
           </div>
         </div>
       </div>

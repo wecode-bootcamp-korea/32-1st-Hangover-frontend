@@ -16,6 +16,7 @@ const BigCard = ({
   const handleMove = () => {
     navigate(`/detail/${id}`);
   };
+  console.log(review);
 
   return (
     <div className="bigCardsContainer">
@@ -63,7 +64,7 @@ const BigCard = ({
                 <div className="userComment">{item.content}</div>
                 <div>
                   <span>{item.username}</span>
-                  <span>{item.creted_at}</span>
+                  <span>{item.created_at}</span>
                 </div>
               </div>
             ))}
