@@ -2,12 +2,15 @@ import React, { useState, useRef } from 'react';
 import LoginJoinForm from '../Form/LoginJoinModal';
 
 export default function LoginJoin({ setLogin }) {
-  const [isLoginOpen, setIsLoginOpen] = useState(true);
+  const navigate = useNavigate();
+
+  const [isModalOpen, setIsModalOpen] = useState(true);
 
   const [loginInputs, setLoginInputs] = useState({
     loginEmail: '',
     loginPassword: '',
   });
+
   const [signupInputs, setSignupInputs] = useState({
     signUpEmail: '',
     firstName: '',
@@ -17,10 +20,15 @@ export default function LoginJoin({ setLogin }) {
   });
 
   const { loginEmail, loginPassword } = loginInputs;
+
   const { signUpEmail, firstName, lastName, signUpPassword, signUpRePassword } =
     signupInputs;
 
-  const isLoginValid = loginEmail.includes('@') && loginPassword.length > 10;
+  const isLoginValid =
+    loginEmail.includes('@') &&
+    loginPassword.match(
+      /^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{10,}$/
+    );
 
   const isSignupValid =
     signUpEmail.includes('@') &&
@@ -42,6 +50,7 @@ export default function LoginJoin({ setLogin }) {
   };
 
   const [isModalOut, setIsModalOut] = useState(false);
+
   const modalRef = useRef();
 
   const exitModal = e => {
@@ -56,15 +65,24 @@ export default function LoginJoin({ setLogin }) {
   };
 
   const [isModalClosed, setisModalClosed] = useState(false);
+
   const closeRef = useRef();
+
   const closedModal = e => {
     if (closeRef.current === e.target) {
       setLogin(false);
       setisModalClosed(true);
     }
   };
+<<<<<<< HEAD
   const handleLogin = () => {
     fetch('http://10.58.5.238:8000/users/signin', {
+=======
+
+  const handleLogin = e => {
+    e.preventDefault();
+    fetch('http://10.58.1.45:8000/users/signin', {
+>>>>>>> main
       method: 'POST',
       body: JSON.stringify({
         email: loginEmail,
@@ -85,11 +103,17 @@ export default function LoginJoin({ setLogin }) {
       .catch(e => console.log(e));
   };
 
+<<<<<<< HEAD
   const handleSignup = () => {
     fetch('http://10.58.5.238:8000/users/signup', {
+=======
+  const handleSignup = e => {
+    e.preventDefault();
+    fetch('http://10.58.1.45:8000/users/signup', {
+>>>>>>> main
       method: 'POST',
       body: JSON.stringify({
-        email: loginEmail,
+        email: signUpEmail,
         firstname: firstName,
         lastname: lastName,
         password: signUpPassword,
@@ -100,8 +124,11 @@ export default function LoginJoin({ setLogin }) {
         if (result.message === 'SUCCESS') {
           localStorage.setItem('JWT_TOKEN', result.JWT_TOKEN);
           alert('회원가입 성공!');
-        } else {
-          alert('아이디 혹은 비밀번호가 형식에 맞지 않습니다.');
+          setIsModalOpen(true);
+        } else if (result.message === 'EMAIL_EXISTS') {
+          alert('중복된 이메일입니다.');
+        } else if (result.message === 'INVALID_EMAIL' || 'INVALID_PASSWORD') {
+          alert('이메일 혹은 비밀번호가 형식에 맞지 않습니다.');
         }
       })
       .catch(e => console.log(e));
@@ -109,13 +136,13 @@ export default function LoginJoin({ setLogin }) {
 
   return (
     <div>
-      {isLoginOpen ? (
+      {isModalOpen ? (
         <LoginJoinForm
           setLogin={setLogin}
           type="login"
           title="로그인"
           inputData={LOGIN_DATA}
-          setIsLoginOpen={setIsLoginOpen}
+          setIsModalOpen={setIsModalOpen}
           handleBtn={handleLogin}
           isInputsValid={isLoginValid}
           getValue={getLoginValue}
@@ -132,7 +159,7 @@ export default function LoginJoin({ setLogin }) {
           type="signUp"
           title="회원가입"
           inputData={SIGNUP_DATA}
-          setIsLoginOpen={setIsLoginOpen}
+          setIsModalOpen={setIsModalOpen}
           handleBtn={handleSignup}
           isInputsValid={isSignupValid}
           getValue={getSignupValue}
@@ -168,7 +195,7 @@ const SIGNUP_DATA = [
     id: 3,
     type: 'email',
     name: 'signUpEmail',
-    placeholder: '이메일을 입력해주세요.',
+    placeholder: '이메일 양식에 맞춰 입력해주세요.',
   },
   {
     id: 4,
@@ -186,7 +213,7 @@ const SIGNUP_DATA = [
     id: 6,
     type: 'password',
     name: 'signUpPassword',
-    placeholder: '비밀번호를 입력해주세요.',
+    placeholder: '영어,숫자,특수문자를 포함한 비밀번호 10자리를 입력해주세요.',
   },
   {
     id: 7,

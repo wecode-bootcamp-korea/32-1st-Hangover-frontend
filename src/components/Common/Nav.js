@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import DrinkMenu from './DrinkMenu';
 import LoginJoin from '../Common/LoginAndJoin/LoginJoin/LoginJoin';
 import './Nav.scss';
-import { useNavigate } from 'react-router-dom';
 
 const Nav = () => {
   const navigate = useNavigate();
