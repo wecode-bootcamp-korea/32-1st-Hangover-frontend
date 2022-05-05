@@ -1,5 +1,6 @@
 import './DetailSummary.scss';
 import './TasteRaitBar.scss';
+
 const DetailSummary = ({ productInfo }) => {
   let key = 0;
 

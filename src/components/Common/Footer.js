@@ -81,6 +81,7 @@ const FOOTER_MAP_DATA = [
     name: 'Sitemap',
   },
 ];
+
 const Footer = () => {
   return (
     <footer className="footerContainer">

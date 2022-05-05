@@ -6,7 +6,7 @@ export default function SlideBox() {
   const [ramdomList, setRamdomList] = useState([]);
 
   useEffect(() => {
-    fetch(' http://10.58.3.174:8000/products?sorting=high_rating')
+    fetch(' http://10.58.3.174:8000/products?sorting=high_rating&limit=12')
       .then(res => {
         return res.json();
       })
@@ -16,7 +16,7 @@ export default function SlideBox() {
   }, []);
 
   useEffect(() => {
-    fetch('http://10.58.3.174:8000/products?sorting=random')
+    fetch('http://10.58.3.174:8000/products?sorting=random&limit=12')
       .then(res => {
         return res.json();
       })

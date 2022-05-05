@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import './ProductList.scss';
 import BeerImoji from '../Detail/BeerImoji';
 import FilterType from './components/FilterType';
 import FilterList from './components/FilterList';
 import Countries from './components/countries';
 import FoodPairing from './components/foodPairing';
 import BigCard from '../../components/UI/BigCard';
+import './ProductList.scss';
 
 const ProductList = () => {
   const [filterButtons, setFilterButtons] = useState([]);
@@ -43,13 +43,11 @@ const ProductList = () => {
   console.log(products);
 
   const postFilter = () => {
-    // selectedTypes에서 value가 true인 키를 다 꺼내, 그 키들을 패치에 넘겨
     fetch('')
       .then(res => res.json())
       .then(data => setProducts(data));
   };
 
-  //주종 필터링
   useEffect(() => {
     fetch(`http://10.58.3.174:8000/products?${filterQuery}`)
       .then(res => res.json())
@@ -66,32 +64,30 @@ const ProductList = () => {
       });
   }, []);
 
-  // 국가 필터링
   useEffect(() => {
     fetch('./data/countries.json')
       .then(res => res.json())
       .then(data => setCountries(data));
   }, []);
-  // 가격 필터링
+
   useEffect(() => {
     fetch('/data/price.json')
       .then(res => res.json())
       .then(data => setPriceList(data));
   }, []);
-  // 푸드 페어링 필터링
+
   useEffect(() => {
     fetch('./data/foodPairing.json')
       .then(res => res.json())
       .then(data => setFoodPairings(data));
   }, []);
-  // 최초 데이터 요청
+
   useEffect(() => {
     fetch('/data/FilterList.json')
       .then(res => res.json())
       .then(data => setFilterButtons(data));
   }, []);
 
-  // 필터링 버튼 눌렀을 때 필터링 요청
   const handleFliterButtons = e => {
     e.preventDefault();
 
