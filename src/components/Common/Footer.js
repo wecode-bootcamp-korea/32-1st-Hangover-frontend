@@ -131,6 +131,10 @@ const Footer = () => {
 
             <div className="footerSocialCopyright">
               <div className="footerSns">
+                <a href="https://github.com/wecode-bootcamp-korea/32-1st-Hangover-frontend">
+                  <i class="fa-brands fa-github" />
+                </a>
+
                 <i className="fa-brands fa-instagram" />
                 <i className="fa-brands fa-facebook" />
                 <i className="fa-brands fa-twitter" />
