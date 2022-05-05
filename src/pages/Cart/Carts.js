@@ -45,16 +45,16 @@ const Carts = () => {
           ))}
         </table>
         {/* <div className="totalCost">
-          <div>
-            <span>{`총 ${DATA.length}개의 금액`}</span>
-            <span>{DATA.price}</span>
-          </div>
-          <div>
-            <span>=</span>
-            <span>총 주문금액</span>
-            <span>10000원</span>
-          </div>
-        </div> */}
+           <div>
+             <span>{`총 ${DATA.length}개의 금액`}</span>
+             <span>{DATA.price}</span>
+           </div>
+           <div>
+             <span>=</span>
+             <span>총 주문금액</span>
+             <span>10000원</span>
+           </div>
+         </div> */}
         <div className="totalCost">
           <div className="deleteCartItem">
             <button>전체상품 삭제하기</button>
