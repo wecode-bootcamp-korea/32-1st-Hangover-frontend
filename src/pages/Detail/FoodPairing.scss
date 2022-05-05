@@ -35,23 +35,20 @@
 
     img {
       width: 70px;
-      height: 140px;
+      height: 150px;
     }
   }
 
   .foodPairingIconContainer {
     display: flex;
-
-    .foodPairinIconSingle {
-      background-color: $iconColor;
-      padding: 10px;
-      margin: 5px;
-      border-radius: 50%;
-
-      i {
-        font-size: 50px;
-        color: white;
-      }
+    img {
+      font-size: 50px;
+      margin: 10px;
     }
+  }
+
+  .foodPairring2 {
+    display: flex;
+    justify-content: space-evenly;
   }
 }

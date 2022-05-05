@@ -118,7 +118,7 @@ const ReviewSection = ({ average, productName }) => {
               />
             </div>
             <div className="raitingBox">
-              <div className="detailNum">{average}</div>
+              <div className="detailNum">{parseFloat(average).toFixed(2)}</div>
               <div className="detailRaitBox"></div>
               <div className="detaillReviewCount">
                 {isitFiltered
@@ -127,7 +127,7 @@ const ReviewSection = ({ average, productName }) => {
                 개의 리뷰가 있어요!
               </div>
               <div className="detaillLine"></div>
-              <RaitingSummary />
+              <RaitingSummary count={commentList} />
               <span className="raitingDes">숙취 고통을 공유해주세요!</span>
               <div className="userStar">
                 <div className="user"></div>

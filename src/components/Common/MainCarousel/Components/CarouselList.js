@@ -1,9 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+
 import './CarouselList.scss';
 
 export default function CarouselList({ hangOverLists }) {
   const [carouselListId, setCarouselListId] = useState(0);
+
   const carouselTop = useRef();
   const navigate = useNavigate();
 
@@ -13,16 +15,9 @@ export default function CarouselList({ hangOverLists }) {
     }px)`;
   }, [carouselListId]);
 
-  const prevBtnClick = () => {
-    setCarouselListId(
-      carouselListId >= 1 || carouselListId === 3
-        ? carouselListId - 1
-        : carouselListId
-    );
-  };
-
-  const nextBtnClick = () => {
-    setCarouselListId(carouselListId < 2 ? carouselListId + 1 : carouselListId);
+  const productBtnClick = e => {
+    const { id } = e.target;
+    setCarouselListId(Number(id));
   };
 
   const goDetail = id => {
@@ -33,24 +28,6 @@ export default function CarouselList({ hangOverLists }) {
     <div className="carouselList">
       <div className="carouseWrap">
         <div className="carousel">
-          <div className="btnWrapper">
-            <button
-              className="leftBtn"
-              carouselListid={carouselListId}
-              onClick={prevBtnClick}
-              id="hangOverRank"
-            >
-              {`<`}
-            </button>
-            <button
-              className="rigthBtn"
-              carouselListId={carouselListId}
-              onClick={nextBtnClick}
-              id="hangOverLank"
-            >
-              {`>`}
-            </button>
-          </div>
           <ul className="cardWrap" ref={carouselTop}>
             {hangOverLists.map(list => {
               return (
@@ -72,7 +49,7 @@ export default function CarouselList({ hangOverLists }) {
                       <p className="alcoholCategory">{list.category}</p>
                       <p className="alcoholCountry">{list.country}</p>
                       <p className="alcoholPrice">
-                        ₩{parseInt(list.price).toLocaleString()}원
+                        ₩ {parseInt(list.price).toLocaleString()}원
                       </p>
                     </div>
                   </div>
@@ -80,6 +57,32 @@ export default function CarouselList({ hangOverLists }) {
               );
             })}
           </ul>
+        </div>
+        <div className="btnWrapper">
+          <button
+            className="leftBtn"
+            carouselListid={carouselListId}
+            onClick={productBtnClick}
+            id={0}
+          >
+            취
+          </button>
+          <button
+            className="centerBtn"
+            carouselListId={carouselListId}
+            onClick={productBtnClick}
+            id={1}
+          >
+            하
+          </button>
+          <button
+            className="rightBtn"
+            carouselListId={carouselListId}
+            onClick={productBtnClick}
+            id={2}
+          >
+            노
+          </button>
         </div>
       </div>
     </div>

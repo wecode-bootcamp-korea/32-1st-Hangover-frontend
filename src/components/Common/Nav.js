@@ -92,14 +92,15 @@ const Nav = () => {
         </div>
       </div>
       <div className="downNav">
-        <div
-          className="dropDownContainer"
-          onMouseOver={() => setDrinkMenuVisible(true)}
-          onMouseLeave={() => setDrinkMenuVisible(false)}
-        >
-          <i class="fa-solid fa-wine-glass" />
-          <span className="navDrinkMenu">Drink Menu</span>
-          <DrinkMenu drinkMenuVisible={drinkMenuVisible} />
+        <div className="menuWrap">
+          <div
+            className="dropDownContainer"
+            onClick={() => setDrinkMenuVisible(!drinkMenuVisible)}
+          >
+            <i class="fa-solid fa-wine-glass" />
+            <span className="navDrinkMenu">Drink Menu</span>
+            <DrinkMenu drinkMenuVisible={drinkMenuVisible} />
+          </div>
         </div>
       </div>
       <hr className="bottomNavLine" />

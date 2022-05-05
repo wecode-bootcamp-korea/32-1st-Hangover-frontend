@@ -16,7 +16,7 @@
     img {
       height: 18px;
       margin: 2px;
-      margin-bottom: 10px;
+      margin-bottom: 20px;
     }
   }
 
@@ -40,5 +40,13 @@
       background-color: #f1a90d;
       width: 30%;
     }
+  }
+}
+
+.ratingBarBigCon {
+  display: flex;
+  .counter {
+    margin: 10px;
+    display: flex;
   }
 }

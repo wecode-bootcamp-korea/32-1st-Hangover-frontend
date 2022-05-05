@@ -23,7 +23,7 @@ const FoodPairing = ({ productInfo }) => {
           </span>
         </div>
       </div>
-      <div className="foodPairring">
+      <div className="foodPairring2">
         <div className="detailTopImg">
           <img alt="소주병" src={imgSrc} className="detailProductImg" />
         </div>

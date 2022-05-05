@@ -32,6 +32,8 @@
     border-top: none;
     position: absolute;
     background-color: $backGround;
+    z-index: 100;
+
     li {
       display: flex;
       align-items: center;
@@ -40,6 +42,7 @@
       padding: 15px;
       color: black;
       font-size: 17px;
+
       img {
         width: 35px;
         height: 95px;
@@ -90,6 +93,7 @@
       position: absolute;
       display: flex;
       margin-left: 45px;
+      cursor: pointer;
 
       .fa-solid {
         margin-right: 10px;
