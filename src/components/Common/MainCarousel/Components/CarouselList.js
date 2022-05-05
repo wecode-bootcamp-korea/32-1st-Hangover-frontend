@@ -72,7 +72,9 @@ export default function CarouselList({ hangOverLists }) {
                       <p className="alcohoName">{list.name}</p>
                       <p className="alcoholCategory">{list.category}</p>
                       <p className="alcoholCountry">{list.country}</p>
-                      <p className="alcoholPrice">₩{Math.floor(list.price)}</p>
+                      <p className="alcoholPrice">
+                        ₩{parseInt(list.price).toLocaleString()}원
+                      </p>
                     </div>
                   </div>
                 </li>
