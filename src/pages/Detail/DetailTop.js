@@ -10,7 +10,11 @@ const DetailTop = ({ productInfo }) => {
     <article className="detailTop">
       <section className="detailTopSection">
         <div className="detailTopImg">
-          <img alt="소주병" src={imgSrc} className="detailProductImg" />
+          <img
+            alt={productInfo.name}
+            src={imgSrc}
+            className="detailProductImg"
+          />
         </div>
         <div className="detailTopLeft">
           <div className="detailProductInfo">
