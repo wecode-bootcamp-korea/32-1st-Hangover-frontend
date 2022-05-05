@@ -1,13 +1,5 @@
 @import '../../../../styles//variable.scss';
 
-$img-height: 330px;
-$carousel-margin-top: 50px;
-$carousel-margin-right: 10px;
-$carousel-padding: 10px;
-$carousel-border: 1px;
-$btn-top: $carousel-margin-top + $img-height/2 + $carousel-padding +
-  $carousel-border;
-
 .carouselList {
   display: flex;
   justify-content: center;
@@ -21,40 +13,6 @@ $btn-top: $carousel-margin-top + $img-height/2 + $carousel-padding +
     .carousel {
       position: relative;
       display: flex;
-      margin-bottom: 80px;
-
-      .btnWrapper {
-        .leftBtn,
-        .rigthBtn {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          width: 50px;
-          height: 50px;
-          border-radius: 30%;
-          background-color: $iconColor;
-          opacity: 0.5;
-          border: none;
-          font-size: 20px;
-          color: white;
-        }
-        .leftBtn {
-          position: absolute;
-          top: $btn-top;
-          transform: translateY(-50%);
-          z-index: 5;
-          cursor: pointer;
-        }
-
-        .rigthBtn {
-          position: absolute;
-          right: $carousel-margin-right;
-          top: $btn-top;
-          transform: translateY(-50%);
-          z-index: 5;
-          cursor: pointer;
-        }
-      }
 
       .cardWrap {
         display: flex;
@@ -65,15 +23,15 @@ $btn-top: $carousel-margin-top + $img-height/2 + $carousel-padding +
           display: flex;
           width: 240px;
           background-color: rgb(255, 248, 248);
-          border: $carousel-border solid rgba(0, 0, 0, 0.05);
           border-radius: 20px;
-          padding: $carousel-padding;
-          margin: $carousel-margin-top $carousel-margin-right 10px 0px;
+          margin-right: 10px;
+          margin-top: 50px;
+          margin-bottom: 50px;
           box-shadow: 3px 3px 0px 0px lightgray;
           .cardTextWrap {
             display: flex;
             flex-direction: column;
-            margin-left: 10px;
+            margin-top: 30px;
 
             .cardBottomText {
               display: flex;
@@ -88,18 +46,19 @@ $btn-top: $carousel-margin-top + $img-height/2 + $carousel-padding +
               }
               .alcohoName {
                 font-size: 25px;
-                font-weight: 700;
+                font-weight: 800;
               }
               .alcoholCategory {
-                margin-top: 70px;
+                margin-top: 100px;
                 font-size: 20px;
                 opacity: 0.5;
               }
               .alcoholCountry {
-                font-size: 15px;
+                font-size: 18px;
+                padding: 15px;
               }
               .alcoholPrice {
-                font-size: 18px;
+                font-size: 20px;
                 font-weight: 700;
               }
             }
@@ -107,7 +66,8 @@ $btn-top: $carousel-margin-top + $img-height/2 + $carousel-padding +
 
           .carouseCardImg {
             width: 100px;
-            height: $img-height;
+            height: 350px;
+            margin: 30px 5px;
           }
 
           &:hover {
@@ -126,6 +86,36 @@ $btn-top: $carousel-margin-top + $img-height/2 + $carousel-padding +
           }
         }
       }
+    }
+  }
+  .btnWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 100px;
+    .leftBtn,
+    .rightBtn,
+    .centerBtn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: $iconColor;
+      opacity: 0.85;
+      border: none;
+      font-size: 20px;
+      font-weight: 800;
+      color: white;
+      cursor: pointer;
+    }
+    .centerBtn {
+      font-size: 25px;
+      font-weight: 900;
+      margin-left: 20px;
+      margin-right: 20px;
+      padding: 30px;
     }
   }
 }
