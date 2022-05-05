@@ -1,11 +1,16 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import './DrinkMenu.scss';
 
 const DrinkMenu = ({ drinkMenuVisible }) => {
+  const navigate = useNavigate();
+  const moveToExplore = () => {
+    navigate('/explore');
+  };
   return (
     <ul className={`DrinkMenu ${drinkMenuVisible ? 'hoverMenu' : ''}`}>
       <li>
-        <a href="#">All</a>
+        <a href="/explore">All</a>
       </li>
       <li>Vodca</li>
       <li>Beer</li>
