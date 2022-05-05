@@ -119,6 +119,13 @@ export default function LoginJoinModal({
           </div>
         ))
       }
+      <div>
+        <style jsx="true">{`
+          body {
+            overflow: hidden;
+          }
+        `}</style>
+      </div>
     </div>
   );
 }
