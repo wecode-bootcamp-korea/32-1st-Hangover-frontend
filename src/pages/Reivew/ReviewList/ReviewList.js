@@ -8,7 +8,7 @@ const ReviewList = ({
   setUserModify,
   userModify,
   isitFiltered,
-  setWriterId,
+  userId,
 }) => {
   const [isitLiked, setIsItLiked] = useState(false);
   const params = useParams();
@@ -20,17 +20,16 @@ const ReviewList = ({
 
   //여기서 api 받아오면 될 것같음
   const showEditModal = userId => {
-    if (userId === 5) {
+    if (userId === userId) {
       setUserModify(!userModify);
-      setWriterId(userId);
     } else {
       setUserModify(userModify);
     }
   };
-
+  console.log(localStorage.getItem('user_id'));
   const handleDelete = e => {
     fetch(
-      `http://10.58.1.45:8000/reviews?review_id=${e.target.id}&product_id=${params.id}`,
+      `http://10.58.5.238:8000/reviews?review_id=${e.target.id}&product_id=${params.id}`,
       {
         method: 'DELETE',
         headers: {
@@ -38,6 +37,7 @@ const ReviewList = ({
         },
         body: JSON.stringify({
           review_id: e.target.id,
+          product_id: params.id,
         }),
       }
     )
@@ -68,7 +68,7 @@ const ReviewList = ({
               <img src="/images/beer_100.png" className="fulllBeer" />
               <span>{rating}</span>
             </span>
-            <span className="newCommentReview" key={user_id} id={user_id}>
+            <span className="newCommentReview" key={user_id} id={review_id}>
               {content}
             </span>
           </span>
@@ -87,7 +87,6 @@ const ReviewList = ({
             {isitFiltered && (
               <div>
                 <button
-                  key={user_id}
                   id={review_id}
                   className="newCommentLikeBtn"
                   onClick={() => {
@@ -97,7 +96,6 @@ const ReviewList = ({
                   수정
                 </button>
                 <button
-                  key={user_id}
                   id={review_id}
                   onClick={e => {
                     handleDelete(e);

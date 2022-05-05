@@ -15,7 +15,7 @@ const Detail = () => {
   const params = useParams();
 
   useEffect(() => {
-    fetch(`http://10.58.1.45:8000/products/${params.id}`)
+    fetch(`http://10.58.5.238:8000/products/${params.id}`)
       .then(res => res.json())
       .then(data => {
         setProductInfo({ ...data });
@@ -32,25 +32,26 @@ const Detail = () => {
 
   if (error) return <>에러가 발생했습니다. code : {error}</>;
 
-  const propertyArray = Object.entries(productInfo.product_detail.property);
+  const { product_detail } = productInfo;
+  const propertyArray = Object.entries(product_detail.property);
 
   return (
     <article className="detail">
-      <DetailTop productInfo={productInfo.product_detail} />
+      <DetailTop productInfo={product_detail} />
       <ArticleWrap title="술의 맛이 어떠셨나요?">
         {propertyArray.map(item => (
           <DetailSummary productInfo={item} />
         ))}
       </ArticleWrap>
       <ArticleWrap title="술의 맛이 어떠셨나요?">
-        <FoodPairing productInfo={productInfo.product_detail} />
+        <FoodPairing productInfo={product_detail} />
       </ArticleWrap>
       <ArticleWrap title="숙취후기">
-        <ReviewSection />
+        <ReviewSection average={product_detail['ave_rating']} />
       </ArticleWrap>
       <section className="origin">
         <h2 className="originH2">Facts about the wine</h2>
-        <Origin productInfo={productInfo.product_detail} />
+        <Origin productInfo={product_detail} />
       </section>
     </article>
   );

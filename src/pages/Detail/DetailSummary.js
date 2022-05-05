@@ -2,6 +2,7 @@ import './DetailSummary.scss';
 import './TasteRaitBar.scss';
 const DetailSummary = ({ productInfo }) => {
   let key = 0;
+
   return (
     <div className="detailSummary">
       <div key={key++} className="tasteRaitBar">

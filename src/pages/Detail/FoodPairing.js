@@ -4,7 +4,7 @@ const FOODS = {
   korea: <img src="/images/bibimbap.png" alt="비빔밥사진" />,
   japanese: <img src="/images/onigiri.png" alt="주먹밥사진" />,
   chinese: <img src="/images/buns.png" alt="만두사진" />,
-  pizza: <img src="/images/pizza.png" alt="만두사진" />,
+  pizza: <img src="/images/pizza.png" alt="피자사진" />,
 };
 
 const FoodPairing = ({ productInfo }) => {

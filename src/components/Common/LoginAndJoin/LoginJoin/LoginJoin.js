@@ -66,7 +66,7 @@ export default function LoginJoin({ setLogin }) {
     }
   };
   const handleLogin = () => {
-    fetch('http://10.58.1.45:8000/users/signin', {
+    fetch('http://10.58.5.238:8000/users/signin', {
       method: 'POST',
       body: JSON.stringify({
         email: loginEmail,
@@ -89,7 +89,7 @@ export default function LoginJoin({ setLogin }) {
   };
 
   const handleSignup = () => {
-    fetch('http://10.58.1.45:8000/users/signup', {
+    fetch('http://10.58.5.238:8000/users/signup', {
       method: 'POST',
       body: JSON.stringify({
         email: loginEmail,

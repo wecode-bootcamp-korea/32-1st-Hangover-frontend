@@ -1,10 +1,9 @@
 import './DetailTop.scss';
 import BeerImoji from './BeerImoji';
 import KeyWord from './KeyWord';
-import { useState } from 'react';
 
 const DetailTop = ({ productInfo }) => {
-  const [rait, setRait] = useState(productInfo['ave_rating']);
+  const rate = productInfo['ave_rating'];
   const imgSrc = productInfo.image_url;
 
   return (
@@ -24,13 +23,13 @@ const DetailTop = ({ productInfo }) => {
             <KeyWord />
             <div className="detailRaitContainer">
               <div className="detailRaitSummary">
-                <div className="detailNum">{parseFloat(rait).toFixed(2)}</div>
+                <div className="detailNum">{parseFloat(rate).toFixed(2)}</div>
                 <div className="raitingBox">
                   <div className="detailRaitBox">
-                    <BeerImoji rate={rait} />
+                    <BeerImoji rate={rate} />
                   </div>
                   <div className="detaillReviewCount">
-                    <a>200rating</a>
+                    <a>{productInfo.reviews}개의 리뷰가있어요</a>
                   </div>
                 </div>
               </div>

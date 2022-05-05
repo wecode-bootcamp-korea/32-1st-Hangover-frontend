@@ -1,13 +1,11 @@
-import { useState, useEffect } from 'react';
-import { useLocation, useParams } from 'react-router-dom';
+import { useState } from 'react';
+import { useParams } from 'react-router-dom';
 import BeerImogji from '../../Detail/BeerImoji';
 import './ModalCard.scss';
 
 const CreateReivew = ({ rating, commentList, setCommentList, setIsItFull }) => {
   const params = useParams();
-  console.log(params.id);
-  const location = useLocation();
-
+  const [inputReview, setInputReview] = useState('');
   const [initValue, setInItValue] = useState({
     lastname: null,
     firstname: null,
@@ -21,14 +19,14 @@ const CreateReivew = ({ rating, commentList, setCommentList, setIsItFull }) => {
 
   const handleEdit = e => {
     setInItValue(prev => {
-      return { ...prev, [e.target.name]: e.target.value };
+      return { ...prev, [e.target.name]: inputReview };
     });
   };
 
   const handleSubmit = e => {
     e.preventDefault();
 
-    fetch(`http://10.58.1.45:8000/reviews`, {
+    fetch(`http://10.58.5.238:8000/reviews`, {
       method: 'post',
       headers: {
         Authorization: localStorage.getItem('JWT_TOKEN'),
@@ -42,15 +40,15 @@ const CreateReivew = ({ rating, commentList, setCommentList, setIsItFull }) => {
       .then(res => res.json())
       .then(result => {
         if (result.message === 'SUCCESS') {
-          fetch(`http://10.58.1.45:8000/reviews?product_id=${params.id}`, {
+          fetch(`http://10.58.5.238:8000/reviews?product_id=${params.id}`, {
             headers: {
               Authorization: localStorage.getItem('JWT_TOKEN'),
             },
           })
             .then(res => res.json())
             .then(data => {
-              console.log(data);
               setCommentList(data.Reviews);
+              setInputReview('');
             })
             .catch(error => {
               console.log(error);
@@ -61,8 +59,6 @@ const CreateReivew = ({ rating, commentList, setCommentList, setIsItFull }) => {
         console.log(error);
       });
   };
-
-  console.log(commentList);
 
   const cancleSubmit = () => {
     setIsItFull(false);
@@ -88,6 +84,7 @@ const CreateReivew = ({ rating, commentList, setCommentList, setIsItFull }) => {
         <form onSubmit={e => handleSubmit(e)}>
           <div>
             <textarea
+              value={inputReview}
               name="content"
               placeholder="Say a few words"
               maxlength="512"

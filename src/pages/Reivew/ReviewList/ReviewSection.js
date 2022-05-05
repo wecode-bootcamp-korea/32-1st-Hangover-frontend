@@ -7,22 +7,20 @@ import CreateReivew from '../ReiviewComponents/CreateReivew';
 import AddRaiting from './AddRaiting';
 import './ReviewSection.scss';
 
-const ReviewSection = () => {
-  const rait = 4.3;
-  const [name, setName] = useState('');
-  const [writerId, setWriterId] = useState('');
-  const [rating, setRaiting] = useState(0);
+const userId = localStorage.getItem('user_id');
 
+const ReviewSection = ({ average }) => {
+  const params = useParams();
+  const [name, setName] = useState('');
+  const [rating, setRaiting] = useState(0);
   const [commentList, setCommentList] = useState(null);
   const [userModify, setUserModify] = useState(false);
   const [isitfull, setIsItFull] = useState(false);
   const [isitFiltered, setIsItFiltered] = useState(false);
   const [individualReview, setIndividualReview] = useState([]);
-  const params = useParams();
-  console.log(params);
-  //
+
   useEffect(() => {
-    fetch(`http://10.58.1.45:8000/reviews?product_id=${params.id}`, {
+    fetch(`http://10.58.5.238:8000/reviews?product_id=${params.id}`, {
       headers: {
         Authorization: localStorage.getItem('JWT_TOKEN'),
       },
@@ -36,12 +34,10 @@ const ReviewSection = () => {
       });
   }, []);
 
-  const userId = localStorage.getItem('user_id');
-  console.log(userId);
   useEffect(() => {
     commentList &&
       setIndividualReview(
-        commentList.filter(item => item.review_id === userId)
+        commentList.filter(item => item.user_id === Number(userId))
       );
   }, [commentList]);
 
@@ -50,10 +46,9 @@ const ReviewSection = () => {
     if (e.target.id === 'review') {
       setIsItFiltered(false);
       const newList = [...commentList];
-      // e.target.style.borderBottomColor = 'red';
       setCommentList(
         newList.sort(function (a, b) {
-          return b.score - a.score;
+          return b.rating - a.rating;
         })
       );
     }
@@ -66,7 +61,9 @@ const ReviewSection = () => {
       const newList = [...commentList];
       setCommentList(
         newList.sort(function (a, b) {
-          return new Date(b.date).getTime() - new Date(a.date).getTime();
+          return (
+            new Date(a.created_ate).getTime() - new Date(b.created_at).getTime()
+          );
         })
       );
     }
@@ -113,16 +110,15 @@ const ReviewSection = () => {
           <article className="commentAll">
             <div className="commentDiv">
               <ReviewList
-                writerId={writerId}
-                setWriterId={setWriterId}
+                userId={userId}
                 isitFiltered={isitFiltered}
-                commentList={commentList}
+                commentList={isitFiltered ? individualReview : commentList}
                 setUserModify={setUserModify}
                 userModify={userModify}
               />
             </div>
             <div className="raitingBox">
-              <div className="detailNum">{rait}</div>
+              <div className="detailNum">{average}</div>
               <div className="detailRaitBox"></div>
               <div className="detaillReviewCount">
                 {commentList.length}개의 리뷰가 있어요!
@@ -155,7 +151,8 @@ const ReviewSection = () => {
                 <UpdateReivew
                   rating={rating}
                   commentList={commentList}
-                  writerId={writerId}
+                  userId={userId}
+                  isitfull={isitfull}
                 />
               )}
             </div>

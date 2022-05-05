@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
-
 import { useParams } from 'react-router-dom';
 import BeerImogji from '../../Detail/BeerImoji';
 import './ModalCard.scss';
 
-const UpdateReivew = ({ commentList, rating, writerId }) => {
+const UpdateReivew = ({ commentList, rating, userId }) => {
   const [updateReview, setupdateReview] = useState([...commentList]);
   const [prveInput, setPrveInput] = useState(null);
   const [inputComment, setInputComment] = useState('');
@@ -63,7 +62,7 @@ const UpdateReivew = ({ commentList, rating, writerId }) => {
           </div>
           <div className="modalSubmitBtn">
             <button
-              id={writerId}
+              id={userId}
               onClick={e => {
                 handleUpdate(e);
               }}
