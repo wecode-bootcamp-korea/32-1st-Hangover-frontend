@@ -108,7 +108,6 @@ const CreateReivew = ({
               handleEdit(e);
             }}
           />
-
           <div className="modalBtnBox">
             <div className="modalSubmitBtn">
               <button>제출</button>

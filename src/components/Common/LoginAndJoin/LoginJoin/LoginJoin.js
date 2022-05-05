@@ -1,5 +1,6 @@
 import React, { useState, useRef } from 'react';
 import LoginJoinForm from '../Form/LoginJoinModal';
+import { useNavigate } from 'react-router-dom';
 
 export default function LoginJoin({ setLogin }) {
   const navigate = useNavigate();
@@ -74,15 +75,10 @@ export default function LoginJoin({ setLogin }) {
       setisModalClosed(true);
     }
   };
-<<<<<<< HEAD
-  const handleLogin = () => {
-    fetch('http://10.58.5.238:8000/users/signin', {
-=======
 
   const handleLogin = e => {
     e.preventDefault();
     fetch('http://10.58.1.45:8000/users/signin', {
->>>>>>> main
       method: 'POST',
       body: JSON.stringify({
         email: loginEmail,
@@ -103,14 +99,9 @@ export default function LoginJoin({ setLogin }) {
       .catch(e => console.log(e));
   };
 
-<<<<<<< HEAD
-  const handleSignup = () => {
-    fetch('http://10.58.5.238:8000/users/signup', {
-=======
   const handleSignup = e => {
     e.preventDefault();
     fetch('http://10.58.1.45:8000/users/signup', {
->>>>>>> main
       method: 'POST',
       body: JSON.stringify({
         email: signUpEmail,
