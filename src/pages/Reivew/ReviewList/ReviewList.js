@@ -47,6 +47,9 @@ const ReviewList = ({
       )
         .then(response => {
           if (response.status === 204) {
+            setCommentList(
+              commentList.filter(item => item.review_id !== e.target.id)
+            );
             fetch(`http://10.58.5.238:8000/reviews?product_id=${params.id}`, {
               headers: {
                 Authorization: localStorage.getItem('JWT_TOKEN'),
