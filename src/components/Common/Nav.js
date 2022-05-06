@@ -25,7 +25,7 @@ const Nav = () => {
   };
 
   useEffect(() => {
-    fetch(`http://10.58.3.174:8000/products/search?search`)
+    fetch(`http://3.38.191.218:8000/products?search=${searchInput}`)
       .then(res => {
         return res.json();
       })
@@ -38,12 +38,6 @@ const Nav = () => {
     return setSearchInput(e.target.value);
   };
 
-  const search = searchInput.length
-    ? searchList.filter(list => {
-        return list.name.toLowerCase().includes(searchInput.toLowerCase());
-      })
-    : [];
-
   return (
     <nav className="nav">
       <div className="upperNav">
@@ -55,6 +49,7 @@ const Nav = () => {
               className="logo"
             />
           </a>
+
           <div className="searchInput">
             <input
               className="inputNav"
@@ -62,19 +57,27 @@ const Nav = () => {
               placeholder="🔍   Search any HangOver"
               onChange={handleChange}
             />
-            <ul className="inputList">
-              {search.map(list => {
-                return (
-                  <li key={list.id}>
-                    <img src={list.image_url} art="img" />
-                    <div>
-                      <p className="alcoholName">{list.name}</p>
-                      <p className="alcoholCategoris">{list.category}</p>
-                    </div>
-                  </li>
-                );
-              })}
-            </ul>
+            {searchInput && (
+              <ul className="inputList">
+                {searchList
+                  .filter(val =>
+                    val.name
+                      .toLowerCase()
+                      .includes(searchInput.toLocaleLowerCase())
+                  )
+                  .map(list => {
+                    return (
+                      <li key={list.id}>
+                        <img src={list.image_url} art="img" />
+                        <div>
+                          <p className="alcoholName">{list.name}</p>
+                          <p className="alcoholCategoris">{list.category}</p>
+                        </div>
+                      </li>
+                    );
+                  })}
+              </ul>
+            )}
           </div>
         </div>
 

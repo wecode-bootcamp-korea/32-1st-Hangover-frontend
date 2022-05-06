@@ -120,7 +120,17 @@ export default function LoginJoinModal({
           </div>
         ))
       }
+<<<<<<< HEAD
+      <div>
+        <style jsx="true">{`
+          body {
+            overflow: hidden;
+          }
+        `}</style>
+      </div>
+=======
       <OverlayNoneScroll />
+>>>>>>> e4b4b7f1c859b98a980414a512d7e46be1386cd0
     </div>
   );
 }
